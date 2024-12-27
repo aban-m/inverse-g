@@ -380,7 +380,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 \begin{center}
 
 \resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}
 	
 		% [SECOND ROW]
 
@@ -393,7 +393,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 		
 		% Figure LAMBDA 6 - I
-		\begin{scope}[shift={(4, 0)}]
+		\begin{scope}[shift={(5, 0)}]
 			\node[point, label=left:$p^2$] (p1) {};
 			\node[point, label=left:$q$, below=of p1] (q1) {};
 			\node[point, label=right:$r$] at ($(q1) + (22.5:2)$)(r1) {};
@@ -401,7 +401,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 		
 		% Figure LAMBDA 6 - II
-		\begin{scope}[shift={(8, 0)}]
+		\begin{scope}[shift={(9, 0)}]
 			\node[point, label=left:$p^2$] (p7) {};
 			\node[point, label=left:$r$, below=of p7] (q7) {};
 			\node[point, label=right:$q$] at ($(q7) + (22.5:2)$)(r7) {};
@@ -409,7 +409,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 		
 		% Figure LAMBDA 7
-		\begin{scope}[shift={(12, 0)}]
+		\begin{scope}[shift={(13, 0)}]
 			\node[point, label=left:$p^2$] (plast) {};
 			\node[point, label=left:$q$, below=of plast] (qlast) {};
 			\node[point, label=right:$r$] at ($(qlast) + (22.5:2)$) (rlast) {};
@@ -428,7 +428,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}		
 		
 		% Figure LAMBDA 5 - II
-		\begin{scope}[shift={(4, 3)}]
+		\begin{scope}[shift={(5, 3)}]
 			\node[point, label=left:$p^2$] (p6) {};
 			\node[point, label=left:$q$, below=of p6] (q6) {};
 			\node[point, label=right:$r$] at ($(q6) + (22.5:2)$)(r6) {};
@@ -436,7 +436,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 		
 		% Figure LAMBDA 5 - III
-		\begin{scope}[shift={(8, 3)}]
+		\begin{scope}[shift={(9, 3)}]
 			\node[point, label=left:$p^2$] (p4) {};
 			\node[point, label=left:$r$, below=of p4] (q4) {};
 			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
@@ -444,7 +444,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 
 		% Figure EXTREME
-		\begin{scope}[shift={(12, 3)}]
+		\begin{scope}[shift={(13, 3)}]
 			\node[point, label=left:$p^2$] (p5) {};
 			\node[point, label=left:$q$, below=of p5] (q5) {};
 			\node[point, label=right:$r$] at ($(q5) + (22.5:2)$)(r5) {};
@@ -510,7 +510,7 @@ Let $G$ be a group of order $n = p^2 q r s$. We claim that either $G \cong G_0 \
 
 It is clear that $n$ is odd, so $G$ is solvable by the Feit-Thompson theorem {\cite{oddsolve}}. Consequently, we have a subgroup $G_0$ of index $q$ by Hall's theorems {\cite[Thm.~3.13]{fgt}}, and since $q$ is the smallest prime dividing $\abs{G}$, it follows from a standard theorem (see, for example, {\cite[Prob.~1A.1]{fgt}}) that $G_0$ is normal. Thus if a $q$-Sylow subgroup is normal, we get the first half of the claim. Suppose then that there is no normal $q$-Sylow subgroup.
 
-We claim that there is a normal $s$-Sylow subgroup with a normal complement. Consider first a Hall subgroup $C$ of order $qrs$, which is cylic by definition. Since the $s$-Sylow subgroup is normalized by $C$, we have $n_s(G), n_q(G) \mid p^2$. We cannot have $n_s(G) = p$ because $s > p$, and we cannot have $n_s(G) = p^2$ because otherwise $p^2 \equiv 1 \Mod{s}$ and thus $p \equiv s - 1 \Mod{s}$, which would imply $p = s - 1$. This is impossible since $p > 2$. Moreover, we have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow $q \rightarrow p$, contrary to our assumption.
+We claim that there is a normal $s$-Sylow subgroup with a normal complement. Consider first a Hall subgroup $C$ of order $qrs$, which is cylic by definition. Since the $s$-Sylow subgroup is normalized by $C$, we have $n_s(G), n_q(G) \mid p^2$. We cannot have $n_s(G) = p$ because $s > p$, and we cannot have $n_s(G) = p^2$ because otherwise $p^2 \equiv 1 \Mod{s}$ and thus $p \equiv s - 1 \Mod{s}$, which would imply $p = s - 1$. This is impossible since $p > 2$. Moreover, we have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow \nopagebreak[4] $q \rightarrow p$, contrary to our assumption.
 
 To see that its complement is normal, let $S, P, Q, R$ denote Sylow subgroups corresponding to the primes $s, p, q, r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of order $p^2 q$. Consider the homomorphism $\phi : H_0 \rightarrow \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product. We know that $Q \subseteq \ker \phi$ since $q \nmid s - 1$, but if $Q = \ker \phi$ we have $Q$ normalized by $P$ and thus $n_q(G) = 1$, contrary to our assumption. We cannot have $\abs{\ker \phi} = pq$ either, because $pq$ is a cyclic number, so we would get $n_q(G) = p$, which we have already ruled out. It follows that $\phi$ must be the trivial homomorphism. We finally conclude that $S$ normalizes $PQR$, showing that $PQR$ is normal, and proving the second half of the claim.
 
