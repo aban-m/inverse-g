@@ -311,7 +311,7 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$.
 We can add an edge $v_1 \rightarrow v_2$ which will give $p + 4$ groups. Alternatively, we can add a new vertex $w$. Adding $w \rightarrow v_i$ for some $i$ does not give an admissible graph, because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total. Finally, if we add $v_1 \rightarrow w$ instead, we are back to Case $3$, and that yields $p + 4 \ge 7$ groups, so we cannot add any more edges, as doing so contradicts $i(\Gamma) = 2$. Thus the only solutions in this case are obtained by adjoining an edge $v_1 \rightarrow v_2$ to $Q$, getting $6$ groups if $p = 2$ and $7$ groups if $p = 3$.
 
-\subsection{Small non-squarefree admissible $n$}
+\subsection{Small non-squarefree admissible numbers}
 In this section, we consider non-squarefree admissible $n$ with $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list special cases of formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q)$ and analyze them one by one. In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. 
 
 \begin{eufact}\thlabel{euppq}
@@ -462,7 +462,7 @@ A new edge is to be added to an admissible graph with two edges and $g \le 6$, s
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
 
-\subsection{Large non-squarefree admissible $n$} 
+\subsection{Large non-squarefree admissible numbers} 
 Finally, it remains to handle admissible $n$ with $\lambda(n) = 5$ and $\mu(n) \ge 2$. There are three cases to consider.
 
 \case{A} $n = p^3 q r$.
@@ -563,7 +563,7 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 		\begin{enumerate}
 			\item $p \parallel q - 1$ and $r \equiv 1 \Mod{q}$,
 			\item $q = 3$ and $p \equiv -1 \Mod{3}$, \nopagebreak[4]
-			\item $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.
+			\nopagebreak[4] \item $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.\pagebreak[4]
 		\end{enumerate}
 		\item $n = p^2 q^2$ where $p \parallel q + 1$,
 		\item $n = n_1 n_2$ where $n_1, n_2$ are arithmetically independent and
