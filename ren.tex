@@ -61,6 +61,9 @@ url=false, sortcites=true]{biblatex}
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
 
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
 \setenumerate[1]{label=\alph*.}
 \setenumerate[2]{label=\alph*.}
 %\setlist{noitemsep, nolistsep}
@@ -275,7 +278,7 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q).$ In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. In their notation, $w_r(s) = 1$ if $s \mid r$ and 0 otherwise. We consider these cases one by one to find the possible solutions.
 
 \begin{fact}\thlabel{euppq}
-	For all odd primes $p, q$, we have $g(2p^2) = 5$ and \vspace[-20pt] \[g(p^2 q) = 2 + \frac{q + 5}{2} w_{p - 1}(q) + w_{p + 1}(q) + 2w_{q - 1}(p) + w_{q - 1}(p^2).\] In particular, $g(p^2 q) = 3$ if and only if $q \mid p + 1$, and $g(p^2 q) = \frac{q + 9}{2}$ if $q \mid p - 1$.
+	For all odd primes $p, q$, we have $g(2p^2) = 5$ and \[g(p^2 q) = 2 + \frac{q + 5}{2} w_{p - 1}(q) + w_{p + 1}(q) + 2w_{q - 1}(p) + w_{q - 1}(p^2).\] In particular, $g(p^2 q) = 3$ if and only if $q \mid p + 1$, and $g(p^2 q) = \frac{q + 9}{2}$ if $q \mid p - 1$.
 \end{fact}
 
 \textit{Analysis.} We have $p \nmid q - 1$ because this gives at most 5 groups. Thus we need $q \mid p - 1$, and this is admmissible precisely when $q = 3$ or 5, giving 6 and 7 groups, respectively.
