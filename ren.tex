@@ -17,6 +17,15 @@ url=false, sortcites=true]{biblatex}
 \usetikzlibrary{arrows, calc, patterns, positioning, shapes}
 \usetikzlibrary{decorations.pathmorphing, backgrounds, scopes}
 
+\hypersetup{
+	bookmarks=true,
+	unicode=true,
+	colorlinks = true,
+	urlcolor = blue,
+	linkcolor = blue,
+	citecolor = black
+}
+
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\sqf}[2]{#1_1 #1_2 \mathellipsis #1_{#2}}
 \newcommand{\qs}{\sqf{q}{s}}
@@ -39,7 +48,7 @@ url=false, sortcites=true]{biblatex}
 \newcommand{\qlamz}{\Lambda_{5,\text{II}}}
 \newcommand{\qlamd}{\Lambda_{5,\text{III}}}
 \newcommand{\m}[1]{\text{M}_{#1}}
-
+\newcommand{\hthref}[1]{\hyperref[#1]{\thref{#1}}}
 \NewDocumentCommand{\listspace}{}{\linespread{0.9}\selectfont}
 \NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
 \NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
@@ -216,7 +225,7 @@ The first operation can be operated successively, that is, we can start with a g
 \end{prop}
 
 An amusing consequence of this fact is this. We observe that $\Phi_{m + n} = \Phi_m \rightarrow \Phi_n$, and $g(\Phi_m - \{\text{final}\}) = \fibo{m}$ and similarly $g(\Phi_n; \text{initial}) = \fibo{n}$.
-We can now apply \hyperref[eustick]{\thref{eustick}} to get the well-known identity, \eqnspace
+We can now apply \hyperref[eustick]{\hthref{eustick}} to get the well-known identity, \eqnspace
 \begin{align*}
 	\fibo{m + n} &= g(\Phi_m \rightarrow \Phi_{n - 1}) \\
 	&= g(\Phi_m)g(\Phi_{n - 1}) + g(\Phi_m - \{\text{final}\})g(\Phi_{n - 1}; \{\text{initial}\}) \\
@@ -242,7 +251,7 @@ In the sequel, we will deal with generalized \hgs{1} of cube free numbers. There
 \section{Solving $g(n) = 6, 7$}
 In this section, we will tackle the main problem of the paper, that of finding $n$ such that $g(n) \in \{6, 7\}.$ We will call such $n$ \emph{admissible.} In the next two sections, we will consider only connected numbers $n.$ Connectivity provides an easy lower bound on $g(n).$ Here and throughout, we let $p, q, r$ be different primes. For $n = \ufd,$ we let $\lambda(n) = \sum \alpha_i$ and $\mu(n) = \max\{\alpha_i\}.$
 
-\thref{euinout} restricts the forms of $n$ we need to consider, once one recalls $g(p^3) = 5$ and $g(p^2) = 2.$ We state this as
+\hthref{euinout} restricts the forms of $n$ we need to consider, once one recalls $g(p^3) = 5$ and $g(p^2) = 2.$ We state this as
 
 \begin{lem}\thlabel{euclass}
 	Suppose $n$ is admissible and connected. Either $n$ is squarefree, or $n$ is a divisor of a number of one of the forms $p^2 q^2 r, p^2 q r s, p^3 qr$.
@@ -252,9 +261,9 @@ In this section, we will tackle the main problem of the paper, that of finding $
 \end{proof}
 
 \subsection{Disconnected $n$}
-We will deal with \textit{connected} $n$. What about disconnected $n$? This turns out to be the easiest part. Let $n = n_1 \cdots n_k m$ be the unique factorization of $n$, in the notation of \thref{euufd}, and ordered such that $g(n_i)$ is nondecreasing. The \emph{primality} of $7$ shows that, when $g(n) = 7$, we must have $k = 1$. Thus for $g(n) = 7$ it is enough to consider connected $n$. If $g(n) = 6$, either $k = 1$ or $g(n_1) = 2$ and $g(n_2) = 3$. For the sake of completeness, we re-derive the solutions here.
+We will deal with \textit{connected} $n$. What about disconnected $n$? This turns out to be the easiest part. Let $n = n_1 \cdots n_k m$ be the unique factorization of $n$, in the notation of \hthref{euufd}, and ordered such that $g(n_i)$ is nondecreasing. The \emph{primality} of $7$ shows that, when $g(n) = 7$, we must have $k = 1$. Thus for $g(n) = 7$ it is enough to consider connected $n$. If $g(n) = 6$, either $k = 1$ or $g(n_1) = 2$ and $g(n_2) = 3$. For the sake of completeness, we re-derive the solutions here.
 
-First, $n_1$ is cubefree and has at most one square factor. If it has none, then it must have the graph \tikz[ww] \pic {walk};. If it has one, then it cannot have any more factors. Next, we have seen that if $n_2$ is not squarefree, then it must be $p^2 q$ with $q \dashrightarrow p^2$. If it is squarefree, we cannot have a vertex with in-degree or out-degree greater than $1$ because of \thref{euinout}, so we get a path, and it must be the path of three vertices \tikz[ww] \pic {twalk};. We summarize the result:
+First, $n_1$ is cubefree and has at most one square factor. If it has none, then it must have the graph \tikz[ww] \pic {walk};. If it has one, then it cannot have any more factors. Next, we have seen that if $n_2$ is not squarefree, then it must be $p^2 q$ with $q \dashrightarrow p^2$. If it is squarefree, we cannot have a vertex with in-degree or out-degree greater than $1$ because of \hthref{euinout}, so we get a path, and it must be the path of three vertices \tikz[ww] \pic {twalk};. We summarize the result:
 
 \begin{thm}
 	Suppose $n$ is cyclic free.
@@ -269,9 +278,9 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 
 \case{1} $i(\Gamma) = 1, o(\Gamma) = 1$. In this case $\Gamma$ is simply a path $\Phi_k$ for some $k$, and as neither 6 nor 7 is a Fibonacci number, this is never an admissible graph.
 
-\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is similarly clear that is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this graph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices. A new vertex $u$ can be appended via $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; u) = 4 + 2 = 6$ groups via \thref{eustick}, so call this new graph $Q$. We cannot extend $Q$: An arrow to $u$ will give too many groups. In the other direction, we could add $v \rightarrow f_1$ to $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$. However, this can only be extended forward, i.e, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields 9 groups.
+\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is similarly clear that is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this graph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices. A new vertex $u$ can be appended via $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; u) = 4 + 2 = 6$ groups via \hthref{eustick}, so call this new graph $Q$. We cannot extend $Q$: An arrow to $u$ will give too many groups. In the other direction, we could add $v \rightarrow f_1$ to $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$. However, this can only be extended forward, i.e, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields 9 groups.
 
-\case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no other vertex labeled 2 because it will have out-degree of at least 2). We cannot add edges without adding vertices, as this would contradict $i(\Gamma) = 1$. Using \thref{eustick}, we see that adding a new vertex $s$ and an arrow $q \rightarrow s$, where $q$ is either of the two primes with an arrow from $p$, yields $p + 4$ groups. But we cannot have $p = 2$ in this case. This determines all such graphs, so we get admissible graphs when $p = 5$ in the first case and when $p = 3$ in the second case, both yielding $g = 7$.
+\case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no other vertex labeled 2 because it will have out-degree of at least 2). We cannot add edges without adding vertices, as this would contradict $i(\Gamma) = 1$. Using \hthref{eustick}, we see that adding a new vertex $s$ and an arrow $q \rightarrow s$, where $q$ is either of the two primes with an arrow from $p$, yields $p + 4$ groups. But we cannot have $p = 2$ in this case. This determines all such graphs, so we get admissible graphs when $p = 5$ in the first case and when $p = 3$ in the second case, both yielding $g = 7$.
 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ would yield $4 + p + 1 = p + 5$ groups, but we cannot have $p = 2$ because then it would be initial, having an in-degree of $0$. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$.
 We can add a new edge $v_1 \rightarrow v_2$ which will give $p + 3$ groups. Alternatively, we can add a new vertex $w$, and then we can add $w \rightarrow v_i$ for some $i$. This is not admissible, however: The subsets $\{v_1, v_2\}$ and $\{w, v_1, v_w\}$ would both be central, contributing $2(p + 1) = 2p + 2 \ge 8$ groups in total. So instead we consider $v_1 \rightarrow w$ would reduce this to case 3, and it yields $p + 4 \ge 7$ groups, and we certainly cannot add any more edges, and this contradicts the $i(\Gamma) = 2$ condition. Thus adjoining an edge $v_1 \rightarrow v_2$ gives a solution for $g(n) = 6, 7$ depending on whether $p = 2$ or $3$, and $Q \rightarrow w$ gives a solution for $g(n) = 7$ when $p = 3$. 
@@ -416,7 +425,7 @@ We first recall the structure of these five group of order $p^2 s r$: These are 
 
 A group $G$ of order $n$ is solvable by Feit-Thompson's theorem {\cite{oddsolve}}, and by Hall's theorems {\cite[Theorem~3.13]{fgt}} we get subgroups $H_q$ and $H_r$ of orders $p^2 q r$ and $p^2 s r$, respectively. Observe first that a $q$-Sylow subgroup is cyclic, and $q$ is the smallest prime dividing $n$, so by, e.g., {\cite[Theorem~5.14]{fgt}}, we conclude that $H_r$ is normal, which means $G \cong H_r \rtimes \cyc{q}$. If $\cyc{q}$ acts nontrivially, then the $p$-Sylow subgorup of $G$ must be isomorphic to $\cyc{p}^2$, and by the observation in the previous paragraph, it must be centralized by $\cyc{s}$. There are precisely 2 such cases. If it acts trivially, we get 5 groups. This gives a total of 7 groups.
 
-We move on to show that this is the only admissible case. Assume the graph of $qrs$ has one edge, say between $q$ and $r$. We have $g(qr)g(p^2s) + 1 \le 7$ by connectivity, and thus $g(p^2 s) = 2$ or $3$. If $g(p^2 s) = 2$ then we have no edge between them, meaning $s$ would be isolated (since $qrs$ has just one edge), which is impossible. So we have $g(p^2 s) = 3$, which, as we know from \thref{euppq}, means we have a weak arrow $s \dashrightarrow p^2$. Suppose $r$ is connected to $p^2$. It is clear that $g(p^2 s)$ is also the number of groups of order $p^2 r s$ with a normal $r$-Sylow subgroup, and for each subgroup, we can form two groups of order $p^2 q r s$, corresponding to whether $\cyc{q}$ acts on $\cyc{r}$ or not. It follows that $g(p^2 q r s) \ge 2g(p^2 s) + (g(p^2 r s) - g(p^2 s)) \ge 3 + g(p^2 r s)$, but this implies $g(p^2 r s) \le 4$, which is impossible by earlier analysis.
+We move on to show that this is the only admissible case. Assume the graph of $qrs$ has one edge, say between $q$ and $r$. We have $g(qr)g(p^2s) + 1 \le 7$ by connectivity, and thus $g(p^2 s) = 2$ or $3$. If $g(p^2 s) = 2$ then we have no edge between them, meaning $s$ would be isolated (since $qrs$ has just one edge), which is impossible. So we have $g(p^2 s) = 3$, which, as we know from \hthref{euppq}, means we have a weak arrow $s \dashrightarrow p^2$. Suppose $r$ is connected to $p^2$. It is clear that $g(p^2 s)$ is also the number of groups of order $p^2 r s$ with a normal $r$-Sylow subgroup, and for each subgroup, we can form two groups of order $p^2 q r s$, corresponding to whether $\cyc{q}$ acts on $\cyc{r}$ or not. It follows that $g(p^2 q r s) \ge 2g(p^2 s) + (g(p^2 r s) - g(p^2 s)) \ge 3 + g(p^2 r s)$, but this implies $g(p^2 r s) \le 4$, which is impossible by earlier analysis.
 If $qrs$ has two edges, we get $g(qrs)g(p^2) + 1 \le 7$, which forces $g(qrs) = 3$, its graph has the shape \tikz[ww] \pic{twalk};. No matter what arrows go from or to $p^2$, we return to the same situation.
 
 \emph{Conclusion.} Adding any more edges to the graph of $qrs$ can only increase $p^2 q r s$, so we have shown that $qrs$ must be cyclic, and thus the only admissible case is when the graph of $p^2 q r$ is $\qlamz$ and there is an arrow $p^2 \dashrightarrow s$.
