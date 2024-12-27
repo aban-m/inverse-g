@@ -18,6 +18,7 @@
 
 % Spacing
 \usepackage{microtype}
+\usepackage{sectsty}
 \usepackage{enumitem}
 \usepackage[margin=1.5in]{geometry}
 \hypersetup{
@@ -36,33 +37,41 @@ url=false, sortcites=true]{biblatex}
 
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
 \newcommand{\sqf}[2]{#1_1 #1_2 \mathellipsis #1_{#2}}
 \newcommand{\qs}{\sqf{q}{s}}
 \newcommand{\ps}{\sqf{p}{s}}
 \newcommand{\rs}{\sqf{r}{s}}
 \newcommand{\ufd}{p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_s^{\alpha_s}}
 \newcommand{\ufdsh}{p_1^{\alpha_1} \cdots p_s^{\alpha_s}}
+
 \newcommand{\fbr}[1]{g^{-1}{(#1)}}
+
 \newcommand{\aut}[1]{\operatorname{Aut}(#1)}
 \newcommand{\cyc}[1]{\operatorname{C}_{#1}}
 \newcommand{\gl}[2]{\operatorname{GL}(#1, \mathbb{F}_#2)}
 \newcommand{\Mod}[1]{\ (\mathrm{mod} \ #1)}
+
 \newcommand{\qo}{\tilde{q}}
 \newcommand{\pin}{\tilde{p}}
 \newcommand{\tilpi}{\tilde{\pi}}
 \newcommand{\piga}{\pi_\Gamma}
 \newcommand{\pila}{\pi_\Lambda}
 \newcommand{\fibo}[1]{F_{#1}}
+
 \newcommand{\qlame}{\Lambda_{5,\text{I}}}
 \newcommand{\qlamz}{\Lambda_{5,\text{II}}}
 \newcommand{\qlamd}{\Lambda_{5,\text{III}}}
 \newcommand{\slame}{\Lambda_{6, \text{I}}}
 \newcommand{\slamz}{\Lambda_{6, \text{II}}}
 \newcommand{\m}[1]{\text{M}_{#1}}
+
 \newcommand{\hthref}[1]{\hyperref[#1]{\thref{#1}}}
+
 \NewDocumentCommand{\listspace}{}{\linespread{0.9}\selectfont}
 \NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
 \NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
+
 \NewDocumentCommand{\case}{m}{\sffamily \textbf{Case #1.} \rmfamily }
 
 \NewDocumentCommand{\hold}{m}{Hölder}
@@ -80,6 +89,8 @@ url=false, sortcites=true]{biblatex}
 
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
+
+\allsectionsfont{\centering}
 
 \setenumerate[1]{label=\alph*.}
 \setenumerate[2]{label=\alph*.}
@@ -115,27 +126,17 @@ ewalk/.pic={
 w/.style={baseline=-0.4ex},
 ww/.style={baseline=-0.4ex, node distance=0.37cm}
 }
-% tasks:
-% improve \hold{1} /
-% work on the introduction
-% do Lucas, do more /
-% fix spacing issues [after citations]
-% finishing \hold{1} case work in lambda(n) = 4 [requires TikZ]
-% write summary of the results
-% do the citations
-% do the graphs [requires TikZ]
-% finish the first proofreading
 
 \begin{document}
-\title{On the group-counting function}
+\title{Orders for which there are exactly six or seven groups}
 \author{Aban Mahmoud}
 \maketitle
 
 \setlength{\abovedisplayskip}{2.8pt}
 \setlength{\belowdisplayskip}{2.5pt}
 
-\begin{abstract}
-	Let $g(n)$ denote the number of groups of order $n$ up to isomorphism. We solve the equations $g(n) = 6$ and $g(n) = 7$.
+	A classical problem is to evaluate $g(n)$ for various $n$, where $g$ is the group-counting function. We approach the inverse problem of finding all $n$ such that $g(n) = 6$ and $g(n) = 7$, beginning by restricting the class of $n$ to consider, and then evaluating $g(n)$ using Hölder's formula when $n$ is squarefree, and the formulas given in a paper by H. Dietrich, B. Eick and X. Pan for when $n$ has a small number of prime factors.
+a \begin{abstract}
 \end{abstract}
 
 \textup{2000} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
