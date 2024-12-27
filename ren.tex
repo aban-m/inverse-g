@@ -16,7 +16,6 @@ url=false, sortcites=true]{biblatex}
 \usetikzlibrary{arrows, calc, patterns, positioning, shapes}
 \usetikzlibrary{decorations.pathmorphing, backgrounds, scopes}
 
-
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\sqf}[2]{#1_1 #1_2 \mathellipsis #1_{#2}}
 \newcommand{\qs}{\sqf{q}{s}}
@@ -268,11 +267,12 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 
 \case{1} $i(\Gamma) = 1, o(\Gamma) = 1$. In this case $\Gamma$ is simply a path $\Phi_k$ for some $k$, and as neither 6 nor 7 is a Fibonacci number, this is never an admissible graph.
 
-\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is similarly clear that is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this graph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices. A new vertex $u$ can be appended via $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; u) = 4 + 2 = 6$ groups via formula \thref{eustick} of \thref{eustick}, so call this new graph $Q$. We cannot extend $Q$: An arrow to $u$ will give too many groups. Adding $v \rightarrow u$ to $Q$ instead gives 5 groups using the same lemma, and we cannot extend it in any way apart form adding more vertices, which would give at least 9 groups.
+\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is similarly clear that is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this graph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices. A new vertex $u$ can be appended via $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; u) = 4 + 2 = 6$ groups via \thref{eustick}, so call this new graph $Q$. We cannot extend $Q$: An arrow to $u$ will give too many groups. In the other direction, we could add $v \rightarrow f_1$ to $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk}) = 5$. However, this can only be extended forward, i.e, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields 9 groups.
 
 \case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no other vertex labeled 2 because it will have out-degree of at least 2). We cannot add edges without adding vertices, as this would contradict $i(\Gamma) = 1$. Using \thref{eustick}, we see that adding a new vertex $s$ and an arrow $q \rightarrow s$, where $q$ is either of the two primes with an arrow from $p$, yields $p + 4$ groups. But we cannot have $p = 2$ in this case. This determines all such graphs, so we get admissible graphs when $p = 5$ in the first case and when $p = 3$ in the second case, both yielding $g = 7$.
 
-\case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ would yield $4 + p + 1 = p + 5$ groups, but we cannot have $p = 2$ because it is not terminal. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 4$. We can add a new edge $v_1 \rightarrow v_2$ which will give $p + 3$ groups. Adding a new vertex $w$ instead gives us the option to join $w$ to either $v_1$ or $v_2$, but this is not admissible: The subsets $\{v_1, v_2\}$ and $\{w, v_1, v_w\}$ will both be central, and will contribute $2(p + 1) = 2p + 2 \ge 8$ groups in total. Now an arrow $v_1 \rightarrow w$ would reduce this to case 3, and it yields $p + 4 \ge 7$ groups, and we certainly cannot add any more edges, and this contradicts the $i(\Gamma) = 2$ condition. Thus adjoining an edge $v_1 \rightarrow v_2$ gives a solution for $g(n) = 6, 7$ depending on whether $p = 2$ or $3$, and $Q \rightarrow v$ gives a solution for $g(n) = 7$ when $p = 3$. 
+\case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ would yield $4 + p + 1 = p + 5$ groups, but we cannot have $p = 2$ because then it would be initial, having an in-degree of $0$. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$.
+We can add a new edge $v_1 \rightarrow v_2$ which will give $p + 3$ groups. Alternatively, we can add a new vertex $w$, and then we can add $w \rightarrow v_i$ for some $i$. This is not admissible, however: The subsets $\{v_1, v_2\}$ and $\{w, v_1, v_w\}$ would both be central, contributing $2(p + 1) = 2p + 2 \ge 8$ groups in total. So instead we consider $v_1 \rightarrow w$ would reduce this to case 3, and it yields $p + 4 \ge 7$ groups, and we certainly cannot add any more edges, and this contradicts the $i(\Gamma) = 2$ condition. Thus adjoining an edge $v_1 \rightarrow v_2$ gives a solution for $g(n) = 6, 7$ depending on whether $p = 2$ or $3$, and $Q \rightarrow w$ gives a solution for $g(n) = 7$ when $p = 3$. 
 
 \subsection{Admissible $n$ with $\lambda(n) \le 4$ and $\mu(n) \ge 2$}
 Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q).$ In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. In their notation, $w_r(s) = 1$ if $s \mid r$ and 0 otherwise. We consider these cases one by one to find the possible solutions.
@@ -325,8 +325,7 @@ Observe that $h$ depends only on the generalized graph of $n$, and not on the ma
 Now consider the `coefficients` in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3 or 5$, yielding $6$ and $7$, respectively.
 
 \subsubsection*{Regular \hgs{1} with two edges}
-Having dealt with the `irregular` cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. 
-
+Having dealt with the `irregular` cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. We list the single `irregular` example as well.
 
 \begin{center}
 	\begin{tikzpicture}
@@ -343,7 +342,7 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 			\node[point, label=left:$p^2$] (p2) {};
 			\node[point, label=left:$q$, below=of p2] (q2) {};
 			\node[point, label=right:$r$] at ($(q2) + (22.5:2)$)(r2) {};
-			\node at ($(r2) + (230:1.6)$) {LIMBO};
+			\node at ($(r2) + (230:1.6)$) {$\m1(q) : g = 5 + \frac{q - 1}{2}$};
 		\end{scope}
 		
 		%Figure 3
@@ -356,10 +355,10 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 		
 		%Figure 4
 		\begin{scope}[shift={(4, 2.8)}]
-			\node[point, label=left:$p^2$] (p4) {};
+$			\node[point, label=left:$p^2$] (p4) {};
 			\node[point, label=left:$r$, below=of p4] (q4) {};
 			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
-			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
+			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};$
 		\end{scope}
 		
 		%Figure 5
@@ -378,28 +377,34 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 			\node at ($(r6) + (230:1.6)$) {$\qlamz: \mathbf{g(12615) = 5}$};
 		\end{scope}
 		
-		\path[->, thick]  (q2) edge[dashed] (p2) (q2) edge (r2)
-		(q4) edge[dashed] (p4) (q4) edge (r4)
-		(q6) edge[dashed]  (p6) (r6) edge[dashed] (p6);
+		\path[->, thick] (q2) edge[dashed] (p2) (q2) edge (r2)
+		(q6) edge[dashed]  (p6) (r6) edge[dashed] (p6) (r4) edge[dashed] (p4);
 		\path[->, thick] (q1) edge (r1) (q3) edge (r3) (q5) edge (r5);
 		\path[->, thick] (r3) edge[dashed] (p3) (p5) edge[dashed] (r5);
 		\path[->, thick] (p1) edge[dashed] (q1);
+		\path[->, thick] (p4) edge[dashed] (q4);
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection*{Regular \hgs{1} with three edges}
-A new edge is to be added to an  admissible graph with two edges that yields $g \le 6$, which means the candidates are $\qlame, \qlamz, $ or $\qlamd$. It can be verified that the graphs obtained from $\qlame$ and $\qlamz$ are regular.
-
-In $\qlame$ the edge must be $q \dashrightarrow p^2$, otherwise we would get an acyclic grpah. In $\qlamz$, $q$ and $r$ are interchangeable, so assume we add $q \rightarrow r$. Finally, in $\Lambda_6$, we can add $p^2 \dashrightarrow r$, but this then we get $M_\text{II}$ as a proper subgraph, a contradiction. Representatives of the first two graphs are $35301 = 3\cdot7\cdot41^2$ for $\qlame$, $17661 = 3\cdot7\cdot29^2$, and GAP yields $g = 8, 13$, respectively. The final possibility is $\qlamd$. 
-Adding $r \rightarrow q$ yields at least $2g(pqr) = 2 \cdot 2^2 = 8$ groups: Indeed, this is the number of groups of the form $\cyc{q} \rtimes (P \times \cyc{r})$. We conclude that there is no admissible graph with three edges.
+A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \Lambda_6$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$, and there is no way to add an edge to $\qlamd$. We now study the effect of adding an edge using the formula.
+\begin{itemize}
+	\item $\qlame$: We add at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ groups.
+	\item $\qlamz$: We add at least $2w_{r - 1}(q) + \frac{q - 1}{2} w_{r - 1}(q)w_{p + 1}(r) \ge 3$ groups.
+	\item $\Lambda_6$: We add at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
+	\item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m3$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups.
+\end{itemize}
+We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
 
 \subsection{Admissible $n$ with $\lambda(n) = 5$ and $\mu(n) \ge 2$} 
 There are three cases to consider.
 
-\case{A} $n = p^3 q r$. We immediately see that $q$ and $r$ are not connected, as this would give 10 groups. We must have $g(p^3 q) = 6$. The case that yields the least number of groups is $r \mid p^3 - 1$ but not $r \mid p^2 - 1$, and in this case we get $2^2 = 4$ groups of the form $\cyc{p}^3 \rtimes \cyc{qr}$ and 4 groups of the form $P \times \cyc{qr}$, where $P$ is any group of order $p^3$ different from $\cyc{p}^3$. This gives a total of 8 groups, proving that $n$ is inadmissible.
+\case{A} $n = p^3 q r$.
+We immediately see that $q$ and $r$ are not connected, as this would give 10 groups. We must have $g(p^3 q) = 6$. The case that yields the least number of groups is $r \mid p^3 - 1$ but not $r \mid p^2 - 1$, and in this case we get $2^2 = 4$ groups of the form $\cyc{p}^3 \rtimes \cyc{qr}$ and 4 groups of the form $P \times \cyc{qr}$, where $P$ is any group of order $p^3$ different from $\cyc{p}^3$. This gives a total of 8 groups, proving that $n$ is inadmissible.
 
-\case{B} $n = p^2 q^2 r$. We must have $g(p^2 r) = g(p^2 r) = 3$, which means we have arrows $r \dashrightarrow p^2, q^2$. It is easy to see that there are $3^2 = 9$ groups of the form $(P \times Q) \rtimes \cyc{r}$, simply by observing that for each $P$ we can choose either $\cyc{p^2} or \cyc{p}^2$, and in the latter case, we can let $\cyc{r}$ act on it or not. Once again, $n$ is inadmissible.
+\case{B} $n = p^2 q^2 r$.
+We must have $g(p^2 r) = g(p^2 r) = 3$, which means we have arrows $r \dashrightarrow p^2, q^2$. It is easy to see that there are $3^2 = 9$ groups of the form $(P \times Q) \rtimes \cyc{r}$, simply by observing that for each $P$ we can choose either $\cyc{p^2} or \cyc{p}^2$, and in the latter case, we can let $\cyc{r}$ act on it or not. Once again, $n$ is inadmissible.
  
 \case{C} $n = p^2 q r s$.
 If $qrs$ is cyclic, we get $g(p^2 q r) \le 6$ precisely if it is graph is $\qlamz$. An arrow $s \dashrightarrow p^2$ yields $2^3 = 8$ by a counting argument similar to the ones above, so we need $p^2 \rightarrow s$. We claim that we do have $g(n) = 7$ in this case, making use of the observation $g(p^2 q r) = g(p^2 q s) = 5$.
@@ -418,7 +423,7 @@ Now assume it is $\Lambda_6$. Once again, the arrow is either $s \dashrightarrow
 
 \case{C.2} \emph{There is an edge linking to $s$.} By our work in section 3.3, the graph of $m$ is either $\qlamz$ or $\qlamd$.
 
-Consider $\qlamd$. If $q$ is connected to $s$, then the graph of $pqs$ is connected, and thus we get at least 3 groups. By \thref{eubold}, this means we get at least 6 groups of order $p^2 qr$. There are two groups with $\cyc{p}^2$ as a direct factor, and we can let $\cyc{r}$ act nontrivialy on them to get two more new groups. This gives a total of 8 groups. We dismiss the other case, with $r$ connected to $s$, similarly: We have 3 groups with $\cyc{r}$ as a direct factor, and these give rise to 3 more groups with a nonabelian subgroup of order $rs$. This brings the total to $3 + 3 + 2 = 8$.
+Consider $\qlamd$. If $q$ is connected to $s$, then the graph of $pqs$ is connected, and thus we get at least 3 groups. By \thref{eubold}, this means we get at least 6 groups of order $p^2 qr$. There are two groups with $\cyc{p}^2$ as a direct factor, and we can let $\cyc{r}$ act nontrivialy on them to get two more new groups. This gives a total of 8 groups. We dismiss the other case, with $r$ connected to $s$, similarly: We have 3 groups with $\cyc{r}$ as a direct factor, and these give rise to 3 more groups with a nonabelian subgroup of order $rs$. This brings the total to \nolinebreak[4] $3 + 3 + 2 = 8$.
 
 In $\qlamz$, $q$ and $r$ are indistinguishable, so we have two cases, $q \rightarrow s$ and $s \rightarrow q$. The first yields $\m1(q)$ as a proper subgraph, namely, that of $p^2 q s$, and consequently its $g$ is an increasing function that depends only on $q$. We already know that the minimum is 6 and is attained when $q = 3$. It can be seen that $163995 = 3 \cdot 5 \cdot 13 \cdot 29^2$ represents $p^2 q r s$ when $q = 3$, and $g(163995) = 10$ according to GAP. This shows that we cannot have $q \rightarrow s$. On the other hand, if we have $s \rightarrow q$, we recall that $g(\qlamz) = 5$. We have $g(p^2 r)g(qs) = 6$, so we have 6 groups with $qs$ as a direct factor. Now consider the groups $(\cyc{p}^2 \rtimes \cyc{q}) \times \cyc{rs}$ and $(\cyc{p}^2 \rtimes \cyc{qr}) \cyc{s}$, where the semidirect product is nontrivial (and $r$ acts nontrivially in the second group). These do not have a normal subgroup of order $qs$, and are therefore distinct from the 6 groups of earlier. This gives a total of 8 groups, showing that $n$ is indeed not admissible.
 
