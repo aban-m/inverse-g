@@ -173,7 +173,7 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \section{Introduction}
 The function $g(n)$, defined as the number of groups of order $n$ (up to isomorphism), has various interesting arithmetical properties. It is an elementary fact, for example, that we have $g(p) = 1$ for all primes $p$, and an application of Sylow theorems show that $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$ and $q > p$. This raises the question: Which $n$ satisfy $g(n) = 1$? Such $n$ are called \emph{cyclic} numbers. It turns out that $n$ is cyclic precisely when it is coprime with $\phi(n)$, where $\phi$ is Euler's totient function {\cite{szele}}. More generally, we can consider the equation $g(n) = k$ for a fixed integer $k$.
 
-Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}. It has been re-derived multiple times: For instance, a short derivation of the cases $1 \le 3 \le 4$ appears in {\cite{olsson}}, and for $1 \le k \le 4$ in {\cite{gnumoas}}. In this paper, we consider the cases $k = 6$ and $k = 7$. After this paper was written, I was made aware of a 1936 paper by {\cite{sigley}} addressing the case $k = 6$.
+Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}. It has been re-derived multiple times: For instance, a short derivation of the cases $1 \le 3 \le 4$ appears in {\cite{olsson}}, and for $1 \le k \le 4$ in {\cite{gnumoas}}. In this paper, we consider the cases $k = 6$ and $k = 7$. After this paper was written, I was made aware of a 1936 paper {\cite{sigley}} addressing the case $k = 6$.
 
 A beautiful formula for $g(n)$ when $n$ is square-free has been discovered by \hold{1} {\cite[Thm.~5.1]{gnumoas}}. An application of it is that, if $p, q, r$ are primes with $q \equiv r \equiv 1 \Mod{p}$ and $qr$ is a cyclic number, then $g(pqr) = p + 2$, already showing that the image of $g$ is infinite. There is no similarly explicit formula for cube-free $n$, but there is an efficient algorithm {\cite{cube-free}}, and there are relatively simple formulae for $g(n)$ when $n$ has a few number of prime factors with small exponents.
 
@@ -278,13 +278,13 @@ We have already seen that $g(\Phi_n)$ is the Fibonacci sequence, and so it grows
 \begin{proof}
 	Suppose we have $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$, and let $\Gamma_0$ be the subgraph induced by the collection of vertices $\alpha_i$ and $\beta_j$. Evidently, any subset of $\Gamma_0$ containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets. Moreover, the complement of $\{v\}$ in $\Gamma_0$ is central, and it contributes $\frac{p^s - 1}{p - 1}$. This shows that $\Gamma_0$, and thus $\Gamma$, satisfies the inequality.
 \end{proof}	
-In the sequel, we consider generalized \hgs{1} of cube-free numbers. There are two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p^2}$. In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus from each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$. On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \times \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$. It follows that the same observation holds for $P \rtimes G$ as well. These two facts together imply the following
-\begin{lem}\thlabel{eubold}
-	If $n$ is cube-free with $s$ factors of the form $p^2$, then $g(n) \ge 2^s g(\operatorname{rad}(n))$.
-\end{lem}
-\begin{proof}
-	For a group $G$ of order $n_0 = \operatorname{rad}(n)$ and a subset $\tau \subset \sigma$, where $\sigma$ is the set of prime-squared factors of $n$, it can be seen that we can replace the $p$-Sylow subgroup of each $p$ in $\tau$ with either $\cyc{p} \times \cyc{p}$ or $\cyc{p}^2$, essentially since $G$ is an iterated semidirect product.
-\end{proof}
+% In the sequel, we consider generalized \hgs{1} of cube-free numbers. There are two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p^2}$. In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus from each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$. On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \times \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$. It follows that the same observation holds for $P \rtimes G$ as well. These two facts together imply the following
+% \begin{lem}\thlabel{eubold}
+	% If $n$ is cube-free with $s$ factors of the form $p^2$, then $g(n) \ge 2^s g(\operatorname{rad}(n))$.
+% \end{lem}
+% \begin{proof}
+	% For a group $G$ of order $n_0 = \operatorname{rad}(n)$ and a subset $\tau \subset \sigma$, where $\sigma$ is the set of prime-squared factors of $n$, it can be seen that we can replace the $p$-Sylow subgroup of each $p$ in $\tau$ with either $\cyc{p} \times \cyc{p}$ or $\cyc{p}^2$, essentially since $G$ is an iterated semidirect product. Thus we can form at least $2^s$ different groups 
+% \end{proof}
 
 \section{Solving $g(n) = 6, 7$}
 We call $n$ such that $g(n) = 6\text{ or }7$ \emph{admissible}. The analysis will be split into two parts, depending on whether $n$ is connected. We use the standard notation $\lambda(n) = \sum \alpha_i$ and $\mu(n) = \max\{\alpha_i\}$ for $n = \ufd$. Under the assumption of connectivity, \hthref{euinout} restricts the possible factorizations of admissible $n$, once one recalls that $g(p^3) = 5$ and $g(p^2) = 2$.
@@ -318,7 +318,7 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 \case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no vertex labeled 2 because it would have an out-degree of at least 2). We cannot add edges without adding vertices. Using \hthref{eustick}, we see that adding a new vertex $v$ and an arrow $u \rightarrow v$, where $u$ is either of the two vertices connected with $p$, yields $p + 4$ groups. As $p > 2$, we must have $p = 3$. This completes the analysis for all such graphs: We get admissible graphs when $p = 5$ in the first sub-case and when $p = 3$ in the second sub-case, both yielding $g = 7$.
 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. 
-A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$. We show that we cannot add a vertex $w$: First, we cannot connect it with $u$: An arrow $w \rightarrow u$ is impossible since it means $w = 2$, and $u \rightarrow w$ is ruled out by the condition on $o(\Gamma)$. Adding $w \rightarrow v_1$ does not give an admissible graph, because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total. Finally, if we add $v_1 \rightarrow w$ instead, we are back to Case $3$, and that yields $p + 4 \ge 7$ groups, and it is now impossible to achieve $i(\Gamma)$.
+A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$. We show that we cannot add a vertex $w$. First, we cannot connect it with $u$: An arrow $w \rightarrow u$ is impossible since it means $w = 2$, and $u \rightarrow w$ is ruled out by the condition on $o(\Gamma)$. Adding $w \rightarrow v_1$ does not give an admissible graph, because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total. Finally, if we add $v_1 \rightarrow w$ instead, we are back to Case $3$, and that yields $p + 4 \ge 7$ groups, and it is now impossible to achieve $i(\Gamma) = 2$.
 
 We can add an edge $v_1 \rightarrow v_2$ which will give $p + 4$ groups. This is the only admissible case, giving $6$ or $7$ groups.
 
@@ -362,9 +362,9 @@ In this section, we consider non-square-free admissible $n$ with $\lambda(n) \le
 	\end{aligned}$$
 \end{eufact}
 
-\textit{Analysis.} This case is more complicated, so we divide the proof into several steps.
+\textit{Analysis.} This case is more complicated, so we divide the proof into several steps. We begin by applying the fomrula to the graph $D(p)$ with $p^2 \dashrightarrow q, r$: It can be seen that $g(D(p)) = 2p + 5 \ge 9$.
 
-First, we see that $p \neq 2$: We have $g(4 q r) \ge 2g(2qr)$ by \hthref{eubold} and $g(2qr) = 4$ by Hölder's formula. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $p^2 \rightarrow r$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$, and the connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. It is now easy to see that, in all three cases, we get
+We see that $p \neq 2$: Otherwise, we would would have $D(2)$ as a subgraph, and thus $g(n) \ge 9$. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $p^2 \rightarrow r$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$, and the connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. It is now easy to see that, in all three cases, we get
 $2(p - 1)$, $\frac{(q - 1)(q + 4)}{2}$, \text{and} $w_{p^2 - 1}(qr) + w_{p + 1}(r)$ more groups
 respectively, showing that $n$ is inadmissible. 
 
@@ -372,7 +372,7 @@ Observe that $h$ depends only on the shape of the generalized graph of $n$, and 
 
 We analyze $k(n)$. If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected with $p^2$. An case-by-case analysis shows that $h(n) \ge 5$ in this case. Consequently, we must have $k(n) \le 3$ in all admissible cases, with equality implying the existence of an arrow $q \rightarrow r$.
 
-Assume now that $k(n) > 0$, i.e., that $n$ is not regular. By considering the ``coefficients'' of the $w$-terms in $k$, we observe that all of them are greater than $3$ except possibly $p - 1$ and $\frac{q - 1}{2}$. First, the sum whose coefficient is $(p - 1)$ must vanish: We have $w_{q - 1}(p^2) w_{r - 1}(q) = 0$ because otherwise Hölder's formula shows that $g(pqr) = 4$ and then $g(p^2 q r) \ge 2g(pqr) = 8$ by \hthref{eubold}, and $w_{r - 1}(p^2)w_{q - 1}(p) = 0$ as we have already seen, and if the final summand is nonzero then the summand equals $2$ and thus we get $k(n) > 3$, contradicting the inequality obtained above.
+Assume now that $k(n) > 0$, i.e., that $n$ is not regular. By considering the ``coefficients'' of the $w$-terms in $k$, we observe that all of them are greater than $3$ except possibly $p - 1$ and $\frac{q - 1}{2}$. First, the sum whose coefficient is $(p - 1)$ must vanish: We have $w_{q - 1}(p^2) w_{r - 1}(q) = 0$ because otherwise we would get $D(p)$, and $w_{r - 1}(p^2)w_{q - 1}(p) = 0$ as we have already seen, and if the final summand is nonzero then the summand equals $2$ and thus we get $k(n) > 3$, contradicting the inequality obtained above.
 
 As for $\frac{q - 1}{2}$, our analysis shows that all the summands but $w_{p + 1}(q)w_{r - 1}(q)$ must vanish. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$). We see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$, thus we get admissible $n$ precisely when $q = 3$ or $5$, yielding $6$ and $7$, respectively, and this is the only irregular admissible case.
 
@@ -471,8 +471,8 @@ A new edge is to be added to an admissible graph with two edges and $g \le 6$, s
 \begin{itemize}
 	\item $\qlame$: We get at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ additional groups.
 	\item $\qlamz$: We get the same graph from the previous case.
-	\item $\slame$: We get at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
-	\item $\qlamd$ and $\slamz$: Using \hthref{eubold}, we have $g(p^2 q r) \ge 2g(pqr)$ and $g(pqr) = 4$ by \hold{1}'s formula.
+	\item $\slame$: We get at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) = 4$ additional groups.
+	\item $\qlamd$ and $\slamz$: We get at least $2w_{r - 1}(pq) + 2w_{r - 1}(q) = 4$ additional groups.
 \end{itemize} \nopagebreak[4]
 We conclude that we cannot get an admissible graph with three edges.
 
@@ -487,9 +487,11 @@ We immediately see that $q$ and $r$ are not connected, since otherwise we would 
 We must have $g(p^2 r) = g(q^2 r) = 3$, and therefore arrows $r \dashrightarrow p^2, q^2$. It is easy to see that there are $3^2 = 9$ groups of the form $(P \times Q) \rtimes \cyc{r}$, simply by observing that for each $P$ we can choose either $\cyc{p^2}\text{ or }\cyc{p}^2$, and in the latter case, we can let $\cyc{r}$ act on it or not. Once again, $n$ is inadmissible.
  
 \case{C} $n = p^2 q r s$. It is clear that $qrs$ has at most two edges, because otherwise we have $g(qrs) \ge 4$ by Hölder's formula and thus $g(n) \ge 9$.
+
+
 \scase{C.1} \emph{$qrs$ has precisely one edge $q \rightarrow r$.} We claim that $n$ is inadmissible.\nopagebreak
 
-For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups of order $n$, with the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ being direct factors (we can omit the superscript if $k = 1$). It is clear that \smash{$g_{p, q}(n) = g_p(n) + g_q(n) - g^{(2)}_{\{p, q\}}(n)$}, by the inclusion-exclusion principle. Moreover, $g_p(n) = g(p^v)g(n/p^v)$ where $p^v$ is the largest power of $p$ diving $n$.
+For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups of order $n$, with the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ being direct factors (we can omit the superscript if $k = 1$). It is clear that \smash{$g_{p, q}(n) = g_p(n) + g_q(n) - g^{(2)}_{\{p, q\}}(n)$}, by the inclusion-exclusion principle. Moreover, $g_p(n) = g(p^\nu)g(n/p^\nu)$ where $p^\nu$ is the largest power of $p$ diving $n$.
 
 The strategy will be to choose a suitable $\alpha$ and use this fact to show that $g_\alpha(n) \ge 7$ for all possible graphs of $n$, and it will be clear that there is a group which has no direct $p$-Sylow subgroup factor for any $p$ in $\alpha$, showing that $g(n) > g_\alpha(n)$.
 
@@ -536,9 +538,9 @@ We conclude that $g(n) > 7$.
 
 \scase{C.2} \emph{qrs has precisely two edges}. We claim that $n$ is inadmissible as well.
 
-The graph of $qrs$ is \tikz[ww] \pic {twalk};. At least one prime, say $v$, is connected with $p^2$. We need $g(p^2 v) = 3$, which implies the existence of an arrow $s \dashrightarrow p^2$ by \hthref{euppq}, is equivalent to the existence of an arrow $s \dashrightarrow p^2$.
+The graph of $qrs$ is \tikz[ww] \pic {twalk};. At least one prime, say $v$, is connected with $p^2$. We need $g(p^2 v) = 3$, which implies the existence of an arrow $s \dashrightarrow p^2$ by \hthref{euppq}.
 
-Assume that $q < r < s$. We cannot have an arrow $r \dashrightarrow p^2$ because then the graph of $p^2 r s$ will be an $M_1(r)$ with $r > 3$. If we have an arrow $q \dashrightarrow p^2$, we calculate $g_{\{p, s\}}(n) = 2g(qrs) + g(p^2 q r) - 2g(qr) = 6 + 6 - 4 = 8.$ If instead we have $s \dashrightarrow p^2$, we have $g_{\{q, p\}}(n) = g(p^2 r s) + 2g(qrs) - 2g(rs) = 7$. By the same reasoning, we conclude that $g(n) \ge 8$, completing the proof.
+Without loss of generality, we assume that $q < r < s$. We cannot have an arrow $r \dashrightarrow p^2$ because then the graph of $p^2 r s$ will be an $M_1(r)$ with $r > 3$. If we have an arrow $q \dashrightarrow p^2$, we calculate $g_{\{p, s\}}(n) = 2g(qrs) + g(p^2 q r) - 2g(qr) = 6 + 6 - 4 = 8.$ If instead we have $s \dashrightarrow p^2$, we have $g_{\{q, p\}}(n) = g(p^2 r s) + 2g(qrs) - 2g(rs) = 7$. By the same reasoning, we conclude that $g(n) \ge 8$, completing the proof.
 
 \scase{C.3} \emph{$qrs$ is cyclic.} It is clear that the out-degree of $p^2$ is $1$ and the in-degree is $2$. The arrows to $p^2$ are certainly weak, so we let $q < r$ with $q, r \dashrightarrow p^s$. This means we have an arrow from $p^2$ to $s$. We show that, when this arrow is weak, we get $g(n) = 7$, and replacing it with a strong arrow increases $g$, making $n$ inadmissible.
 
@@ -548,7 +550,7 @@ It is clear that $n$ is odd, so $G$ is solvable by the Feit-Thompson theorem {\c
 
 Consider a Hall subgroup $C$ of order $qrs$, which is cyclic by definition. Since the $s$- and $q$-Sylow subgroups are normalized by $C$, we have $n_s(G), n_q(G) \mid p^2$. We have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow \nopagebreak[4] $q \rightarrow p$, contrary to our assumption. Next, we cannot have $n_s(G) = p$ because $s > p$, and we cannot have $n_s(G) = p^2$ because otherwise $p^2 \equiv 1 \Mod{s}$ and thus $p \equiv s - 1 \Mod{s}$. Since $s > p$, this implies $p = s - 1$, which is impossible since $(s, p) \neq (3, 2)$. We conclude that the $s$-Sylow subgroup is normal. 
 
-To see that its complement is normal as well, let $S, P, Q, \text{and} R$ denote Sylow subgroups corresponding to the primes $s, p, q, \text{and} r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of order $p^2 q$.
+To see that its complement is normal as well, let $S, P, Q, \text{and} R$ denote Sylow subgroups corresponding to the primes $s, p, q, \text{and} r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of \mbox{order $p^2 q$.}
 
 Consider the homomorphism $\phi : H_0 \rightarrow \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product. We know that $Q \subseteq \ker \phi$ since $q \nmid s - 1$. If $Q = \ker \phi$, $Q$ will be normalized by $P$, which implies $n_q(G) = 1$, contrary to our assumption. Similarly, we cannot have $\abs{\ker \phi} = pq$ because $pq$ is a cyclic number, so we would get $n_q(G) = p$, which has already been ruled out. It follows that $\phi$ must be the trivial homomorphism, and we conclude that $S$ normalizes $PQ$. It normalizes $R$ for similar reasons, since $sr$ is a cyclic number.  It follows that the complement is normal, and this proves the second half of the claim.
 
@@ -579,6 +581,9 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 	\end{enumerate} \textspace
 	where no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
+\end{keepintact}
+\begin{keepintact}
+\setenumerate[1]{label=\Roman*., font=\normalfont}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 7$ precisely when one of the \mbox{following holds:}
 	\begin{enumerate}	\listspace
