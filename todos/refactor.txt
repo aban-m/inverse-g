@@ -1,0 +1,13 @@
+[version-control]
+1. Initialize a git repository.
+2. Consider making all the previous copies commits.
+
+[general]
+1. Simplify the preamble.
+2. Purge unneeded commands.
+3. Split up the TikZ figures.
+4. Split into chapters.
+
+[submission]
+1. Streamline the process of making submission copies.
+2. Make a working version.
