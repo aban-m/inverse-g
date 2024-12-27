@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{amsart}
 
 \usepackage{tikz}
 \usepackage{amsmath, amssymb, mathtools, amsthm}
@@ -41,7 +41,7 @@ url=false, sortcites=true]{biblatex}
 
 \NewDocumentCommand{\listspace}{}{\linespread{0.9}\selectfont}
 \NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
-\NewDocumentCommand{\eqnspace}{}{\vspace{-0.5\baselineskip}}
+\NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
 \NewDocumentCommand{\case}{m}{\sffamily \textbf{Case #1.} \rmfamily }
 \NewDocumentCommand{\hold}{m}{Hölder}
 \NewDocumentCommand{\hg}{m}{Hölder graph}
@@ -67,7 +67,7 @@ url=false, sortcites=true]{biblatex}
 \tikzset
 {%
 point/.style={fill=black, draw, circle, inner sep=0.042cm, outer sep=0.12cm},
-soint/.style={fill=black, draw, circle, inner sep=0.022cm, outer sep=0.1cm},\
+soint/.style={fill=black, draw, circle, inner sep=0.022cm, outer sep=0.1cm},
 lambda/.pic={
 	\node [point,label=below:{#1}] (bx) {};
 	\node [point,label=right:{$\alpha$},right=of bx, yshift=7.3mm] (x) {};
@@ -94,7 +94,6 @@ ewalk/.pic={
 w/.style={baseline=-0.4ex},
 ww/.style={baseline=-0.4ex, node distance=0.37cm}
 }
-
 % tasks:
 % improve \hold{1} /
 % work on the introduction
@@ -118,7 +117,7 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 	Let $g(n)$ denote the number of groups of order $n$ up to isomorphism. We solve the equations $g(n) = 6$ and $g(n) = 7$.
 \end{abstract}
 
-%\subjclass[2020]{20D60, 20D15, 05C69}
+\subjclass[2020]{20D60, 20D15, 05C69}
 
 \section{Introduction}
 The function $g(n)$, counting isomorphism types of groups of order $n$, has various interesting arithmetical properties. It is not hard to see that $g(p) = 1$ for all primes $p$. However, primes are not the only such numbers: We have $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$. This raises the question: Which $n$ satisfy $g(n) = 1$? As $\cyc{n} = \mathbb{Z}/n\mathbb{Z}$, this is equivalent to finding $n$ such that all groups of order $n$ are cyclic.
@@ -357,10 +356,10 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 		
 		%Figure 4
 		\begin{scope}[shift={(4, 2.8)}]
-$			\node[point, label=left:$p^2$] (p4) {};
+			\node[point, label=left:$p^2$] (p4) {};
 			\node[point, label=left:$r$, below=of p4] (q4) {};
 			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
-			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};$
+			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
 		\end{scope}
 		
 		%Figure 5
