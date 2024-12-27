@@ -214,9 +214,9 @@ Given graphs $\Gamma$ and $\Lambda$ with a fixed terminal vertex $\qo$ in $\Gamm
 	
 	If $\qo \in \piga$, we have $h_M(p, \tilpi) = h_\Gamma(p, \piga)$ for vertex $p$ in $\Gamma$. For a vertex $p$ in $\Lambda$ the holds, because no vertex in $\Lambda$ is connected to a vertex in $\Gamma$. Thus we have $S(\tilpi, M) = S(\piga, \Gamma)S(\pila, \Lambda).$
 	
-	If we have $\qo \notin \piga$ and $\pin \in \pila$ we have $h_M(\qo, \tilpi) = 1$ because there is an edge $\qo \rightarrow \pin,$ and so it contributes nothing to the product. In the other front, we have $h_M(\pin, \tilpi) = h_\Lambda(\pin, \pila)$ because again no vertex in and therefore $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
+	If we have $\qo\notin\piga$ and $\pin \in \pila$ we have $h_M(\qo, \tilpi) = 1$ because there is an edge $\qo \rightarrow \pin,$ and so it contributes nothing to the product. In the other front, we have $h_M(\pin, \tilpi) = h_\Lambda(\pin, \pila)$ because again no vertex in and therefore $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
 	
-	Finally, if $\qo \notin \piga$ and $\pin \notin \pila,$ the previous analysis shows that\linebreak $h_M(\qo, \tilpi) = 0$, which in turn implies that $S(\tilpi, M) = 0$ and so $\tilpi$ contributes nothing to the sum.
+	Finally, if $\qo\notin\piga$ and $\pin\notin\pila,$ the previous analysis shows that\linebreak $h_M(\qo, \tilpi) = 0$, which in turn implies that $S(\tilpi, M) = 0$ and so $\tilpi$ contributes nothing to the sum.
 	
 	The subsets $\tilpi$ evidently correspond bijectively to pairs $(\piga, \pila)$ with $\piga \subseteq \Gamma$ and $\pila \subseteq \Lambda.$ For the pairs with $\qo \in \piga$ we get $g(\Gamma)g(\Lambda)$. For the pairs with $\qo \notin \piga$, we need $\pin \in \pila,$ and these terms combine to give precisely $g(\Gamma - \{\qo\})g(\Lambda; \pin).$
 \end{proof}
