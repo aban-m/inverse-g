@@ -349,7 +349,7 @@ If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q)
 Now consider the ``coefficients'' in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3$ or $5$, yielding $6$ and $7$, respectively.
 
 \subsubsection*{Regular \hgs{1} with two edges}
-Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. We list the single ``irregular'' example as well.
+Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. We list the single ``irregular'' example as well.\vspace*{-\baselineskip}
 \begin{center}
 	\begin{tikzpicture}[scale=0.9]
 	
@@ -424,16 +424,15 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\path[->, thick] (p7) edge (q7);
 	\end{tikzpicture}
 \end{center}
-
 \subsubsection*{Regular \hgs{1} with three edges}
 A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \slame, \slamz$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$. We now study the effect of adding an edge using \hthref{euppqr}.
 \begin{itemize}
 	\item $\qlame$: We add at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ groups.
 	\item $\qlamz$: We add at least $2w_{r - 1}(q) + \frac{q - 1}{2} w_{r - 1}(q)w_{p + 1}(r) \ge 3$ groups.
 	\item $\Lambda_6$: We add at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
-	\item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m{2}$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups. \nopagebreak
+	\item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m{2}$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups. \nopagebreak[4]
 	\item $\qlamd$ and $\slamz$: We get one of the graphs that can be obtained by adding an edge to $\m1(3)$.
-\end{itemize} \nopagebreak
+\end{itemize} \nopagebreak[4]
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
 
