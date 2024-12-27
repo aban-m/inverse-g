@@ -20,9 +20,10 @@
 % Fixing arXiv URL not-wrapping
 \usepackage[normalem]{ulem}
 \usepackage{url}
-\renewcommand{\UrlBreaks}{}    % no standard breaking points
+\usepackage{dingbat}  % for \carriagereturn symbol
+\newcommand{\urllb}{\discretionary{\carriagereturn}{}{}}
 \renewcommand{\UrlBigBreaks}{}
-\renewcommand{\UrlSpecials}{\do\.{\mathchar`\.}%
+\renewcommand{\UrlBreaks}{\do\.{\mathchar`\.}%
                             \do\/{\mathchar`\/}%
                             \do\@{\mathchar`\@}%
                             \do\\{\mathchar`\\}%
