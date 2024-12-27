@@ -496,23 +496,23 @@ We need $g(p^2 s)g(qr) + 1 \le 7$, which forces $g(p^2 s) \le 3$. By connectivit
 	\begin{tikzpicture}[scale=0.9]
 		\begin{scope}[shift=(0, 0)]
 			\node[point, label=up:$s$]							(s1) {};
-			\node[point, label=up:$p^2$, right of=s1]			(p1) {};
-			\node[point, label=bottom:$q$, below of=s1]			(q1) {};
-			\node[point, label=bottom:$r$, below of=p1]			(r1) {};
+			\node[point, label=up:$p^2$, right=of s1]			(p1) {};
+			\node[point, label=bottom:$q$, below=of s1]			(q1) {};
+			\node[point, label=bottom:$r$, below=of p1]			(r1) {};
 		\end{scope}
 		
 		\begin{scope}[shift=(4, 0)]
 			\node[point, label=up:$s$]							(s2) {};
-			\node[point, label=up:$p^2$, right of=s1]			(p2) {};
-			\node[point, label=bottom:$q$, below of=s1]			(q2) {};
-			\node[point, label=bottom:$r$, below of=p1]			(r2) {};		
+			\node[point, label=up:$p^2$, right=of s1]			(p2) {};
+			\node[point, label=bottom:$q$, below=of s1]			(q2) {};
+			\node[point, label=bottom:$r$, below=of p1]			(r2) {};		
 		\end{scope}
 		
 		\begin{scope}[shift=(8, 0)]
 			\node[point, label=up:$s$]							(s3) {};
-			\node[point, label=up:$p^2$, right of=s1]			(p3) {};
-			\node[point, label=bottom:$q$, below of=s1]			(q3) {};
-			\node[point, label=bottom:$r$, below of=p1]			(r3) {};
+			\node[point, label=up:$p^2$, right=of s1]			(p3) {};
+			\node[point, label=bottom:$q$, below=of s1]			(q3) {};
+			\node[point, label=bottom:$r$, below=of p1]			(r3) {};
 		\end{scope}
 	
 		% \begin{scope}[shift={(6, 3)}]
