@@ -158,7 +158,7 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \maketitle
 
 \begin{abstract}
-	Much progress has been made on the problem of calculating $g(n)$ for various classes of integers $n$,  where $g$ is the group-counting function. We approach the inverse problem of finding all $n$ such that $g(n) = 6$ and $g(n) = 7$. The determination of $n$ for which $g(n) = k$ for all $1 \le k \le 5$ has already been carried out by G. A. Miller. We begin by restricting the class of $n$ to consider, and then evaluating $g(n)$ using Hölder's formula when $n$ is squarefree, and the formulas given in a paper by H. Dietrich, B. Eick and X. Pan for $n$ with few prime factors.
+	Much progress has been made on the problem of calculating $g(n)$ for various classes of integers $n$,  where $g$ is the group-counting function. We approach the inverse problem of finding all $n$ such that $g(n) = 6$ and $g(n) = 7$. The determination of $n$ for which $g(n) = k$ for all $1 \le k \le 5$ has already been carried out by G. A. Miller. We begin by restricting the class of $n$ to consider, and then evaluating $g(n)$ using Hölder's formula when $n$ is square-free, and the formulae given in a paper by H. Dietrich, B. Eick and X. Pan for $n$ with few prime factors.
 \end{abstract}
 
 \textup{2020} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
@@ -166,15 +166,15 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \section{Introduction}
 The function $g(n)$, defined as the number of groups of order $n$ (up to isomorphism), has various interesting arithmetical properties. It is an elementary fact that we have $g(p) = 1$ for all primes $p$. An easy application of Sylow theorems shows that all groups of order 15 are cyclic, that is, $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$ and $q > p$. This raises the question: Which $n$ satisfy $g(n) = 1$? Such $n$ are called \emph{cyclic} numbers: It turns out that $n$ is cyclic precisely when it is coprime with $\phi(n)$, where $\phi$ is Euler's totient function. More generally, we can consider the equation $g(n) = k$ for a fixed integer $k$, and solve it in $n$.
 
-Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}. It has been re-derived multiple times: For instance, the case $k = 3$ appears in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. In this paper, we continue the analysis by tackling the cases $k = 6$ and $k = 7$. It is an open problem whether every number is $g(n)$ for some $n$, but there is strong evidence that this is the case, even when one restricts to odd, squarefree $n$.
+Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}. It has been re-derived multiple times: For instance, the case $k = 3$ appears in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. In this paper, we continue the analysis by tackling the cases $k = 6$ and $k = 7$. It is an open problem whether every number is $g(n)$ for some $n$, but there is strong evidence that this is the case, even when one restricts to odd, square-free $n$.
 
-A beautiful formula for $g(n)$ when $n$ is squarefree has been discovered by \hold{1} {\cite[Thm.~5.1]{gnumoas}}. An instance of it is that, if $p, q, r$ are primes with $q \equiv r \equiv 1 \Mod{p}$ and $\gcd(qr, (q-1)(r-1)) = 1$, then $g(pqr) = p + 2$, already showing that the image of $g$ is infinite. There is no similarly explicit formula for cubefree $n$, but there is an efficient algorithm {\cite{cubefree}}, and there are relatively simple formulae for $g(n)$ when $n$ has a few number of prime factors with small exponents.
+A beautiful formula for $g(n)$ when $n$ is square-free has been discovered by \hold{1} {\cite[Thm.~5.1]{gnumoas}}. An instance of it is that, if $p, q, r$ are primes with $q \equiv r \equiv 1 \Mod{p}$ and $\gcd(qr, (q-1)(r-1)) = 1$, then $g(pqr) = p + 2$, already showing that the image of $g$ is infinite. There is no similarly explicit formula for cube-free $n$, but there is an efficient algorithm {\cite{cube-free}}, and there are relatively simple formulae for $g(n)$ when $n$ has a few number of prime factors with small exponents.
 
-By forming direct products, it is clear that $g(ab) \ge g(a)g(b)$, at least when $a, b$ are coprime. Since \mbox{$g(p^2) = 2$,} $g(p^3) = 5$ and $g(p^4) \ge 14$ for all primes $p$ (see, e.g., \cite[Thm.~3.1]{gnumoas}), it is enough to consider fourth-power-free $n$, and in fact, we will see that $g(n)$ is rarely equal to 6 or 7 when $n$ is not cubefree.  The key computational tool will be directed graphs: We associate a directed graph to each number, where the vertices are the prime powers dividing $n$ and the edges will indicate the existence of nontrivial semidirect products.
+By forming direct products, it is clear that $g(ab) \ge g(a)g(b)$, at least when $a, b$ are coprime. Since \mbox{$g(p^2) = 2$,} $g(p^3) = 5$ and $g(p^4) \ge 14$ for all primes $p$ (see, e.g., \cite[Thm.~3.1]{gnumoas}), it is enough to consider fourth-power-free $n$, and in fact, we will see that $g(n)$ is rarely equal to 6 or 7 when $n$ is not cube-free.  The key computational tool will be directed graphs: We associate a directed graph to each number, where the vertices are the prime powers dividing $n$ and the edges will indicate the existence of nontrivial semidirect products.
 
 \section{Hölder graphs}
 \subsection{Hölder's formula}
-Given a squarefree integer $n$, a prime factor $p$ and a subset $\pi$ of its prime factors, we let $v(p, \pi)$ be the number of $q$ in $\pi$ with $q \equiv 1 \Mod{p}$. In this case, we say that $p$ is \textbf{related} to $q$, and $p$ and $q$ are related. We also let $\Gamma$ be the set of all prime factors of $n$. Then we have
+Given a square-free integer $n$, a prime factor $p$ and a subset $\pi$ of its prime factors, we let $v(p, \pi)$ be the number of $q$ in $\pi$ with $q \equiv 1 \Mod{p}$. In this case, we say that $p$ is \textbf{related} to $q$, and $p$ and $q$ are related. We also let $\Gamma$ be the set of all prime factors of $n$. Then we have
 \begin{thm}[\textbf{\hold{1}'s formula}]\thlabel{euholder} In this notation, we have
 	\begin{equation*}
 		g(n) = \sum_{\pi \subseteq \Gamma} \prod_{p \notin \pi} \frac{p^{v(p, \pi)} - 1}{p - 1}
@@ -182,9 +182,9 @@ Given a squarefree integer $n$, a prime factor $p$ and a subset $\pi$ of its pri
 \end{thm}
 \begin{proof} See {\cite[Thm.~5.1]{gnumoas}}. \end{proof}
 
-It is therefore natural to define the \emph{\hg{1}} $\Gamma = \Gamma(n)$ of a squarefree integer $n$ to be the unlabeled directed graph whose vertices are the prime factors, and where we have an edge $p \rightarrow q$ precisely when $p$ is related to $q$. Observe also that when the out-degree of every vertex is at most 1, $g(n)$ depends solely on the shape of the \hg{1}, and therefore we are justified in speaking of $g(\Gamma).$ We call both $n$ and $\Gamma$ \emph{regular} in this case. We will occasionally treat directed acyclic graphs $\Gamma$ where we only know the \emph{labels}, or the numerical values, of the vertices whose out-degree exceeds $1$. In this case, we can still speak of $g(\Gamma)$ without ambiguity, as it will be independent from the labels of the rest of the vertices. We also observe that Dirichlet's theorem on arithmetic progressions shows that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd squarefree integer.
+It is therefore natural to define the \emph{\hg{1}} $\Gamma = \Gamma(n)$ of a square-free integer $n$ to be the unlabeled directed graph whose vertices are the prime factors, and where we have an edge $p \rightarrow q$ precisely when $p$ is related to $q$. Observe also that when the out-degree of every vertex is at most 1, $g(n)$ depends solely on the shape of the \hg{1}, and therefore we are justified in speaking of $g(\Gamma).$ We call both $n$ and $\Gamma$ \emph{regular} in this case. We will occasionally treat directed acyclic graphs $\Gamma$ where we only know the \emph{labels}, or the numerical values, of the vertices whose out-degree exceeds $1$. In this case, we can still speak of $g(\Gamma)$ without ambiguity, as it will be independent from the labels of the rest of the vertices. We also observe that Dirichlet's theorem on arithmetic progressions shows that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd square-free integer.
 
-We generalize this to arbitrary $n = \ufdsh$ as follows. The vertices are now the $p_i^{\alpha_i}$, and an edge $p^\alpha \rightarrow q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$. We will call this the \emph{generalized \hg} of $n$, also denoted by $\Gamma(n)$. Typically $n$ will be cubefree, in which case we write $p^2 \dashrightarrow q$ to mean $p \parallel q - 1$. On the other hand, we write $q \dashrightarrow p^2$ to mean $q \mid p + 1$ but $q \nmid p - 1$ (that is, $p$ has order $2$ modulo $q$). We call these \emph{weak} arrows, and other arrows \emph{strong}.
+We generalize this to arbitrary $n = \ufdsh$ as follows: The vertices are now the $p_i^{\alpha_i}$, and an edge $p^\alpha \rightarrow q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$. We will call this the \emph{generalized \hg} of $n$, also denoted by $\Gamma(n)$. Typically $n$ will be cube-free, in which case we write $p^2 \dashrightarrow q$ to mean $p \parallel q - 1$. On the other hand, we write $q \dashrightarrow p^2$ to mean $q \mid p + 1$ but $q \nmid p - 1$ (that is, $p$ has order $2$ modulo $q$). We call these \emph{weak} arrows, and other arrows \emph{strong}.
 
 In the following, we let $S(\pi, \Gamma) = \prod_{p \notin \pi}h_\Gamma(p, \pi)$ be the summand in Hölder's formula corresponding to the subset $\pi$. Moreover, we will call vertices $q$ with no edge $q \rightarrow v$ \emph{terminal}, and vertices $p$ with no edge $v \rightarrow p$ \emph{initial}.
 
@@ -276,7 +276,7 @@ We have already seen that $g(\Phi_n)$ is the Fibonacci sequence, and so it grows
 In the sequel, we consider generalized \hgs{1} of cube-free numbers. There are two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p^2}$. In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus for each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$. On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \times \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$. It follows that the same observation holds for $P \rtimes G$ as well. These two facts together implies the following
 
 \begin{lem}\thlabel{eubold}
-	If $n$ is cubefree with $s$ factors of the form $p^2$, then $g(n) \ge 2^s g(\operatorname{rad}(n))$.
+	If $n$ is cube-free with $s$ factors of the form $p^2$, then $g(n) \ge 2^s g(\operatorname{rad}(n))$.
 \end{lem}
 \begin{proof}
 	For a group $G$ of order $n_0 = \operatorname{rad}(n)$ and a prime $p \in \sigma$ where $\sigma$ is the set of prime-squared factors, it can be seen that we can define new semidirect products in which the $p$-Sylow subgroup is either $\cyc{p}^2$ or $\cyc{p^2}$, since $G$ is an iterated semidirect product. This gives two choices for every prime $p$, and thus $2^s$ choices in total. It is easy to see that these are distinct groups.
@@ -286,7 +286,7 @@ In the sequel, we consider generalized \hgs{1} of cube-free numbers. There are t
 We call $n$ such that $g(n) = 6\text{ or }7$ \emph{admissible}. The analysis will be split into two parts, depending on whether $n$ is connected. We use the standard notation $\lambda(n) = \sum \alpha_i$ and $\mu(n) = \max\{\alpha_i\}$ for $n = \ufd$. Under the assumption of connectivity, \hthref{euinout} restricts the possible factorizations of admissible $n$, once one recalls that $g(p^3) = 5$ and $g(p^2) = 2$.
 
 \begin{lem}\thlabel{euclass}
-	Suppose $n$ is admissible and connected. Either $n$ is squarefree, or $n$ is a divisor of a number of one of the forms $p^2 q^2 r, p^2 q r s, p^3 qr$. In particular, $\lambda(n) \le 5$ and $\mu(n) \le 3$.
+	Suppose $n$ is admissible and connected. Either $n$ is square-free, or $n$ is a divisor of a number of one of the forms $p^2 q^2 r, p^2 q r s, p^3 qr$. In particular, $\lambda(n) \le 5$ and $\mu(n) \le 3$.
 \end{lem}
 \begin{proof}
 	The only part that needs proof is that we do not have to conisder $p^2 q_1 q_2 q_3 q_4$. To see this, observe that $g(p^2 q_1 q_2 q_3 q_4) \ge 2g(q_1 q_2 q_3 q_4)$, so we need $g(q_1 q_2 q_3 q_4) \le 3$. Connectivity of $m = q_1 q_2 q_3 q_4$ forces a vertex to have in- or out-degree greater than 1, but this is ruled out by \hthref{euinout}.
@@ -295,7 +295,7 @@ We call $n$ such that $g(n) = 6\text{ or }7$ \emph{admissible}. The analysis wil
 \subsection{Disconnected $n$}
 We first dispose of the disconnected case. Let $n = n_1 \cdots n_k m$ be the unique factorization of $n$, in the notation of \hthref{euufd}, with $n_i$ ordered such that $g(n_i)$ is nondecreasing and $m = 1$. The \emph{primality} of $7$ shows that, when $g(n) = 7$, we must have $k = 1$. Thus for $g(n) = 7$ it is enough to consider connected $n$. If $g(n) = 6$, either $k = 1$ or $g(n_1) = 2$ and $g(n_2) = 3$. For the sake of completeness, we re-derive the solutions in $n_1$ and $n_2$ here.
 
-First, $n_1$ is cubefree and has at most one square factor. If it has none, then it must have the graph \tikz[ww] \pic {walk};. If it has one, then it cannot have any more factors. Now $n_2$ is either squarefree, in which case \hthref{euinout} forces $n_2$ to have the graph \tikz[ww] \pic {twalk};, or it is not. If it is not, then it is easy to see that it must be of the form $p^2 q$ with $q \dashrightarrow p^2$ and $p, q$ odd. By \hthref{euppq}, we have $g(p^2 q) = 3$. We summarize the results:
+First, $n_1$ is cube-free and has at most one square factor. If it has none, then it must have the graph \tikz[ww] \pic {walk};. If it has one, then it cannot have any more factors. Now $n_2$ is either square-free, in which case \hthref{euinout} forces $n_2$ to have the graph \tikz[ww] \pic {twalk};, or it is not. If it is not, then it is easy to see that it must be of the form $p^2 q$ with $q \dashrightarrow p^2$ and $p, q$ odd. By \hthref{euppq}, we have $g(p^2 q) = 3$. We summarize the results:
 
 \begin{prop}
 	Suppose $n$ is cyclic free.
@@ -317,8 +317,8 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$.
 We can add an edge $v_1 \rightarrow v_2$ which will give $p + 4$ groups. Alternatively, we can add a new vertex $w$. Adding $w \rightarrow v_i$ for some $i$ does not give an admissible graph, because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total. Finally, if we add $v_1 \rightarrow w$ instead, we are back to Case $3$, and that yields $p + 4 \ge 7$ groups, so we cannot add any more edges, as doing so contradicts $i(\Gamma) = 2$. Thus the only solutions in this case are obtained by adjoining an edge $v_1 \rightarrow v_2$ to $Q$, getting $6$ groups if $p = 2$ and $7$ groups if $p = 3$.
 
-\subsection{Small non-squarefree admissible numbers}
-In this section, we consider non-squarefree admissible $n$ with $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list special cases of formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q)$ and analyze them one by one. In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. 
+\subsection{Small non-square-free admissible numbers}
+In this section, we consider non-square-free admissible $n$ with $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list special cases of formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q)$ and analyze them one by one. In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. 
 
 \begin{eufact}\thlabel{euppq}
 	For all odd primes $p, q$, we have $g(2p^2) = 5$ and \[g(p^2 q) = 2 + \frac{q + 5}{2} w_{p - 1}(q) + w_{p + 1}(q) + 2w_{q - 1}(p) + w_{q - 1}(p^2).\] In particular, $g(p^2 q) = 3$ if and only if $q \mid p + 1$, and $g(p^2 q) = \frac{q + 9}{2}$ if $q \mid p - 1$.
@@ -359,9 +359,9 @@ In this section, we consider non-squarefree admissible $n$ with $\lambda(n) \le 
 
 \textit{Analysis.} This case is more complicated, so we divide the proof into several steps.
 
-It is easy to see that $p \neq 2$: We have $g(4 q r) \ge 2g(2qr)$ by \hthref{eubold} and $g(2qr) = 4$ by Hölder's formula. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $p^2 \rightarrow r$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$.  Connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. It is now easy to see that, in all three cases, we add terms that sum to at least $2$: If $w_{r - 1}(p) = 1$ then we add  $2(p - 1) \ge 4$. If $w_{r - 1}(q) = 1$, we add $\frac{(q - 1)(q + 4)}{2} \ge 7$. Finally, if $w_{p + 1}(r) = 1$, we add $w_{p^2 - 1}(qr) + w_{p + 1}(r) = 2$. 
+First, we see that $p \neq 2$: We have $g(4 q r) \ge 2g(2qr)$ by \hthref{eubold} and $g(2qr) = 4$ by Hölder's formula. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $p^2 \rightarrow r$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$.  Connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. It is now easy to see that, in all three cases, we add terms that sum to at least $2$: If $w_{r - 1}(p) = 1$ then we add  $2(p - 1) \ge 4$. If $w_{r - 1}(q) = 1$, we add $\frac{(q - 1)(q + 4)}{2} \ge 7$. Finally, if $w_{p + 1}(r) = 1$, we add $w_{p^2 - 1}(qr) + w_{p + 1}(r) = 2$. 
 
-Observe that $h$ depends only on the shape of the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using the Cubefree package in GAP{\cite{cubefreepkg}}. We will call $n$ ``regular'' in this case as well.
+Observe that $h$ depends only on the shape of the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using the Cubefree package in GAP{\cite{cube-freepkg}}. We will call $n$ ``regular'' in this case as well.
 
 If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected to $p^2$. An easy case-by-case inspection shows that $h(n) \ge 5$ in this case. Consequently, we must have $k(n) \le 3$ in all cases, with equality implying the existence of an arrow $q \rightarrow r$. Assume now that $k(n) > 0.$
 
@@ -468,7 +468,7 @@ A new edge is to be added to an admissible graph with two edges and $g \le 6$, s
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
 
-\subsection{Large non-squarefree admissible numbers} 
+\subsection{Large non-square-free admissible numbers} 
 Finally, it remains to handle admissible $n$ with $\lambda(n) = 5$ and $\mu(n) \ge 2$. There are three cases to consider.
 
 \case{A} $n = p^3 q r$.
@@ -487,7 +487,7 @@ We observe that the $4$ groups ($\rtimes$ means a nontrivial semidirect product)
 \cyc{s} \times \cyc{p} \times \cyc{p},\enspace
 \cyc{p^2} \times \cyc{s},\enspace
 \cyc{s} \rtimes \cyc{p^2}\end{equation*}\end{enumrealm}
-\unpre are pairwise nonisomorphic, and thus these are all the groups of order $p^2 s$. Similarly, the\nolinebreak[4] groups
+\unpre are pairwise non-isomorphic, and thus these are all the groups of order $p^2 s$. Similarly, the\nolinebreak[4] groups
 \begin{enumrealm}\begin{equation*}(\cyc{s} \rtimes \cyc{p}) \times \cyc{p} \times \cyc{r},\enspace
 \cyc{s} \times \cyc{p} \times \cyc{p} \times \cyc{r},\enspace
 \cyc{p^2} \times \cyc{s} \times \cyc{r},\enspace
