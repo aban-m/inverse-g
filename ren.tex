@@ -342,14 +342,14 @@ We first dispose of the case $p = 2$. Indeed, by counting the groups of the form
 
 We directly show that there is no arrow $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). First, we need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$. An arrow $q \rightarrow r$ would yield $12 = 2g(p^2 q)$ groups. Thus we have an arrow from $p^2$ to $r$ (either weak or not), since $n$ is connected. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is $R \times P \times Q$, which is realized by $2$ groups. Thus we have at least $6 + 4 - 2 = 8$ groups, showing that $n$ could not be admissible in this case. It is now easy to show that there is no arrow $r \rightarrow p^2$: We would need $r = 3$, but this is absurd since $r > q$.
 
-Observe that $h$ depends only on the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using GAP for example. We will call $n$ ``regular'' in this case as well.
+Observe that $h$ depends only on the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using GAP\cite{cubefreepkg, GAP4} for example. We will call $n$ ``regular'' in this case as well.
 
 If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected to $p^2$. An easy case-by-case inspection shows that $h(n) \ge 5$ in this case. Consequently, we have $k(n) \le 3$, with $k(n) = 3$ implying the existence of an arrow $q \rightarrow r$.
 
 Now consider the ``coefficients'' in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3$ or $5$, yielding $6$ and $7$, respectively.
 
 \subsubsection*{Regular \hgs{1} with two edges}
-Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. We list the single ``irregular'' example as well.\vspace*{-\baselineskip}
+Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for a representative using GAP. We list the single ``irregular'' example\nolinebreak[4] as well.\vspace*{-\baselineskip}
 \begin{center}
 	\begin{tikzpicture}[scale=0.9]
 	
