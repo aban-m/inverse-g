@@ -7,7 +7,6 @@
 
 % Referencing
 \usepackage{hyperref}
-\usepackage{bookmarks}
 \usepackage{theoremref}
 
 % Basics
@@ -27,7 +26,7 @@
 	colorlinks = true,
 	urlcolor = blue,
 	linkcolor = blue,
-	citecolor = black
+	citecolor = green
 } 
 
 % Referencing
@@ -295,9 +294,8 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ would yield $4 + p + 1 = p + 5$ groups, but we cannot have $p = 2$ because then it would be initial, having an in-degree of $0$. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$.
 We can add a new edge $v_1 \rightarrow v_2$ which will give $p + 3$ groups. Alternatively, we can add a new vertex $w$, and then we can add $w \rightarrow v_i$ for some $i$. This is not admissible, however: The subsets $\{v_1, v_2\}$ and $\{w, v_1, v_w\}$ would both be central, contributing $2(p + 1) = 2p + 2 \ge 8$ groups in total. So instead we consider $v_1 \rightarrow w$ would reduce this to case 3, and it yields $p + 4 \ge 7$ groups, and we certainly cannot add any more edges, and this contradicts the $i(\Gamma) = 2$ condition. Thus adjoining an edge $v_1 \rightarrow v_2$ gives a solution for $g(n) = 6, 7$ depending on whether $p = 2$ or $3$, and $Q \rightarrow w$ gives a solution for $g(n) = 7$ when $p = 3$. 
 
-
-\subsection{Admissible $n$ with $\lambda(n) \le 4$ and $\mu(n) \ge 2$}
-Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q).$ In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. In their notation, $w_r(s) = 1$ if $s \mid r$ and 0 otherwise. We consider these cases one by one to find the possible solutions.
+\subsection{Non-squarefree admissible $n$, I}
+In this section, we consider admissible $n$ with $\mu(n) \ge 2$ and $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q).$ In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. In their notation, $w_r(s) = 1$ if $s \mid r$ and 0 otherwise. We consider these cases one by one to find the possible solutions.
 
 \begin{fact}\thlabel{euppq}
 	For all odd primes $p, q$, we have $g(2p^2) = 5$ and \[g(p^2 q) = 2 + \frac{q + 5}{2} w_{p - 1}(q) + w_{p + 1}(q) + 2w_{q - 1}(p) + w_{q - 1}(p^2).\] In particular, $g(p^2 q) = 3$ if and only if $q \mid p + 1$, and $g(p^2 q) = \frac{q + 9}{2}$ if $q \mid p - 1$.
@@ -420,7 +418,7 @@ A new edge is to be added to an admissible graph with two edges and $g \le 6$, s
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
 
-\subsection{Admissible $n$ with $\lambda(n) = 5$ and $\mu(n) \ge 2$} 
+\subsection{Non-squarefree admissible $n$, II} 
 There are three cases to consider.
 
 \case{A} $n = p^3 q r$.
