@@ -178,7 +178,7 @@ Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 
 
 A beautiful formula for $g(n)$ when $n$ is square-free has been discovered by \hold{1} {\cite[Thm.~5.1]{gnumoas}}. An application of it is that, if $p, q, r$ are primes with $q \equiv r \equiv 1 \Mod{p}$ and $qr$ is a cyclic number, then $g(pqr) = p + 2$, already showing that the image of $g$ is infinite. There is no similarly explicit formula for cube-free $n$, but there is an efficient algorithm {\cite{cube-free}}, and there are relatively simple formulae for $g(n)$ when $n$ has a few number of prime factors with small exponents.
 
-By forming direct products, it is clear that $g(ab) \ge g(a)g(b)$, at least when $a$ and $b$ are coprime. Since \mbox{$g(p^2) = 2$,} $g(p^3) = 5$ and $g(p^\alpha) \ge 14$ for all primes $p$ and all $\alpha \ge 4$ (see, e.g., \cite[Thm.~3.1]{gnumoas}), it is enough to consider fourth-power-free $n$. The key computational tool will be directed graphs: We associate a directed graph to each number, with the vertices being the prime powers that divide $n$ and the edges indicating the existence of nontrivial semidirect products.
+By forming direct products, it is clear that $g(ab) \ge g(a)g(b)$, at least when $a$ and $b$ are coprime. Since \mbox{$g(p^2) = 2$,} $g(p^3) = 5$ and $g(p^\alpha) \ge 14$ for all primes $p$ and all $\alpha \ge 4$ (see, for example, \cite[Thm.~3.1]{gnumoas}), it is enough to consider fourth-power-free $n$. The key computational tool will be directed graphs: We associate a directed graph to each number, with the vertices being the prime powers that divide $n$ and the edges indicating the existence of nontrivial semidirect products.
 
 \section{Hölder graphs}
 \subsection{Hölder's formula}
@@ -202,9 +202,9 @@ We have already observed that $g(ab) \ge g(a)g(b)$ for coprime $a, b$. When does
 \begin{thm}\thlabel{eufrobenius}
 	Suppose we have $n = ab$. Then the following are equivalent:
 	\begin{enumerate}
-		\item $g(n) = g(a)g(b).$
-		\item Every group of order $n$ decomposes as a direct product of a group of order $a$ and a group of order $b.$
-		\item $a$ and $b$ are arithmetically independent.
+		\item $g(n) = g(a)g(b)$,
+		\item $\abs{G} = n$ implies $G \cong A \times B$ where $\abs{A} = a$ and $\abs{B} = b$,
+		\item $a$ and $b$ are arithmetically independent,
 		\item $\Gamma(n) = \Gamma(a) \sqcup \Gamma(b)$.
 	\end{enumerate}
 \end{thm}
@@ -288,7 +288,7 @@ We have already seen that $g(\Phi_n)$ is the Fibonacci sequence, and so it grows
 % \end{proof}
 
 \section{Solving $g(n) = 6, 7$}
-We call $n$ such that $g(n) = 6\text{ or }7$ \emph{admissible}. The analysis will be split into two parts, depending on whether $n$ is connected. We use the standard notation $\lambda(n) = \sum \alpha_i$ and $\mu(n) = \max\{\alpha_i\}$ for $n = \ufd$. Under the assumption of connectivity, \hthref{euinout} restricts the possible factorizations of admissible $n$, once one recalls that $g(p^3) = 5$ and $g(p^2) = 2$.
+We call $n$ such that $g(n) = 6\text{ or }7$ \emph{admissible}. The analysis will be split into two parts, depending on the connectivity of $n$. From section 3.2 onward, we assume that $n$ is connected. We use the standard notation $\lambda(n) = \sum \alpha_i$ for $n = \ufd$. Under the assumption of connectivity, \hthref{euinout} restricts the possible factorizations of admissible $n$, once one recalls that $g(p^3) = 5$ and $g(p^2) = 2$.
 
 \begin{lem}\thlabel{euclass}
 	Suppose $n$ is admissible and connected. Then either $n$ is square-free, or $n$ is a divisor of a number of one of the forms $p^2 q^2 r, p^2 q r s, p^3 qr$. In particular, $\lambda(n) \le 5$.
@@ -314,14 +314,14 @@ Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in 
 
 \case{1} $i(\Gamma) = 1, o(\Gamma) = 1$. In this case $\Gamma$ is simply a path $\Phi_k$ for some $k$, and as neither 6 nor 7 is a Fibonacci number, so by \hthref{eufibo} this is never an admissible graph.
 
-\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is clear that there is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this subgraph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices, since we have $o(\Gamma) = 1$. A new vertex $u$ can be connected to $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; w_1) = 4 + 2 = 6$ groups by \hthref{eujoin}, so call this new graph $Q$. We cannot extend $Q$: Both of the extensions $b \rightarrow Q$ and $Q \rightarrow f$ give too many groups, again by \hthref{eustick}. In the other direction, we could add $v \rightarrow f_1$ in $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$. However, this can only be extended forward, i.e, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields $g(K \rightarrow f_1) + g(K) = 4 + 5 = 9$ groups. Thus the only admissible graph is $Q$, with $g(Q) = 6$.
+\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is clear that there is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this subgraph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices, since we have $o(\Gamma) = 1$. A new vertex $u$ can be connected to $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; w_1) = 4 + 2 = 6$ groups by \hthref{eujoin}, so call this new graph $Q$. We cannot extend $Q$: Both extensions $b \rightarrow Q$ and $Q \rightarrow f$ give too many groups, again by \hthref{eustick}. In the other direction, we could add $v \rightarrow f_1$ in $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$. However, this can only be extended forward, that is, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields $g(K \rightarrow f_1) + g(K) = 4 + 5 = 9$ groups. Thus the only admissible graph is $Q$, with $g(Q) = 6$.
 
 \case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no vertex labeled 2 because it would have an out-degree of at least 2). We cannot add edges without adding vertices. Using \hthref{eustick}, we see that adding a new vertex $v$ and an arrow $u \rightarrow v$, where $u$ is either of the two vertices connected with $p$, yields $p + 4$ groups. As $p > 2$, we must have $p = 3$. This completes the analysis for all such graphs: We get admissible graphs when $p = 5$ in the first sub-case and when $p = 3$ in the second sub-case, both yielding $g = 7$.
 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. 
 A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$. We show that we cannot add a vertex $w$. First, we cannot connect it with $u$: An arrow $w \rightarrow u$ is impossible since it means $w = 2$, and $u \rightarrow w$ is ruled out by the condition on $o(\Gamma)$. Adding $w \rightarrow v_1$ does not give an admissible graph, because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total. Finally, if we add $v_1 \rightarrow w$ instead, we are back to Case $3$, and that yields $p + 4 \ge 7$ groups, and it is now impossible to achieve $i(\Gamma) = 2$.
 
-We can add an edge $v_1 \rightarrow v_2$ which will give $p + 4$ groups. This is the only admissible case, giving $6$ or $7$ groups.
+We can add an edge $v_1 \rightarrow v_2$ to $Q$ without adding $w$. This will give $p + 4$ groups, and is the only admissible case, giving $6$ if $p = 2$ and $7$ if $p = 3$.
 
 \subsection{Small non-square-free admissible numbers}
 In this section, we consider non-square-free admissible $n$ with $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list special cases of formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{ and } g(p^3 q)$ and analyze them one by one. In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. 
@@ -363,19 +363,19 @@ In this section, we consider non-square-free admissible $n$ with $\lambda(n) \le
 	\end{aligned}$$
 \end{eufact}
 
-\textit{Analysis.} This case is more complicated, so we divide the proof into several steps. We begin by applying the fomrula to the graph $D(p)$ with $p^2 \dashrightarrow q, r$: It can be seen that $g(D(p)) = 2p + 5 \ge 9$.
+\textit{Analysis.} This case is more complicated, so we divide the proof into several steps. We begin by applying the formula to the graph $D(p)$ with $p^2 \dashrightarrow q, r$: It can be seen that $g(D(p)) = 2p + 5 \ge 9$.
 
-We see that $p \neq 2$: Otherwise, we would would have $D(2)$ as a subgraph, and thus $g(n) \ge 9$. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $p^2 \rightarrow r$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$, and the connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. It is now easy to see that, in all three cases, we get
-$2(p - 1)$, $\frac{(q - 1)(q + 4)}{2}$, \text{and} $w_{p^2 - 1}(qr) + w_{p + 1}(r)$ more groups
-respectively, showing that $n$ is inadmissible. 
+We see that $p \neq 2$: Otherwise, we would would have $D(2)$ as a subgraph. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $r \rightarrow p^2$ since $r > 3$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$, and the connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. The formula then implies that we get
+$2(p - 1)$, $\frac{(q - 1)(q + 4)}{2}$, \text{or} $w_{p^2 - 1}(qr) + w_{p + 1}(r)$
+more groups, respectively, showing that $n$ is inadmissible. 
 
 Observe that $h$ depends only on the shape of the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, we can calculate $g(n)$ for all $n$ with a specific graph simply by calculating $g(n)$ for a single representative, using the Cubefree package in GAP{\cite{cubefreepkg}}. We will call $n$ ``regular'' in this case as well.
 
 We analyze $k(n)$. If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected with $p^2$. An case-by-case analysis shows that $h(n) \ge 5$ in this case. Consequently, we must have $k(n) \le 3$ in all admissible cases, with equality implying the existence of an arrow $q \rightarrow r$.
 
-Assume now that $k(n) > 0$, i.e., that $n$ is not regular. By considering the ``coefficients'' of the $w$-terms in $k$, we observe that all of them are greater than $3$ except possibly $p - 1$ and $\frac{q - 1}{2}$. First, the sum whose coefficient is $(p - 1)$ must vanish: We have $w_{q - 1}(p^2) w_{r - 1}(q) = 0$ because otherwise we would get $D(p)$, and $w_{r - 1}(p^2)w_{q - 1}(p) = 0$ as we have already seen, and if the final summand is nonzero then the summand equals $2$ and thus we get $k(n) > 3$, contradicting the inequality obtained above.
+Assume now that $k(n) > 0$, that is, $n$ is not regular. By considering the ``coefficients'' of the $w$-sums in the formula for $k$, we observe that all of them are greater than $3$ except possibly $p - 1$ and $\frac{q - 1}{2}$. First, the sum whose coefficient is $(p - 1)$ must vanish, as otherwise would get $D(p)$ as a subgraph.
 
-As for $\frac{q - 1}{2}$, our analysis shows that all the summands but $w_{p + 1}(q)w_{r - 1}(q)$ must vanish. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$). We see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$, thus we get admissible $n$ precisely when $q = 3$ or $5$, yielding $6$ and $7$, respectively, and this is the only irregular admissible case.
+Secondly, we consider $\frac{q - 1}{2}$. Our analysis shows that all the summands but $w_{p + 1}(q)w_{r - 1}(q)$ must vanish. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$). We see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$, thus we get admissible $n$ precisely when $q = 3$ or $5$, yielding $6$ and $7$, respectively, and this is the only irregular admissible case.
 
 \subsubsection*{Regular \hgs{1} with two edges}
 Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for a representative using GAP. It is convenient to list the single irregular example\nolinebreak[4] as well.\vspace*{-\baselineskip}
@@ -472,14 +472,14 @@ A new edge is to be added to an admissible graph with two edges and $g \le 6$, s
 \begin{itemize}
 	\item $\qlame$: We get at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ additional groups.
 	\item $\qlamz$: We get the same graph from the previous case.
-	\item $\slame$: We get at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) = 4$ additional groups.
+	\item $\slame$: We get $D(p)$.
 	\item $\qlamd$ and $\slamz$: We get at least $2w_{r - 1}(pq) + 2w_{r - 1}(q) = 4$ additional groups.
 \end{itemize} \nopagebreak[4]
 We conclude that we cannot get an admissible graph with three edges.
 
 
 \subsection{Large non-square-free admissible numbers} 
-Finally, it remains to handle admissible $n$ with $\lambda(n) = 5$ and $\mu(n) \ge 2$. There are three cases to consider.
+Finally, it remains to handle non-square-free admissible $n$ with $\lambda(n) = 5$. There are three cases to consider.
 
 \case{A} $n = p^3 q r$.
 We immediately see that $q$ and $r$ are not connected, since otherwise we would get at least $g(p^3)g(qr) = 10$ groups. We must have $g(p^3 q) \ge 6$, and by connectivity, we have $g(p^3 q) = 6$ and $r \mid p^\alpha - 1$ for some $1 \le \alpha \le 3$. The case that yields the least number of groups is $r \mid p^3 - 1$ with $r \nmid p^2 - 1$, and in this case we get $2^2 = 4$ groups of the form $\cyc{p}^3 \rtimes \cyc{qr}$ and 4 groups of the form $P \times \cyc{qr}$, where $P$ is any group of order $p^3$ different from $\cyc{p}^3$. This gives a total of 8 groups, proving that $n$ is inadmissible.
@@ -545,13 +545,13 @@ Without loss of generality, we assume that $q < r < s$. We cannot have an arrow 
 
 \scase{C.3} \emph{$qrs$ is cyclic.} It is clear that the out-degree of $p^2$ is $1$ and the in-degree is $2$. The arrows to $p^2$ are certainly weak, so we let $q < r$ with $q, r \dashrightarrow p^s$. This means we have an arrow from $p^2$ to $s$. We show that, when this arrow is weak, we get $g(n) = 7$, and replacing it with a strong arrow increases $g$, making $n$ inadmissible.
 
-Let $G$ be a group of order $n = p^2 q r s$. We claim that either $G \cong G_0 \times \cyc{q}$ or $G \cong G_1\times \cyc{s}$. This will prove the result, since $g(n) = g_\{q, s\}(n).$ By the same reasoning of the previous sub-case, we see that this is equal to $g(p^2 r s) + g(p^2 q r) - g(p^2 r) = g(\qlamd) + g(\qlamz) - g(p^2 r) = 7$.
+Let $G$ be a group of order $n = p^2 q r s$. We claim that either $G \cong G_0 \times \cyc{q}$ or $G \cong G_1\times \cyc{s}$. This will prove the result, since it implies $g(n) = g_{\{q, s\}}(n)$. By the same reasoning of the previous sub-case, we see that this is equal to $g(p^2 r s) + g(p^2 q r) - g(p^2 r) = g(\qlamd) + g(\qlamz) - g(p^2 r) = 7$.
 
 It is clear that $n$ is odd, so $G$ is solvable by the Feit-Thompson theorem {\cite{oddsolve}}. Consequently, we have a subgroup $G_0$ of index $q$ by Hall's theorems {\cite[Thm.~3.13]{fgt}}, and since $q$ is the smallest prime dividing $\abs{G}$, it follows from a standard theorem {\cite[Prob.~1A.1]{fgt}} that $G_0$ is normal. Thus if a $q$-Sylow subgroup is normal, we get the first half of the claim. Suppose then that there is no normal $q$-Sylow subgroup.
 
 Consider a Hall subgroup $C$ of order $qrs$, which is cyclic by definition. Since the $s$- and $q$-Sylow subgroups are normalized by $C$, we have $n_s(G), n_q(G) \mid p^2$. We have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow \nopagebreak[4] $q \rightarrow p$, contrary to our assumption. Next, we cannot have $n_s(G) = p$ because $s > p$, and we cannot have $n_s(G) = p^2$ because otherwise $p^2 \equiv 1 \Mod{s}$ and thus $p \equiv s - 1 \Mod{s}$. Since $s > p$, this implies $p = s - 1$, which is impossible since $(s, p) \neq (3, 2)$. We conclude that the $s$-Sylow subgroup is normal. 
 
-To see that its complement is normal as well, let $S, P, Q, \text{and} R$ denote Sylow subgroups corresponding to the primes $s, p, q, \text{and} r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of \mbox{order $p^2 q$.}
+To see that its complement is normal as well, let $S, P, Q,\text{ and }R$ denote Sylow subgroups corresponding to the primes $s, p, q,\text{ and }r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of \mbox{order $p^2 q$.}
 
 Consider the homomorphism $\phi : H_0 \rightarrow \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product. We know that $Q \subseteq \ker \phi$ since $q \nmid s - 1$. If $Q = \ker \phi$, $Q$ will be normalized by $P$, which implies $n_q(G) = 1$, contrary to our assumption. Similarly, we cannot have $\abs{\ker \phi} = pq$ because $pq$ is a cyclic number, so we would get $n_q(G) = p$, which has already been ruled out. It follows that $\phi$ must be the trivial homomorphism, and we conclude that $S$ normalizes $PQ$. It normalizes $R$ for similar reasons, since $sr$ is a cyclic number.  It follows that the complement is normal, and this proves the second half of the claim.
 \section{Summary of the results}
@@ -569,7 +569,7 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 		\begin{enumerate}
 			\item $p \parallel q - 1$ and $r \equiv 1 \Mod{q}$,
 			\item $q = 3$ and $p \equiv -1 \Mod{3}$, \nopagebreak[4]
-			\item\nopagebreak[4] $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.
+			\item\nopagebreak[4] $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$,
 		\end{enumerate}
 		\item $n = p^2 q^2$ where $p \parallel q + 1$,
 		\item $n = n_1 n_2$ where $n_1, n_2$ are arithmetically independent and
