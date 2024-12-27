@@ -1,4 +1,4 @@
-\documentclass{scrartcl}
+\documentclass{article}
 
 % Graphics
 \usepackage{tikz}
@@ -8,6 +8,13 @@
 % Sectioning
 \usepackage{hyperref}
 \usepackage{theoremref}
+
+% Change the section formatting
+\usepackage{sectsty}
+\makeatletter
+\def\@seccntformat#1{\csname the#1\endcsname.\quad}
+\makeatother
+\sectionfont{\centering\textsc}
 
 % Basics
 \usepackage{amsmath, amssymb, mathtools, amsthm}
