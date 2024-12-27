@@ -427,13 +427,13 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 \end{center}
 
 \subsubsection*{Regular \hgs{1} with three edges}
-A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \Lambda_6$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$. We now study the effect of adding an edge using \hthref{euppqr}.
+A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \slame, \slamz$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$. We now study the effect of adding an edge using \hthref{euppqr}.
 \begin{itemize}
 	\item $\qlame$: We add at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ groups.
 	\item $\qlamz$: We add at least $2w_{r - 1}(q) + \frac{q - 1}{2} w_{r - 1}(q)w_{p + 1}(r) \ge 3$ groups.
 	\item $\Lambda_6$: We add at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
 	\item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m{2}$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups.
-	\item $\qlamd$: We get one of the graphs that can be obtained by adding an edge to $\m1(3)$.
+	\item $\qlamd$ and $\slamz$: We get one of the graphs that can be obtained by adding an edge to $\m1(3)$.
 \end{itemize}
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
@@ -470,6 +470,7 @@ In what follows, $p, q, r, s$ represent distinct, odd primes.
 		\item $n = 3p^2$ where $p \equiv 1 \Mod{3}$,
 		\item $n = p^3 q$ where $p^3 \equiv 1 \Mod{q}$ but $p^2 \not\equiv 1 \Mod{q}$,
 		\item $n = p^2 q r$ where $r \equiv 1 \Mod{q}$, and either $p \parallel q - 1$ or $q = 3$ and $p \equiv -1 \Mod{3}$,
+		\item $n = p^2 q r$ where $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$,
 		\item $n = p^2 q^2$ where $p \parallel q + 1$,
 		\item $n = 2pq$ where $q \equiv 1 \Mod{p}$,
 		\item $n = n_1 n_2$ where $n_1, n_2$ are arithmetically independent and
@@ -478,7 +479,7 @@ In what follows, $p, q, r, s$ represent distinct, odd primes.
 			\item $n_2 = pqr$ where $r \equiv 1 \Mod{q}$ and $q \equiv 1 \Mod{p}$ or $n_2 = p^2 q$ and $q \mid p + 1$.
 		\end{enumerate}
 	\end{enumerate} \textspace
-	and in cases I--IV no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
+	and in cases I--V no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 7$ precisely when one of the following holds:
