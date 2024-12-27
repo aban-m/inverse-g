@@ -489,7 +489,7 @@ It follows that we have a correspondence between groups of order $n$ with their 
 
 \case{C.2} \emph{$qrs$ has precisely one edge $q \rightarrow r$.} We claim that we have no admissible $n$ in this case.
 
-For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups such that the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ are direct factors (we can omit the superscript if $k = 1$). It is clear that $ \displaystyle g^{(1)}_{\alpha \cup \beta}(n) = g^{(1)}_\alpha(n) + g^{(1)}_\beta(n) - g^{(2)}_{\alpha \cup \beta}(n),$ and $g_p(n) \coloneq g_{\{p\}}(n) = g(n/p^h)g(p^h)$, where $n = p^h n'$ and $n'$ is not divisible by $p$. The strategy will be to choose a suitable $\alpha$ and use these two facts to show that $g(n) > g_\alpha(n) \ge 7$ for all possible graphs of $n$. This will then prove our claim.
+For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups such that the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ are direct factors (we can omit the superscript if $k = 1$). It is clear that \smash{$g^{(1)}_{\alpha \cup \beta}(n) = g^{(1)}_\alpha(n) + g^{(1)}_\beta(n) - g^{(2)}_{\alpha \cup \beta}(n),$} and $g_p(n) \coloneq g_{\{p\}}(n) = g(n/p^h)g(p^h)$, where $n = p^h n'$ and $n'$ is not divisible by $p$. The strategy will be to choose a suitable $\alpha$ and use these two facts to show that $g(n) > g_\alpha(n) \ge 7$ for all possible graphs of $n$. This will then prove our claim.
 
 We need $g(p^2 s)g(qr) + 1 \le 7$, which forces $g(p^2 s) \le 3$. By connectivity, we have in fact $g(p^2 s) = 3$ and thus a weak arrow $s \dashrightarrow p^2$. Our graph of $n$ becomes connected by adding an edge. By considering $p^2 q r$, we immediately see that there are three options, corresponding to $M_1(q), \slame$ and $\qlame$:
 \begin{center}
@@ -533,6 +533,10 @@ All that remains is to consider suitable subgraphs and evaluate their $g$ by our
 \end{itemize}
 
 We conclude that $g(n) > 7$ in all subcases.
+
+\case{C.3} \emph{qrs has precisely two edges}. Note that it cannot have more, because $g(p^2)g(qrs) + 1 \le 7$ and this forces $g(qrs) \le 3$.
+
+At least one prime, say $s$, is connected to $p^2$. We have $g(p^2 s)g(qr) + 1 \le 7$ by connectivity, and this gives $g(p^2 s) = 3$ and thus we have an arrow $s \dashrightarrow p^2$. Changing the notation, we assume now that $q < r < s$. We cannot have an arrow $r \dashrightarrow s$ because then the graph of $p^2 r s$ will be a $M_1(r)$ and $r > 3$. If we have an arrow $q \dashrightarrow p^2$, we calculate $g_{\{p, s\}}(n) = 2g(qrs) + g(p^2 q r) - g(qr) = 6 + 6 - 2 = 10.$ If instead we have $s \dashrightarrow p^2$, we have $g_{\{q, p\}}(n) = g(p^2 r s) + 2g(qrs) - g(rs) = 9$.
 %
 %
 %
