@@ -10,7 +10,7 @@
 \usepackage[margin=1.5in]{geometry}
 
 \usepackage[backend=bibtex, style=numeric,
-url=false, sortcites=true, ]{biblatex}
+url=false, sortcites=true]{biblatex}
 \addbibresource{thebib.bib}
 
 \usetikzlibrary{arrows, calc, patterns, positioning, shapes}
@@ -119,7 +119,7 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \section{Introduction}
 The function $g(n)$, counting isomorphism types of groups of order $n$, has various interesting arithmetical properties. It is not hard to see that $g(p) = 1$ for all primes $p$. However, primes are not the only such numbers: We have $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \equiv 1 \Mod{p}$. This raises the question: Which $n$ satisfy $g(n) = 1$? As $\cyc{n} = \mathbb{Z}/n\mathbb{Z}$, this is equivalent to finding $n$ such that all groups of order $n$ are cyclic.
 
-This can be generalized in two different directions. On the one hand, we can take a group theoretic property $\mathcal{P}$ and attempt to characterize all $P$-\emph{numbers}, that is, all $n$ such that every group of order $n$ has property $\mathcal{P}$. This question is old: Dickson {\cite{\dickson}} has characterized abelian numbers over a century ago. Nilpotent numbers ({\cite{\pazderski}}) and cyclic numbers ({\cite{\szele}}) have also been characterized (for a modern treatment, see {\cite{\nilnumb}}). In {\cite{\mueller}}, this problem is solved for $\mathcal{P} = $ nilpotent of class at most $c$, which generalizes the last three problems.
+This can be generalized in two different directions. On the one hand, we can take a group theoretic property $\mathcal{P}$ and attempt to characterize all $P$-\emph{numbers}, that is, all $n$ such that every group of order $n$ has property $\mathcal{P}$. This question is old: Dickson {\cite{dickson}} has characterized abelian numbers over a century ago. Nilpotent numbers ({\cite{pazderski}}) and cyclic numbers ({\cite{szele}}) have also been characterized (for a modern treatment, see {\cite{nilnumb}}). In {\cite{mueller}}, this problem is solved for $\mathcal{P} = $ nilpotent of class at most $c$, which generalizes the last three problems.
 
 On the other hand, we can simply consider $g(n) = k$ for a fixed $k$. Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}, but the result has been re-derived multiple times: For instance, the case $k = 3$ is handled in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. It is an open problem whether we every number is $g(n)$ for some $n$, but there is strong evidence that this is the case even when one restricts to odd, squarefree $n$. The two directions are not too separate: It turns out, for example, that $g(n)$ is a power of $2$ whenever $n$ is an abelian number.
 
