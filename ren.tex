@@ -350,9 +350,7 @@ In this section, we consider non-squarefree admissible $n$ with $\lambda(n) \le 
 
 \textit{Analysis.} This case is more complicated, so we divide the proof into several steps.
 
-We first show that $p \neq 2$. Indeed, by counting the groups of the form $(\cyc{q} \times \cyc{r}) \rtimes D$ where $D$ is a group of order 4, we see that $D$ can act on the product $\cyc{q} \times \cyc{r}$ in at least $2^2 = 4$ ways, and $D$ can be chosen in 2 ways. This gives at least 8 groups (we get more if $q \equiv 1 \Mod{4}$ for example). Thus $n$ is odd.
-
-Next, we show that there is no strong arrow to $p^2$. Suppose first we have $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). We certainly need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$, and we cannot have an arrow $q \rightarrow r$ as otherwise we would get at least $12 = 2g(p^2 q)$ groups. By connectivity, we conclude that there must be an arrow (possibly weak) from $p^2$ to $r$. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is $R \times P \times Q$, which is realized by $2$ groups. Thus we have at least $6 + 4 - 2 = 8$ groups, showing that $n$ could not be admissible in this case. It is now easy to show that there is no arrow $r \rightarrow p^2$: We would need $r = 3$, but this is absurd since $r > q$.
+It is easy to see that $p \neq 2$: We have $g(4 q r) \ge 2g(2qr)$ by \hthref{eubold} and $g(2qr) = 4$ by Hölder's formula. Next, we show that there is no strong arrow to $p^2$. By \hthref{euppq} we see that there is no $p^2 \rightarrow r$. If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$.  Connectivity in $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$. It is now easy to see that, in all three cases, we add terms that sum to at least $2$: If $w_{r - 1}(p) = 1$ then we add  $2(p - 1) \ge 4$. If $w_{r - 1}(q) = 1$, we add $\frac{(q - 1)(q + 4)}{2} \ge 7$. Finally, if $w_{p + 1}(r) = 1$, we add $w_{p^2 - 1}(qr) + w_{p + 1}(r) = 2$. 
 
 Observe that $h$ depends only on the shape of the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using the Cubefree package in GAP{\cite{cubefreepkg}}. We will call $n$ ``regular'' in this case as well.
 
@@ -454,9 +452,8 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are $\qlame, \qlamz, \qlamd, \slame$ and $\slamz$. Because the graph is acyclic and $r > q$, the edge is uniquely determined. We now study the effect of adding an edge using \hthref{euppqr}.
 \begin{itemize}
 	\item $\qlame$: We add at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ groups.
-	\item $\qlamz$: We add at least $2w_{r - 1}(q) + \frac{q - 1}{2} w_{r - 1}(q)w_{p + 1}(r) \ge 3$ groups.
-	\item $\Lambda_6$: We add at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
-	% \item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m{2}$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups. \nopagebreak[4]
+	\item $\qlamz$: We get the same graph of the previous case.
+	\item $\slame$: We add at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
 	\item $\qlamd$ and $\slamz$: Using \hthref{eubold}, we have $g(p^2 q r) \ge 2g(pqr)$ and $g(pqr) = 4$ by \hold{1}'s formula.
 \end{itemize} \nopagebreak[4]
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
