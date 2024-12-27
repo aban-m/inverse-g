@@ -562,11 +562,11 @@ We conclude that $g(n) > 7$ in all subcases.
 \scase{C.3} \emph{qrs has precisely two edges}. Note that it cannot have more, because $g(p^2)g(qrs) + 1 \le 7$ and this forces $g(qrs) \le 3$.
 
 At least one prime, say $s$, is connected to $p^2$. We have $g(p^2 s)g(qr) + 1 \le 7$, and this gives $g(p^2 s) = 3$, which, by \hthref{euppq}, is equivalent to the existence of an arrow $s \dashrightarrow p^2$. Changing the notation, we assume now that $q < r < s$. We cannot have an arrow $r \dashrightarrow p^2$ because then the graph of $p^2 r s$ will be an $M_1(r)$ with $r > 3$. If we have an arrow $q \dashrightarrow p^2$, we calculate $g_{\{p, s\}}(n) = 2g(qrs) + g(p^2 q r) - 2g(qr) = 6 + 6 - 4 = 8.$ If instead we have $s \dashrightarrow p^2$, we have $g_{\{q, p\}}(n) = g(p^2 r s) + 2g(qrs) - 2g(rs) = 7$. By the same reasoning, we conclude that $g(n) \ge 8$, completing the proof.
+\begin{keepintact}
 \section{Summary of the results}
 In what follows, $s, p, q, r$ represent distinct, odd primes.
 \nopagebreak
 \setenumerate[1]{label=\Roman*., font=\normalfont}
-\begin{keepintact}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 6$ precisely when one of the following holds:
 	\begin{enumerate} \listspace
