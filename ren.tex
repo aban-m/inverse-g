@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{tikz}
+\usepackage{hyperref}
 \usepackage{amsmath, amssymb, mathtools, amsthm}
 \usepackage{enumitem, csquotes}
 \usepackage{theoremref}
@@ -43,6 +44,7 @@ url=false, sortcites=true]{biblatex}
 \NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
 \NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
 \NewDocumentCommand{\case}{m}{\sffamily \textbf{Case #1.} \rmfamily }
+
 \NewDocumentCommand{\hold}{m}{Hölder}
 \NewDocumentCommand{\hg}{m}{Hölder graph}
 \NewDocumentCommand{\hgs}{m}{Hölder graphs}
@@ -116,7 +118,7 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 	Let $g(n)$ denote the number of groups of order $n$ up to isomorphism. We solve the equations $g(n) = 6$ and $g(n) = 7$.
 \end{abstract}
 
-\textup{2000} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}
+\textup{2000} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
 
 \section{Introduction}
 The function $g(n)$, counting isomorphism types of groups of order $n$, has various interesting arithmetical properties. It is not hard to see that $g(p) = 1$ for all primes $p$. However, primes are not the only such numbers: We have $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$. This raises the question: Which $n$ satisfy $g(n) = 1$? As $\cyc{n} = \mathbb{Z}/n\mathbb{Z}$, this is equivalent to finding $n$ such that all groups of order $n$ are cyclic.
@@ -214,7 +216,7 @@ The first operation can be operated successively, that is, we can start with a g
 \end{prop}
 
 An amusing consequence of this fact is this. We observe that $\Phi_{m + n} = \Phi_m \rightarrow \Phi_n$, and $g(\Phi_m - \{\text{final}\}) = \fibo{m}$ and similarly $g(\Phi_n; \text{initial}) = \fibo{n}$.
-We can now apply \thref{eustick} to get the well-known identity, \eqnspace
+We can now apply \hyperref[eustick]{\thref{eustick}} to get the well-known identity, \eqnspace
 \begin{align*}
 	\fibo{m + n} &= g(\Phi_m \rightarrow \Phi_{n - 1}) \\
 	&= g(\Phi_m)g(\Phi_{n - 1}) + g(\Phi_m - \{\text{final}\})g(\Phi_{n - 1}; \{\text{initial}\}) \\
