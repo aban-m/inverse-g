@@ -40,7 +40,7 @@
 
 % Basics
 \usepackage{amsmath, amssymb, mathtools, amsthm}
-\usepackage{csquotes}
+\usepackage{csquotes, datetime}
 \usepackage[open,openlevel=1]{bookmark}
 
 % Language
@@ -160,8 +160,11 @@ w/.style={baseline=-0.4ex},
 ww/.style={baseline=-0.4ex, node distance=0.37cm}
 }
 
+\newdate{date}{06}{09}{2012}
+
 \begin{document}
 \title{Orders for which there exist exactly six or seven groups}
+\date{\displaydate{date}}
 \author{Aban S. Mahmoud}
 \maketitle
 
