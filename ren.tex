@@ -30,6 +30,14 @@
                             \do\-{\mathchar`\-}%
                             \do\#{\mathchar`\#}}
 
+% Fixing a pagebreak towards the end 
+% https://tex.stackexchange.com/questions/94699/absolutely-definitely-preventing-page-break
+\newenvironment{keepintact}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
+
 % Basics
 \usepackage{amsmath, amssymb, mathtools, amsthm}
 \usepackage{csquotes}
@@ -558,6 +566,7 @@ At least one prime, say $s$, is connected to $p^2$. We have $g(p^2 s)g(qr) + 1 \
 In what follows, $s, p, q, r$ represent distinct, odd primes.
 \nopagebreak
 \setenumerate[1]{label=\Roman*., font=\normalfont}
+\begin{keepintact}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 6$ precisely when one of the following holds:
 	\begin{enumerate} \listspace
@@ -580,6 +589,7 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 	\end{enumerate} \textspace
 	where no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
+\end{keepintact}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 7$ precisely when one of the following holds:
 	\begin{enumerate}	\listspace
