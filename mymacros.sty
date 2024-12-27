@@ -1,0 +1,90 @@
+
+\newcommand{\sqf}[2]{#1_1 #1_2 \mathellipsis #1_{#2}}
+\newcommand{\qs}{\sqf{q}{s}}
+\newcommand{\ps}{\sqf{p}{s}}
+\newcommand{\rs}{\sqf{r}{s}}
+\newcommand{\ufd}{p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_s^{\alpha_s}}
+\newcommand{\ufdsh}{p_1^{\alpha_1} \cdots p_s^{\alpha_s}}
+
+\newcommand{\nsub}{\triangleleft}
+\newcommand{\fbr}[1]{g^{-1}{(#1)}}
+
+\newcommand{\aut}[1]{\operatorname{Aut}(#1)}
+\newcommand{\cyc}[1]{\operatorname{C}_{#1}}
+\newcommand{\gl}[2]{\operatorname{GL}(#1, \mathbb{F}_#2)}
+\newcommand{\Mod}[1]{\ (\mathrm{mod} \ #1)}
+
+\newcommand{\qo}{\tilde{q}}
+\newcommand{\pin}{\tilde{p}}
+\newcommand{\tilpi}{\tilde{\pi}}
+\newcommand{\piga}{\pi_\Gamma}
+\newcommand{\pila}{\pi_\Lambda}
+\newcommand{\fibo}[1]{F_{#1}}
+
+\newcommand{\qlame}{\Lambda_{5,\text{I}}}
+\newcommand{\qlamz}{\Lambda_{5,\text{II}}}
+\newcommand{\qlamd}{\Lambda_{5,\text{III}}}
+\newcommand{\slame}{\Lambda_{6, \text{I}}}
+\newcommand{\slamz}{\Lambda_{6, \text{II}}}
+\newcommand{\m}[1]{\text{M}_{#1}}
+\newcommand{\hlame}{\Lambda_7}
+\newcommand{\hthref}[1]{\hyperref[#1]{\thref{#1}}}
+
+\NewDocumentCommand{\listspace}{}{}
+\NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
+\NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
+\NewDocumentCommand{\drawunspace}{}{\vspace{-0.5\baselineskip}}
+\NewDocumentCommand{\enumunspace}{}{}
+\NewDocumentCommand{\unpre}{}{\hspace*{-8pt}}
+
+\NewDocumentCommand{\case}{m}{\smash{\sffamily \textbf{Case #1.} \rmfamily }}
+\NewDocumentCommand{\scase}{m}{\smash{\sffamily {Subcase #1.} \rmfamily }}
+
+\NewDocumentCommand{\hold}{m}{Hölder}
+\NewDocumentCommand{\hg}{m}{Hölder graph}
+\NewDocumentCommand{\hgs}{m}{Hölder graphs}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{eufact}{Fact}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{quest}{Question}
+\newtheorem{cor}[prop]{Corollary}
+\newtheorem*{conj}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+
+
+\setenumerate[1]{label=\alph*.}
+\setenumerate[2]{label=\alph*.}
+%\setlist{noitemsep, nolistsep}
+
+\tikzset
+{%
+point/.style={fill=black, draw, circle, inner sep=0.042cm, outer sep=0.12cm},
+soint/.style={fill=black, draw, circle, inner sep=0.022cm, outer sep=0.1cm},
+walk/.pic={
+	\node [soint] (a) {};
+	\node [soint,right=of a] (b) {};
+	\path [->] (a) edge (b);
+},
+twalk/.pic={
+	\node [soint] (a) {};
+	\node [soint,right=of a] (b) {};
+	\node [soint, right=of b] (c) {};
+	\path [->] (a) edge (b)
+	(b) edge (c);
+},
+ewalk/.pic={
+	\node [soint] (a) {};
+	\node [soint, right=of a] (b) {};
+},
+w/.style={baseline=-0.4ex},
+ww/.style={baseline=-0.4ex, node distance=0.37cm}
+}
