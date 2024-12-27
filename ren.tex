@@ -1,11 +1,11 @@
-\documentclass{article}
+\documentclass{scrartcl}
 
 % Graphics
 \usepackage{tikz}
 \usetikzlibrary{arrows, calc, patterns, positioning, shapes}
 \usetikzlibrary{decorations.pathmorphing, backgrounds, scopes}
 
-% Referencing
+% Sectioning
 \usepackage{hyperref}
 \usepackage{theoremref}
 
@@ -18,7 +18,7 @@
 
 % Spacing
 \usepackage{microtype}
-\usepackage{sectsty}
+%\usepackage{sectsty}
 \usepackage{enumitem}
 \usepackage[margin=1.5in]{geometry}
 \hypersetup{
@@ -90,7 +90,6 @@ url=false, sortcites=true]{biblatex}
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
 
-\sectionfont{\centering}
 
 \setenumerate[1]{label=\alph*.}
 \setenumerate[2]{label=\alph*.}
@@ -128,23 +127,23 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 }
 
 \begin{document}
-\title{Orders for which there are exactly six or seven groups}
-\author{Aban Mahmoud}
+\title{Orders for which there exist exactly six or seven groups}
+\author{Aban S. Mahmoud}
 \maketitle
 
 \setlength{\abovedisplayskip}{2.8pt}
 \setlength{\belowdisplayskip}{2.5pt}
 
 \begin{abstract}
-	A classical problem is to evaluate $g(n)$ for various $n$, where $g$ is the group-counting function. We approach the inverse problem of finding all $n$ such that $g(n) = 6$ and $g(n) = 7$, beginning by restricting the class of $n$ to consider, and then evaluating $g(n)$ using Hölder's formula when $n$ is squarefree, and the formulas given in a paper by H. Dietrich, B. Eick and X. Pan for when $n$ has a small number of prime factors.
+	A classical problem is to evaluate $g(n)$ for various $n$, where $g$ is the group-counting function. We approach the inverse problem of finding all $n$ such that $g(n) = 6$ and $g(n) = 7$, beginning by restricting the class of $n$ to consider, and then evaluating $g(n)$ using Hölder's formula when $n$ is squarefree, and the formulas given in a paper by H. Dietrich, B. Eick and X. Pan for when $n$ has a small number of prime factors. The determination of $n$ for which $g(n) = k$ for all $1 \le k \le 5$ has already been carried out by G. A. Miller.
 \end{abstract}
 
-\textup{2000} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
+\textup{2020} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
 
 \section{Introduction}
 The function $g(n)$, defined as the number of order $n$ (up to isomorphism), has various interesting arithmetical properties. It is not hard to see, for example, that we have $g(p) = 1$ for all primes $p$. More interestingly, we have $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$. This raises the question: Which $n$ satisfy $g(n) = 1$? As $\cyc{n} = \mathbb{Z}/n\mathbb{Z}$. 
 
-More generally, we can consider the equation $g(n) = k$ for a fixed integer $k$, and try to solve it. Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}, but the result has been re-derived multiple times: For instance, the case $k = 3$ is handled in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. It is an open problem whether every number is $g(n)$ for some $n$, but there is strong evidence that this is the case even when one restricts to odd, squarefree $n$. 
+More generally, we can consider the equation $g(n) = k$ for a fixed integer $k$, and solve it in $n$. Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}, but the result has been re-derived multiple times: For instance, the case $k = 3$ appears in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. It is an open problem whether every number is $g(n)$ for some $n$, but there is strong evidence that this is the case even when one restricts to odd, squarefree $n$. 
 
 Since $g(n) = 1$ is equivalent to all groups of order $n$ being cyclic, we can generalize in the other direction by taking a group theoretic property $\mathcal{P}$ and consider the set of $P$-\emph{numbers}, that is, all $n$ such that all groups of order $n$ have property $\mathcal{P}$. This question is old: Dickson {\cite{dickson}} has characterized abelian numbers over a century ago. Nilpotent numbers {\cite{pazderski}} and cyclic numbers {\cite{szele}} have also been characterized (for a modern treatment, see {\cite{nilnumb}}). In {\cite{mueller}}, this problem is solved for $\mathcal{P} = $ nilpotent of class at most $c$, which generalizes the last three problems. The two directions are related beyond the $k = 1$ case: It turns out, for example, that $g(n)$ is a power of $2$ whenever $n$ is an abelian number.
 
@@ -352,6 +351,8 @@ Now consider the ``coefficients'' in $k$: All of them are greater than $3$ excep
 \subsubsection*{Regular \hgs{1} with two edges}
 Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for a representative using GAP. We list the single ``irregular'' example\nolinebreak[4] as well.\vspace*{-\baselineskip}
 \begin{center}
+
+\resizebox{\textwidth}{!}{%
 	\begin{tikzpicture}[scale=0.9]
 	
 		% SECOND ROW
@@ -424,6 +425,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\path[->, thick] (p4) edge[dashed] (q4);
 		\path[->, thick] (p7) edge (q7);
 	\end{tikzpicture}
+}
 \end{center}
 \subsubsection*{Regular \hgs{1} with three edges}
 A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \slame, \slamz$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$. We now study the effect of adding an edge using \hthref{euppqr}.
