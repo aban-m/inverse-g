@@ -479,14 +479,26 @@ which are not isomorphic to any of the previous $5$. Thus we get $7$ groups of o
 Let $G$ be of order $n = p^2 q r s$. Clearly, $n$ is odd and thus $G$ is solvable by Feit-Thompson {\cite{oddsolve}}. By Hall's theorems {\cite[Th.~3.13]{fgt}}, we have a subgroup $H_q$ of index $q$. By {\cite[Th.~5.14]{fgt}}, this subgroup is normal since its index is the smallest prime that divides $q$. Consequently, $G \cong H_q \rtimes \cyc{q}$.
 We thus have two cases: If the $q$-Sylow subgroup is normal, we get the groups of order $p^2 r s$ multiplied by $\cyc{q}$. So we assume the $q$-Sylow subgroup is not normal. 
 
-First, by taking a $\{p, q\}$-Hall subgroup, we see that the $p$-Sylow subgroup is isomorphic to $\cyc{p} \times \cyc{p}$. Next, by using the solvability of $H_q$, we again construct a normal subgroup $H_rq \nsub H_q$ with $\abs{H_rq} = p^2 s$. Let $S$ be an $s$-Sylow subgroup of $H_rq$. We have $S \text{char} H_qr \nsub H_q$ and thus $S \nsub H_q$, so $n_s(G) \mid q$. Since $q$ and $s$ are not related, we have $n_s(G) = 1$, i.e., the $s$-Sylow subgroup is normal. We claim that it is complement is normal as well. Suppose it is not, and write $G \cong S \rtimes K$ where $\abs{K} = p^2 q r$ is a Hall subgroup of $G$. Now consider the defining homomorphism $K \rightarrow \aut{K} \cong \cyc{s - 1}$. The kernel must have order $pqr$ or $qr$, and it is easy to see that the $q$-Sylow subgroup is characteristic in the kernel, and therefore normal in $K$. This forces $n_q(G) \mid s$ and consequently $n_q(G) = 1$, contradicting our assumption that the $q$-Sylow subgroup is not normal.
+First, by taking a $\{p, q\}$-Hall subgroup, we see that the $p$-Sylow subgroup is isomorphic to $\cyc{p} \times \cyc{p}$. Next, by using the solvability of $H_q$, we again construct a normal subgroup $H_rq \nsub H_q$ with $\abs{H_rq} = p^2 s$. Let $S$ be an $s$-Sylow subgroup of $H_{qr}$. We have $S \text{char} H_{qr} \nsub H_q$ and thus $S \nsub H_q$, so $n_s(G) \mid q$. Since $q$ and $s$ are not related, we have $n_s(G) = 1$, i.e., the $s$-Sylow subgroup is normal. We claim that it is complement is normal as well. Suppose it is not, and write $G \cong S \rtimes K$ where $\abs{K} = p^2 q r$ is a Hall subgroup of $G$. Now consider the defining homomorphism $K \rightarrow \aut{K} \cong \cyc{s - 1}$. The kernel must have order $pqr$ or $qr$, and it is easy to see that the $q$-Sylow subgroup is characteristic in the kernel, and therefore normal in $K$. This forces $n_q(G) \mid s$ and consequently $n_q(G) = 1$, contradicting our assumption that the $q$-Sylow subgroup is not normal.
 
-It follows that we have a correspondence between groups of order $n$ with their $q$-Sylow subgroup not normal, and groups of order $p^2 q r$ with their $q$-Sylow subgroup not normal. Our earlier classification shows that the second class has $2$ elements. This completes the analysis.
+It follows that we have a correspondence between groups of order $n$ with their $q$-Sylow subgroup not normal, and groups of order $p^2 q r$ with their $q$-Sylow subgroup not normal. Our earlier classification shows that the second set has $2$ elements. This completes the analysis.
+
+
 %
 %
 %
 %
-\case{C.2}
+\case{C.2} \emph{There is an exactly one edge in $qrs$, say $q \rightarrow r$.}
+We claim that we have no admissible $n$ in this case. We introduce the notation $g_{\alpha}(n)$ to mean the number of groups of order $n$ satisfying the condition that the $p$-Sylow subgroup is a direct factor whenever $p$ is in $\alpha$. Observe that $g(n) > g_\alpha(n)$ whenever $\alpha$ is nonempty and $n$ is connected. The strategy is to compute $g_\alpha(n)$ for a suitably chosen subset $\alpha$ and show that the result is at least $7$, meaning that $g(n) \ge 8$, showing that $n$ is inadmissible.
+
+We need $g(p^2 s)g(qr) + 1 \le 7$ and this forces $g(p^2 s) \le 3$. By connectivity, we have in fact $g(p^2 s) = 3$ and thus a weak arrow $s \dashrightarrow p^2$. Our graph of $n$ becomes connected by adding an edge. By considering $p^2 q r$, we immediately see that there are three options, corresponding to $M_1(q), \slame$ and $\qlame$:
+
+\resizebox{\textwidth}{!}{%
+	\begin{tikzpicture}[scale=0.9]
+		% THE IMAGE GOES HERE.
+	\end{tikzpicture}
+}
+
 
 %
 %
