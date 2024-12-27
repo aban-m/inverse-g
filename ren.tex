@@ -139,19 +139,19 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \textup{2000} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
 
 \section{Introduction}
-The function $g(n)$, counting isomorphism types of groups of order $n$, has various interesting arithmetical properties. It is not hard to see that $g(p) = 1$ for all primes $p$. However, primes are not the only such numbers: We have $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$. This raises the question: Which $n$ satisfy $g(n) = 1$? As $\cyc{n} = \mathbb{Z}/n\mathbb{Z}$, this is equivalent to finding $n$ such that all groups of order $n$ are cyclic.
+The function $g(n)$, defined as the number of order $n$ (up to isomorphism), has various interesting arithmetical properties. It is not hard to see, for example, that we have $g(p) = 1$ for all primes $p$. More interestingly, we have $g(15) = 1$, and in fact, $g(pq) = 1$ whenever $p, q$ are primes with $q \not\equiv 1 \Mod{p}$. This raises the question: Which $n$ satisfy $g(n) = 1$? As $\cyc{n} = \mathbb{Z}/n\mathbb{Z}$. 
 
-This raises two questions: On the one hand, we can take a group theoretic property $\mathcal{P}$ and attempt to characterize all $P$-\emph{numbers}, that is, all $n$ such that every group of order $n$ has property $\mathcal{P}$. This question is old: Dickson {\cite{dickson}} has characterized abelian numbers over a century ago. Nilpotent numbers {\cite{pazderski}} and cyclic numbers {\cite{szele}} have also been characterized (for a modern treatment, see {\cite{nilnumb}}). In {\cite{mueller}}, this problem is solved for $\mathcal{P} = $ nilpotent of class at most $c$, which generalizes the last three problems.
+More generally, we can consider the equation $g(n) = k$ for a fixed integer $k$, and try to solve it. Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}, but the result has been re-derived multiple times: For instance, the case $k = 3$ is handled in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. It is an open problem whether every number is $g(n)$ for some $n$, but there is strong evidence that this is the case even when one restricts to odd, squarefree $n$. 
 
-On the other hand, we can simply consider $g(n) = k$ for a fixed $k$. Miller answers this question for $k = 1, 2, 3$ in {\cite{miller1}} and for $k = 4, 5$ in {\cite{miller2}}, but the result has been re-derived multiple times: For instance, the case $k = 3$ is handled in {\cite{olsson}} and $1 \le k \le 4$ in {\cite{gnumoas}}. It is an open problem whether every number is $g(n)$ for some $n$, but there is strong evidence that this is the case even when one restricts to odd, squarefree $n$. The two directions are related: It turns out, for example, that $g(n)$ is a power of $2$ whenever $n$ is an abelian number.
+Since $g(n) = 1$ is equivalent to all groups of order $n$ being cyclic, we can generalize in the other direction by taking a group theoretic property $\mathcal{P}$ and consider the set of $P$-\emph{numbers}, that is, all $n$ such that all groups of order $n$ have property $\mathcal{P}$. This question is old: Dickson {\cite{dickson}} has characterized abelian numbers over a century ago. Nilpotent numbers {\cite{pazderski}} and cyclic numbers {\cite{szele}} have also been characterized (for a modern treatment, see {\cite{nilnumb}}). In {\cite{mueller}}, this problem is solved for $\mathcal{P} = $ nilpotent of class at most $c$, which generalizes the last three problems. The two directions are related beyond the $k = 1$ case: It turns out, for example, that $g(n)$ is a power of $2$ whenever $n$ is an abelian number.
 
-A beautiful formula for $g(n)$ when $n$ is squarefree has been discovered by \hold{1} {\cite[Th.~5.1]{gnumoas}}. An instance of it is that, if $p, q, r$ are primes and $q \equiv r \equiv 1 \Mod{p}$ and $\gcd(qr, (q-1)(r-1)) = 1$, for example, then $g(pqr) = p + 2$, already showing that the image of $g$ is infinite. There is no similarly explicit formula for all cubefree $n$, but there is an efficient algorithm for enumerating all groups of cubefree order {\cite{cubefree}}, and there are relatively simple formulae for $g(n)$ when $n$ has a few number of prime factors.
+A beautiful formula for $g(n)$ when $n$ is squarefree has been discovered by \hold{1} {\cite[Th.~5.1]{gnumoas}}. An instance of it is that, if $p, q, r$ are primes with $q \equiv r \equiv 1 \Mod{p}$ and $\gcd(qr, (q-1)(r-1)) = 1$, then $g(pqr) = p + 2$, already showing that the image of $g$ is infinite. There is no similarly explicit formula for all cubefree $n$, but there is an efficient algorithm for enumerating all groups of cubefree order {\cite{cubefree}}, and there are relatively simple formulae for $g(n)$ when $n$ has a few number of prime factors.
 
-Using the Krull-Schmidt theorem {\cite{hungerford}}, one can see that $g(ab) \ge g(a)g(b)$. Since \mbox{$g(p^2) = 2$,} $g(p^3) = 5$ and $g(p^4) \ge 14$ for all primes $p$ {see, e.g., \cite[Th.~3.1]{gnumoas}}, we see that we only consider fourth-power-free $n$. In fact, we will see that $g(n) = 6, 7$ for non-cubefree $n$ is relatively rare, so we will mostly be working with cubefree $n$. We will use directed graphs heavily to formulate the streamline the analysis. The vertices will be the prime powers dividing $n$, and the edges essentially indicate that nontrivial semidirect products exist.
+Using the Krull-Schmidt theorem {\cite{hungerford}}, one can see that $g(ab) \ge g(a)g(b)$. Since \mbox{$g(p^2) = 2$,} $g(p^3) = 5$ and $g(p^4) \ge 14$ for all primes $p$ (see, e.g., \cite[Th.~3.1]{gnumoas}), we see that we only consider fourth-power-free $n$. In fact, we will see that $g(n) = 6, 7$ for non-cubefree $n$ is relatively rare, so we will mostly be working with cubefree $n$. The key computational tool will be directed graphs: We represent numbers by graphs to streamline the analysis of \hold{1}-type formulas. The vertices will be the prime powers dividing $n$, and the edges will essentially indicate that nontrivial semidirect products exist.
 
 \section{Hölder graphs}
 \subsection{Hölder's formula}
-For a squarefree $n$, a prime factor $p$ and a subset $\pi$ of its set of prime factors $\Gamma$, we let $v(p, \pi)$ denote the number of primes $\pi$ that $p$ is related to, that is, the number of primes $q$ in $\pi$ such that $q \equiv 1 \Mod{p}$. Then we have
+For squarefree $n$, a prime factor $p$ and a subset $\pi$ of its prime factors, we let $v(p, \pi)$ be the number of $q$ in $\pi$ with $q \equiv 1 \Mod{p}$. We also let $\Gamma$ be the set of all prime factors. Then we have
 \begin{fact}[\textbf{\hold{1}'s formula}]\thlabel{euholder} In this notation, we have
 	\begin{equation*}
 		g(n) = \sum_{\pi \subseteq \Gamma} \prod_{p \notin \pi} \frac{p^{v(p, \pi)} - 1}{p - 1}
@@ -159,27 +159,27 @@ For a squarefree $n$, a prime factor $p$ and a subset $\pi$ of its set of prime 
 \end{fact}
 \begin{proof} See {\cite[Th.~5.1]{gnumoas}}. \end{proof}
 
-It is therefore natural to define the \emph{\hg{1}} of a squarefree integer $n$ to be unlabeled directed graph whose vertices are the prime factors, and where we draw an edge $p \rightarrow q$ precisely when $p$ is related to $q$. We will denote this by $\Gamma = \Gamma(n)$. Observe also that when the out-degree of every vertex is at most 1, it follows that $g(n)$ depends solely on the \hg{1}, and therefore we are justified in speaking of $g(\Gamma).$ We call $n$ and $\Gamma$ \emph{regular} in this case. We will occasionally treat directed acyclic graphs $\Gamma$ with only the vertices whose out-degree exceeds 1 labeled. In this case, we can still speak of $g(\Gamma)$ without ambiguity, as it will be independent from the labels of the rest of the vertices. Observe also that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd squarefree integer, via Dirichlet's theorem on arithmetic progressions.
+It is therefore natural to define the \emph{\hg{1}} of a squarefree integer $n$ to be unlabeled directed graph whose vertices are the prime factors, and where we have an edge $p \rightarrow q$ precisely when $p$ is related to $q$. We will denote this by $\Gamma = \Gamma(n)$. Observe also that when the out-degree of every vertex is at most 1, it follows that $g(n)$ depends solely on the \hg{1}, and therefore we are justified in speaking of $g(\Gamma).$ We call both $n$ and $\Gamma$ \emph{regular} in this case. We will occasionally treat directed acyclic graphs $\Gamma$ where we only know the \emph{labels}, or the numerical values, of the vertices whose out-degree exceeds $1$. In this case, we can still speak of $g(\Gamma)$ without ambiguity, as it will be independent from the labels of the rest of the vertices. We also observe that Dirichlet's theorem on arithmetic progressions clearly shows that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd squarefree integer.
 
-We generalize this to arbitrary $n$ as follows. The vertices are now the prime powers, and an edge $p^\alpha \rightarrow q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$. We will call this the \emph{generalized \hg} of $n$, also denoted by $\Gamma(n)$. We will mostly make use of the case when $\{\alpha, \beta\} = \{1, 2\}$. In this case, we write $p^2 \dashrightarrow q$ to mean $p \parallel q - 1$. On the other hand, we write $q \dashrightarrow p^2$ to mean $q \mid p + 1$ but $q \nmid p - 1$ (that is, $p$ has order $2$ modulo $q$). We call these ``weak arrows''.
+We generalize this to arbitrary $n$ as follows. The vertices are now the prime powers, and an edge $p^\alpha \rightarrow q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$. We will call this the \emph{generalized \hg} of $n$, also denoted by $\Gamma(n)$. We will mostly make use of the case when $n$ is cubefree. In this case, we write $p^2 \dashrightarrow q$ to mean $p \parallel q - 1$. On the other hand, we write $q \dashrightarrow p^2$ to mean $q \mid p + 1$ but $q \nmid p - 1$ (that is, $p$ has order $2$ modulo $q$). We call these ``weak arrows''.
 
-In the following, we let $S(\pi, \Gamma)$ denote the summand corresponding to the subset $\pi$ in a \hg{1} $\Gamma$, and each factor of it will be denoted $h_\Gamma(p, \pi).$ Moreover, we will call vertices $q$ with no edge $q \rightarrow v$ terminal, and vertices $p$ with no edge $v \rightarrow p$ as initial. A vertex with out-degree of at most 1 will also be called regular.
+In the following, we let $S(\pi, \Gamma)$ denote the summand corresponding to the subset $\pi$ in a \hg{1} $\Gamma$, and each factor of it will be denoted $h_\Gamma(p, \pi).$ Moreover, we will call vertices $q$ with no edge $q \rightarrow v$ \emph{terminal}, and vertices $p$ with no edge $v \rightarrow p$ \emph{initial}. A vertex with out-degree of at most 1 will also be called regular.
 
 If there is a vertex $p$ not connected to any vertex in $\pi,$ the entire summand $S(\pi; \Gamma)$ vanishes. Motivated by this observation, we call a subset $\pi$ \emph{central} if, for every vertex outside of it, there exists at least one edge to a vertex inside it -- equivalently, if $S(\pi; \Gamma)$ does not vanish, and we let $c(\Gamma)$ denote the number of central subsets. In this notation, $g(\Gamma) \ge c(\Gamma)$ and equality holds precisely when $\Gamma$ is regular.
 
 \subsection{Connectivity and multiplicativity}
-We have already observed that $g(ab) \ge g(a)g(b).$ When does equality hold? If it does hold, then every group of order $ab$ splits as a direct product of groups of orders $a$ and $b.$ So the first condition is coprimality: If $p$ divides both $a$ and $b,$ we simply observe that the group $\cyc{a/p} \times \cyc{p^2} \times \cyc{b/p}$ does not split in this way. Next, it must be impossible to form semidirect products. If $p$ divides $b$ and $q^n$ divides $a$, we observe that $\abs{\aut{\cyc{q}^n}}$ has $q^i - 1$ as a factor for all $1 \le i \le n$, and therefore a nontrivial semidirect product exists if there is a relation $p \rightarrow q^n.$ We conclude that the $\Gamma(n) = \Gamma(a) \sqcup \Gamma(b)$. In fact, the converse holds as well.
+We have already observed that $g(ab) \ge g(a)g(b).$ When does equality hold? If it does hold, then every group of order $ab$ splits as a direct product of groups of orders $a$ and $b.$ Coprimality is therefore a necessary condition: If $p$ divides both $a$ and $b,$ we simply observe that the group $\cyc{a/p} \times \cyc{p^2} \times \cyc{b/p}$ does not split in this way. Next, it must be impossible to form semidirect products. If $p$ divides $b$ and $q^n$ divides $a$, we observe that $\abs{\aut{\cyc{q}^n}}$ has $q^i - 1$ as a factor for all $1 \le i \le n$, and therefore a nontrivial semidirect product exists if there is a relation $p \rightarrow q^n.$ We conclude that the $\Gamma(n) = \Gamma(a) \sqcup \Gamma(b)$. In fact, the converse holds as well.
 
 \begin{thm}\thlabel{eufrobenius}
 	Suppose we have $n = ab$.
 	\begin{enumerate}\listspace
 		\item $g(n) = g(a)g(b).$
 		\item Every group of order $n$ decomposes as a direct product of a group of order $a$ and a group of order $b.$
-		\item $a$ and $b$ are coprime and arithmetically independent -- in other words, $\Gamma(n) = \Gamma(a) \sqcup \Gamma(b)$.
+		\item $a$ and $b$ are coprime and arithmetically independent -- that is, $\Gamma(n) = \Gamma(a) \sqcup \Gamma(b)$.
 	\end{enumerate} \textspace
 \end{thm}
 \begin{proof}
-	See {\cite[em.~21.19]{monolith}}.
+	See {\cite[Lem.~21.19]{monolith}}.
 \end{proof}
 
 \begin{prop}\thlabel{euufd}
@@ -191,28 +191,28 @@ We have already observed that $g(ab) \ge g(a)g(b).$ When does equality hold? If 
 	\end{enumerate} \textspace
 \end{prop}
 \begin{proof}
-	This follows immediately from considering the generalized \hg{1} of $n$ and letting the $n_i$ be the numbers corresponding to the connected component of at least two vertices, and $m$ the product of all the labels of the isolated vertices.
+	This follows immediately from considering the generalized \hg{1} of $n$ and letting the $n_i$ be the numbers corresponding to the connected component of at least two vertices, and $m$ the product of all the values of the isolated vertices.
 \end{proof}
 
-In solving $g(n) = c$, it is useful to define the \emph{cyclic part} of $n$ to be $m$ (in the above notation), and call $n$ \emph{cyclic-free} if $m = 1$. Next, whenever $c = c_1 \cdots c_s$, finding solutions $g(n_i) = c_i$ with the $n_i$ pairwise independent leads to a solution to $c$. It is therefore natural to consider ``prime'' values of $n$, that is, those with $k = 1$. We will call $n$ with $k = 1$ \emph{connected}. By considering non-nilpotent groups, we obtain the following lower bound:
+In solving $g(n) = c$, it is useful to define the \emph{cyclic part} of $n$ to be $m$ (in this notation), and call $n$ \emph{cyclic-free} if $m = 1$. Next, whenever $c = c_1 \cdots c_s$, finding solutions $g(n_i) = c_i$ with the $n_i$ pairwise independent leads to a solution to $c$. It is therefore natural to consider ``prime'' values of $n$, that is, those with $k = 1$. We will call $n$ with $k = 1$ \emph{connected}. By considering non-nilpotent groups, we obtain the following lower bound:
 
 \begin{prop}\thlabel{eunnp}
 	If $n = \ufdsh$ is connected, then $g(n) \ge g(p_1^{\alpha_1})\cdots g(p_s^{\alpha_s}) + s - 1.$
 \end{prop}
 
 \subsection{Splicing graphs}
-Given graphs $\Gamma$ and $\Lambda$ with a fixed terminal vertex $\qo$ in $\Gamma$ and any vertex $\pin$ in $\Lambda$, we can make a new graph $\Gamma \rightarrow \Lambda$ by adjoining an arrow $\pin \rightarrow \qo$ to the disjoint union of $\Gamma$ and $\Lambda$. This depends on the choice of $\qo$ and $\pin$ in general, but this will be clear from context. 
+Given graphs $\Gamma$ and $\Lambda$ with a fixed terminal vertex $\qo$ in $\Gamma$ and any vertex $\pin$ in $\Lambda$, we can make a new graph $\Gamma \rightarrow \Lambda$ by adjoining an arrow $\pin \rightarrow \qo$ to the disjoint union of $\Gamma$ and $\Lambda$. This depends on the choice of $\qo$ and $\pin$ in general, but we omit mentioning it when there is no risk of confusion.
 
 \begin{prop}\thlabel{eujoin}
 	In this notation, \eqnspace \begin{equation*} g(\Gamma \rightarrow \Lambda) = g(\Gamma)g(\Lambda) + g(\Gamma - \{\qo\})g(\Lambda; \pin). \end{equation*}
 \end{prop}
 \begin{proof}
-	Let $M = \Gamma \rightarrow \Lambda.$ Given a subset $\tilpi$ of $M$ we define the obvious subsets $\piga$ and $\pila.$ To simplify notation, we write $h_X(p, \pi)$ to denote the factor corresponding to $p$ in $S(\pi, X).$ We first observe that $h_M(p, \tilpi) = h_\Lambda(p, \pila)$ because no edge exists from a $\Lambda$-vertex to a $\Gamma$-vertex. Now we evaluate $S(\tilpi, M)$ for a subset $\tilpi,$ and we distinguish three cases.
+	Let $M = \Gamma \rightarrow \Lambda.$ Given a subset $\tilpi$ of $M$ we define the obvious subsets $\piga$ and $\pila.$ To simplify notation, we write $h_X(p, \pi)$ to denote the factor corresponding to $p$ in $S(\pi, X).$ We first observe that $h_M(p, \tilpi) = h_\Lambda(p, \pila)$ because no edge exists from a $\Lambda$-vertex to a $\Gamma$-vertex. We now evaluate $S(\tilpi, M)$ for a subset $\tilpi,$ and we distinguish three cases.
 	
 	
-	If $\qo \in \piga$, we have $h_M(p, \tilpi) = h_\Gamma(p, \piga)$ for vertex $p$ in $\Gamma$. For a vertex $p$ in $\Lambda$ the holds, because no vertex in $\Lambda$ is connected to a vertex in $\Gamma$. Thus we have $S(\tilpi, M) = S(\piga, \Gamma)S(\pila, \Lambda).$
+	If $\qo \in \piga$, we claim that $S(\tilpi, M) = S(\piga, \Gamma)S(\pila, \Lambda)$. Indeed, we have $h_M(p, \tilpi) = h_\Gamma(p, \piga)$ for all $p \in \Gamma - \piga$, and the same holds for $\Lambda$ because no vertex in it is connected to a vertex in $\Gamma$.
 	
-	If we have $\qo\notin\piga$ and $\pin \in \pila$ we have $h_M(\qo, \tilpi) = 1$ because there is an edge $\qo \rightarrow \pin,$ and so it contributes nothing to the product. On the other hand, we have $h_M(\pin, \tilpi) = h_\Lambda(\pin, \pila)$ because again no vertex in and therefore $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
+	If we have $\qo\notin\piga$ and $\pin \in \pila$, we get $h_M(\qo, \tilpi) = 1$ because there is an edge $\qo \rightarrow \pin,$ so it contributes nothing to the product. On the other hand, we have $h_M(p, \tilpi) = h_\Lambda(p, \pila)$ for all $p \in \Lambda - \pila$ for the same reason, so we have $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
 	
 	Finally, if $\qo \notin \piga$ and $\pin\notin\pila,$ the previous analysis shows that $h_M(\qo, \tilpi) = 0$, which in turn implies that $S(\tilpi, M) = 0$, meaning $\tilpi$ contributes nothing to the sum.
 	
@@ -227,14 +227,14 @@ Given graphs $\Gamma$ and $\Lambda$ with a fixed terminal vertex $\qo$ in $\Gamm
 	\end{enumerate}\textspace
 \end{cor}
 
-The first operation can be operated successively, that is, we can start with a graph $\Gamma_0$ with a fixed terminal vertex $q$, and define $\Gamma_{n + 1} = \Gamma_{n} \rightarrow v_{n + 1}$, where the $v_i$ are all distinct. If we let $\alpha = g(\Gamma_0 - \{q\})$ and $\beta = g(\Gamma_0)$, then the sequence $a_n = g(\Gamma_n)$ satisfies the recurrence relation $a_{n + 2} = a_{n + 1} + a_n$ with initial values $a_{-1} = \alpha$ and $a_0 = \beta$. Starting with a single vertex, we get
+The first operation can be iterated, that is, we can start with a graph $\Gamma_0$ and a fixed terminal vertex $q$ in it and define $\Gamma_{n + 1} = \Gamma_{n} \rightarrow v_{n + 1}$, where the $v_i$ are all distinct. If we let $\alpha = g(\Gamma_0 - \{q\})$ and $\beta = g(\Gamma_0)$, then the sequence $a_n = g(\Gamma_n)$ satisfies the recurrence relation $a_{n + 2} = a_{n + 1} + a_{n}$ with initial values $a_{-1} = \alpha$ and $a_0 = \beta$. Starting with a single vertex, we get
 
 \begin{prop}\thlabel{eufibo}
 	Let $\Phi_n$ be a directed path of $n$ vertices. Then $g(\Phi_n) = \fibo{n + 1}$, where $\fibo{n}$ is the Fibonacci sequence.
 \end{prop}
 
-An amusing consequence of this fact is this. We observe that $\Phi_{m + n} = \Phi_m \rightarrow \Phi_n$, and $g(\Phi_m - \{\text{final}\}) = \fibo{m}$ and similarly $g(\Phi_n; \text{initial}) = \fibo{n}$.
-We can now apply \hyperref[eustick]{\hthref{eustick}} to get the well-known identity, \eqnspace
+An amusing consequence of this fact is this. Since $\Phi_{m + n} = \Phi_m \rightarrow \Phi_n$, and we have just seen that $g(\Phi_m - \{\text{final}\}) = \fibo{m}$ and $g(\Phi_n; \text{initial}) = \fibo{n}$, 
+we can now apply \hyperref[eustick]{\hthref{eustick}} to obtain the well-known identity, \eqnspace
 \begin{align*}
 	\fibo{m + n} &= g(\Phi_m \rightarrow \Phi_{n - 1}) \\
 	&= g(\Phi_m)g(\Phi_{n - 1}) + g(\Phi_m - \{\text{final}\})g(\Phi_{n - 1}; \{\text{initial}\}) \\
@@ -246,9 +246,9 @@ We have already seen that $g(\Phi_n)$ is the Fibonacci sequence, and so it grows
 	Let $r, s$ denote the in- and out-degree (respectively) of a vertex $v$ in a \hg{1} $\Gamma$ with label $p$. Then $g(\Gamma) \ge 2^r + \frac{p^s - 1}{p - 1}$.
 \end{lem}
 \begin{proof}
-	Consider the subgraph made up by the arrows $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$. Evidently, any subset containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets. Moreover, the complement of $\{v\}$ in this subgraph is central, and it contributes $\frac{p^s - 1}{p - 1}$.
+	Consider the subgraph made up by the arrows $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$. Evidently, any subset containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets. Moreover, the complement of $\{v\}$ in this subgraph is central, and it contributes \nolinebreak[4] $\frac{p^s - 1}{p - 1}$.
 \end{proof}
-In the sequel, we will deal with generalized \hgs{1} of cube free numbers. There are only two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p}^2$. In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus for each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$. On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \rtimes \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$. It follows that the same observation holds for $P \rtimes G$ as well. These two facts together implies the following
+In the sequel, we consider generalized \hgs{1} of cube-free numbers. There are only two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p}^2$. In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus for each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$. On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \rtimes \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$. It follows that the same observation holds for $P \rtimes G$ as well. These two facts together implies the following
 
 \begin{lem}\thlabel{eubold}
 	Let $n$ be cube-free with $s$ factors of the form $p^2$. Then $g(n) \ge 2^s g(\operatorname{rad}(n))$.
@@ -258,7 +258,7 @@ In the sequel, we will deal with generalized \hgs{1} of cube free numbers. There
 \end{proof}
 
 \section{Solving $g(n) = 6, 7$}
-In this section, we will tackle the main problem of the paper, that of finding $n$ such that $g(n) \in \{6, 7\}.$ We will call such $n$ \emph{admissible.} In the next two sections, we will consider only connected numbers $n.$ Connectivity provides an easy lower bound on $g(n).$ Here and throughout, we let $p, q, r$ be different primes. For $n = \ufd,$ we let $\lambda(n) = \sum \alpha_i$ and $\mu(n) = \max\{\alpha_i\}.$
+In this section, we approach the main problem: Finding all $n$ such that $g(n) \in \{6, 7\}.$ We will call such $n$ \emph{admissible.} In the next two sections, we will consider only connected numbers $n.$ Connectivity provides an easy lower bound on $g(n).$ We also let $p, q, r$ be different primes, and for $n = \ufd,$ we define $\lambda(n) = \sum \alpha_i$ and $\mu(n) = \max\{\alpha_i\}.$
 
 \hthref{euinout} restricts the forms of $n$ we need to consider, once one recalls $g(p^3) = 5$ and $g(p^2) = 2.$ We state this as
 
@@ -266,13 +266,13 @@ In this section, we will tackle the main problem of the paper, that of finding $
 	Suppose $n$ is admissible and connected. Either $n$ is squarefree, or $n$ is a divisor of a number of one of the forms $p^2 q^2 r, p^2 q r s, p^3 qr$.
 \end{lem}
 \begin{proof}
-	The only thing that is not obvious is $p^2 q r s$. \textit{A priori}, we only know that $n$ is a divisor of $p^2 q_1 \cdots q_5$, since $g(p^2) + 5 = 7$. We need $g(q_1 \cdots q_s) \le 7/2 = 3.5$ thus the \hg{1} of $q_1 \cdots q_5$ has at most 3 edges. This means that at least one vertex $q_5$ is not connected to any other vertex, so we can discard it. If the graph of $q_1 \cdots q_4$ is connected, we need at least one vertex of either out- or in-degree $2$, yielding at least 4 groups, which contradicts our assumption. Thus there must be at most three vertices.
+	The only part that needs proof is that the squarefree part of $n$ can have at most three prime factors. To see this, observe that $g(p^2 q_1 q_2 q_3 q_4) \ge 2g(q_1 q_2 q_3 q_4)$, so we need $g(q_1 q_2 q_3 q_4) \le 3$. Connectivity of $m = q_1 q_2 q_3 q_4$ forces a vertex to have in- or out-degree greater than 1, but this is ruled out by \hthref{euinout}.
 \end{proof}
 
 \subsection{Disconnected $n$}
-We will deal with \textit{connected} $n$. What about disconnected $n$? This turns out to be the easiest part. Let $n = n_1 \cdots n_k m$ be the unique factorization of $n$, in the notation of \hthref{euufd}, and ordered such that $g(n_i)$ is nondecreasing. The \emph{primality} of $7$ shows that, when $g(n) = 7$, we must have $k = 1$. Thus for $g(n) = 7$ it is enough to consider connected $n$. If $g(n) = 6$, either $k = 1$ or $g(n_1) = 2$ and $g(n_2) = 3$. For the sake of completeness, we re-derive the solutions here.
+We first dispose of the disconnected case. Let $n = n_1 \cdots n_k m$ be the unique factorization of $n$, in the notation of \hthref{euufd}, and ordered such that $g(n_i)$ is nondecreasing. The \emph{primality} of $7$ shows that, when $g(n) = 7$, we must have $k = 1$. Thus for $g(n) = 7$ it is enough to consider connected $n$. If $g(n) = 6$, either $k = 1$ or $g(n_1) = 2$ and $g(n_2) = 3$. For the sake of completeness, we re-derive the solutions here.
 
-First, $n_1$ is cubefree and has at most one square factor. If it has none, then it must have the graph \tikz[ww] \pic {walk};. If it has one, then it cannot have any more factors. Next, we have seen that if $n_2$ is not squarefree, then it must be $p^2 q$ with $q \dashrightarrow p^2$. If it is squarefree, we cannot have a vertex with in-degree or out-degree greater than $1$ because of \hthref{euinout}, so we get a path, and it must be the path of three vertices \tikz[ww] \pic {twalk};. We summarize the result:
+First, $n_1$ is cubefree and has at most one square factor. If it has none, then it must have the graph \tikz[ww] \pic {walk};. If it has one, then it cannot have any more factors. Now $n_2$ is either squarefree, in which case \hthref{euinout} forces $n_2$ to have the graph \tikz[ww] \pic {twalk};, or it is not. If it is not, then it is easy to see that it must be of the form $p^2 q$ with $q \dashrightarrow p^2$. In fact, \hthref{euppq} asserts that $g(p^2 q)$ does indeed equal $3$ in this case. We summarize the result:
 
 \begin{thm}
 	Suppose $n$ is cyclic free.
@@ -283,19 +283,19 @@ First, $n_1$ is cubefree and has at most one square factor. If it has none, then
 \end{thm}
 
 \subsection{Squarefree admissible numbers}
-Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in a \hg{1} $\Gamma$. If $o(\Gamma) = 3$, we get at least $1 + \frac{p^3 - 1}{p - 1} = p^2 + p + 2 \ge 8$. Thus we see that we must have $o(\Gamma) \le 2$, and for a similar reason $i(\Gamma) \le 2$. We therefore have four cases to consider.
+Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in a \hg{1} $\Gamma$. If $o(\Gamma) = 3$, we get at least $1 + \frac{p^3 - 1}{p - 1} = p^2 + p + 2 \ge 8$. It follows that $o(\Gamma) \le 2$, and, for a similar reason, $i(\Gamma) \le 2$. We therefore have four cases to consider.
 
 \case{1} $i(\Gamma) = 1, o(\Gamma) = 1$. In this case $\Gamma$ is simply a path $\Phi_k$ for some $k$, and as neither 6 nor 7 is a Fibonacci number, this is never an admissible graph.
 
-\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is similarly clear that is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this graph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices. A new vertex $u$ can be appended via $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; u) = 4 + 2 = 6$ groups via \hthref{eustick}, so call this new graph $Q$. We cannot extend $Q$: An arrow to $u$ will give too many groups. In the other direction, we could add $v \rightarrow f_1$ to $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$. However, this can only be extended forward, i.e, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields 9 groups.
+\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$. It is similarly clear that there is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this graph $K$. We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices. A new vertex $u$ can be appended via $w_1$ to get $u \rightarrow w_1$, this would give $g(K) + g(K; u) = 4 + 2 = 6$ groups via \hthref{eustick}, so call this new graph $Q$. We cannot extend $Q$: An arrow to $u$ will give too many groups. In the other direction, we could add $v \rightarrow f_1$ to $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$. However, this can only be extended forward, i.e, by taking $(K \rightarrow f_1) \rightarrow f_2$, and this yields 9 groups.
 
-\case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no other vertex labeled 2 because it will have out-degree of at least 2). We cannot add edges without adding vertices, as this would contradict $i(\Gamma) = 1$. Using \hthref{eustick}, we see that adding a new vertex $s$ and an arrow $q \rightarrow s$, where $q$ is either of the two primes with an arrow from $p$, yields $p + 4$ groups. But we cannot have $p = 2$ in this case. This determines all such graphs, so we get admissible graphs when $p = 5$ in the first case and when $p = 3$ in the second case, both yielding $g = 7$.
+\case{3} $i(\Gamma) = 1, o(\Gamma) = 2$. It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$. We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial (there can be no other vertex labeled 2 because it will have out-degree of at least 2). We cannot add edges without adding vertices, as this would contradict $i(\Gamma) = 1$. Using \hthref{eustick}, we see that adding a new vertex $s$ and an arrow $q \rightarrow s$, where $q$ is either of the two primes with an arrow from $p$, yields $p + 4$ groups. But we cannot have $p = 2$ in this case. This finishes the analysis for all such graphs: We get admissible graphs when $p = 5$ in the first case and when $p = 3$ in the second case, both yielding $g = 7$.
 
 \case{4} $i(\Gamma) = 2, o(\Gamma) = 2$. A vertex labeled $p$ with in-degree and out-degree both equal to $2$ would yield $4 + p + 1 = p + 5$ groups, but we cannot have $p = 2$ because then it would be initial, having an in-degree of $0$. So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$. We have already seen that $g(Q) = p + 2$.
-We can add a new edge $v_1 \rightarrow v_2$ which will give $p + 3$ groups. Alternatively, we can add a new vertex $w$, and then we can add $w \rightarrow v_i$ for some $i$. This is not admissible, however: The subsets $\{v_1, v_2\}$ and $\{w, v_1, v_w\}$ would both be central, contributing $2(p + 1) = 2p + 2 \ge 8$ groups in total. So instead we consider $v_1 \rightarrow w$ would reduce this to case 3, and it yields $p + 4 \ge 7$ groups, and we certainly cannot add any more edges, and this contradicts the $i(\Gamma) = 2$ condition. Thus adjoining an edge $v_1 \rightarrow v_2$ gives a solution for $g(n) = 6, 7$ depending on whether $p = 2$ or $3$, and $Q \rightarrow w$ gives a solution for $g(n) = 7$ when $p = 3$. 
+We can add a new edge $v_1 \rightarrow v_2$ which will give $p + 3$ groups. Alternatively, we can add a new vertex $w$, and then we can add $w \rightarrow v_i$ for some $i$. This is not admissible, however: The subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, contributing $2(p + 1) = 2p + 2 \ge 8$ groups in total. So instead we consider $v_1 \rightarrow w$ would reduce this to case 3, and it yields $p + 4 \ge 7$ groups, and we certainly cannot add any more edges, and this contradicts the $i(\Gamma) = 2$ condition. Thus adjoining an edge $v_1 \rightarrow v_2$ gives a solution for $g(n) = 6, 7$ depending on whether $p = 2$ or $3$, and $Q \rightarrow w$ gives a solution for $g(n) = 7$ when $p = 3$. 
 
-\subsection{Non-squarefree admissible $n$, I}
-In this section, we consider admissible $n$ with $\mu(n) \ge 2$ and $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q).$ In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. In their notation, $w_r(s) = 1$ if $s \mid r$ and 0 otherwise. We consider these cases one by one to find the possible solutions.
+\subsection{Small non-squarefree admissible $n$}
+In this section, we consider admissible $n$ with $\mu(n) \ge 2$ and $\lambda(n) \le 4$. Following {\cite{bettinafour1}}, we list special cases of formulae for $g(p^2 q^2), g(p^2 q r), g(p^2 q) \text{and } g(p^3 q)$ and analyze them one by one. In their notation, $w_r(s)$ is defined to be 1 if $s \mid r$ and 0 otherwise. 
 
 \begin{fact}\thlabel{euppq}
 	For all odd primes $p, q$, we have $g(2p^2) = 5$ and \[g(p^2 q) = 2 + \frac{q + 5}{2} w_{p - 1}(q) + w_{p + 1}(q) + 2w_{q - 1}(p) + w_{q - 1}(p^2).\] In particular, $g(p^2 q) = 3$ if and only if $q \mid p + 1$, and $g(p^2 q) = \frac{q + 9}{2}$ if $q \mid p - 1$.
@@ -338,11 +338,13 @@ In this section, we consider admissible $n$ with $\mu(n) \ge 2$ and $\lambda(n) 
 
 We first dispose of the case $p = 2$. Indeed, by counting the groups of the form $(\cyc{q} \times \cyc{r}) \rtimes D$ where $D$ is a group of order 4, we see that $D$ can act on the product $\cyc{q} \times \cyc{r}$ in at least $2^2 = 4$ ways, and $D$ can be chosen in 2 ways. This gives at least 8 groups (we get more if $q \equiv 1 \Mod{4}$ for example). Thus $n$ is odd.
 
-We directly show that there is no arrow $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). First, we need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$. An arrow $q \rightarrow r$ would yield $12 = 2g(p^2 q)$ groups. Thus we have an arrow from $p^2$ to $r$ (either weak or not), since $n$ is connected. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is $R \times P \times Q$, which is realized by $2$ groups. Thus we have at least $6 + 4 - 2 = 8$ groups, showing that $n$ could not be admissible in this case. It is now easy to show that there is no arrow $r \rightarrow p^2$: We would need $r = 3$, but this is absurd since $r > q > 2$.
+We directly show that there is no arrow $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). First, we need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$. An arrow $q \rightarrow r$ would yield $12 = 2g(p^2 q)$ groups. Thus we have an arrow from $p^2$ to $r$ (either weak or not), since $n$ is connected. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is $R \times P \times Q$, which is realized by $2$ groups. Thus we have at least $6 + 4 - 2 = 8$ groups, showing that $n$ could not be admissible in this case. It is now easy to show that there is no arrow $r \rightarrow p^2$: We would need $r = 3$, but this is absurd since $r > q$.
 
-Observe that $h$ depends only on the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using GAP for example. We will call $n$ ``regular'' in this case as well. If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected to $p^2$. An easy case-by-case inspection shows that $h(n) \ge 5$ in this case. Consequently, we have $k(n) \le 3$, with $k(n) = 3$ implying the existence of an arrow $q \rightarrow r$.
+Observe that $h$ depends only on the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using GAP for example. We will call $n$ ``regular'' in this case as well.
 
-Now consider the ``coefficients'' in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3 or 5$, yielding $6$ and $7$, respectively.
+If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected to $p^2$. An easy case-by-case inspection shows that $h(n) \ge 5$ in this case. Consequently, we have $k(n) \le 3$, with $k(n) = 3$ implying the existence of an arrow $q \rightarrow r$.
+
+Now consider the ``coefficients'' in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3$ or $5$, yielding $6$ and $7$, respectively.
 
 \subsubsection*{Regular \hgs{1} with two edges}
 Having dealt with the ``irregular'' cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. We list the single ``irregular'' example as well.
@@ -386,7 +388,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 			\node[point, label=left:$p^2$] (p5) {};
 			\node[point, label=left:$q$, below=of p5] (q5) {};
 			\node[point, label=right:$r$] at ($(q5) + (22.5:2)$)(r5) {};
-			\node at ($(r5) + (230:1.6)$) {$\m{3}: g(12425) = 8$};
+			\node at ($(r5) + (230:1.6)$) {$\m{2}: g(12425) = 8$};
 		\end{scope}
 		
 		%Figure 6
@@ -407,18 +409,18 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 \end{center}
 
 \subsubsection*{Regular \hgs{1} with three edges}
-A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \Lambda_6$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$. We now study the effect of adding an edge using the formula.
+A new edge is to be added to an admissible graph with two edges and $g \le 6$, so the candidates are the $\qlame, \qlamz, \Lambda_6$ and $\m1(3)$. Because the graph is acyclic and $r > q$, the edge is uniquely determined except for $\m1(3)$. We now study the effect of adding an edge using \hthref{euppqr}.
 \begin{itemize}
 	\item $\qlame$: We add at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) + \frac{q - 1}{2}w_{p + 1}(q)w_{r - 1}(q) \ge 3$ groups.
 	\item $\qlamz$: We add at least $2w_{r - 1}(q) + \frac{q - 1}{2} w_{r - 1}(q)w_{p + 1}(r) \ge 3$ groups.
 	\item $\Lambda_6$: We add at least $2w_{r - 1}(p) + 2w_{r - 1}(pq) \ge 4$ groups.
-	\item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m3$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups.
+	\item $\m1(3)$: If we add $p^2 \dashrightarrow r$, we get $\m{2}$ as a (proper) subgraph, and thus the resulting graph is inadmissible. Adding $r \dashrightarrow p^2$, on the other hand, adds at least $w_{p^2 - 1}(qr) + w_{p + 1}(q) \ge 2$ groups.
 	\item $\qlamd$: We get one of the graphs that can be obtained by adding an edge to $\m1(3)$.
 \end{itemize}
 We conclude that, in all cases, we cannot get an admissible graph with three edges.
 
 
-\subsection{Non-squarefree admissible $n$, II} 
+\subsection{Large non-squarefree admissible $n$, II} 
 Finally, it remains to handle admissible $n$ with $\lambda(n) = 5$ and $\mu(n) \ge 2$. There are three cases to consider.
 
 \case{A} $n = p^3 q r$.
@@ -430,7 +432,7 @@ We must have $g(p^2 r) = g(p^2 r) = 3$, which means we have arrows $r \dashright
 \case{C} $n = p^2 q r s$.
 If $qrs$ is cyclic, we get $g(p^2 q r) \le 6$ precisely if it is graph is $\qlamz$. An arrow $s \dashrightarrow p^2$ yields $2^3 = 8$ by a counting argument similar to the ones above, so we need $p^2 \rightarrow s$. We claim that we do have $g(n) = 7$ in this case, making use of the observation $g(p^2 q r) = g(p^2 q s) = 5$.
 
-We first recall the structure of these five group of order $p^2 s r$: These are of the forms $(\cyc{s} \tilde{\rtimes} P) \times \cyc{r}$ and $(\cyc{s} \times P) \times \cyc{r}$, where the tilde denotes a nontrivial semidirect product. Finally, we have $(\cyc{p}^2 \tilde{\rtimes} \cyc{r}) \times \cyc{s}$. In the first two cases we can choose $P$ in two ways, so the total is $2 + 2 + 1 = 5$ groups, and it is easily seen that they are nonisomorphic. Thus these must be all of them. The crucial observation is that if $\cyc{p}^2$ is acted on by some $\cyc{\alpha}$, then it is centralized by $\cyc{s}$.
+We first recall the structure of these five group of order $p^2 s r$: These are of the forms $(\cyc{s} \tilde{\rtimes} P) \times \cyc{r}$ and $(\cyc{s} \times P) \times \cyc{r}$, where the tilde denotes a nontrivial semidirect product. Finally, we have $(\cyc{p}^2 \tilde{\rtimes} \cyc{r}) \times \cyc{s}$. In the first two cases we can choose $P$ in two ways, so we get a total of $2 + 2 + 1 = 5$ groups, and it is easily seen that they are nonisomorphic. Thus these must be all of them. The crucial observation is that if $\cyc{p}^2$ is acted on by some $\cyc{\alpha}$, then it is centralized by $\cyc{s}$.
 
 A group $G$ of order $n$ is solvable by Feit-Thompson's theorem {\cite{oddsolve}}, and by Hall's theorems {\cite[Th.~3.13]{fgt}} we get subgroups $H_q$ and $H_r$ of orders $p^2 q r$ and $p^2 s r$, respectively. Observe first that a $q$-Sylow subgroup is cyclic, and $q$ is the smallest prime dividing $n$, so by, e.g., {\cite[Th.~5.14]{fgt}}, we conclude that $H_r$ is normal, which means $G \cong H_r \rtimes \cyc{q}$. If $\cyc{q}$ acts nontrivially, then the $p$-Sylow subgorup of $G$ must be isomorphic to $\cyc{p}^2$, and by the observation in the previous paragraph, it must be centralized by $\cyc{s}$. There are precisely 2 such cases. If it acts trivially, we get 5 groups. This gives a total of 7 groups.
 
@@ -441,6 +443,7 @@ If $qrs$ has two edges, we get $g(qrs)g(p^2) + 1 \le 7$, which forces $g(qrs) = 
 
 \section{Summary of the results}
 In what follows, $p, q, r, s$ represent distinct, odd primes.
+\nopagebreak
 \setenumerate[1]{label=\Roman*., font=\normalfont}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 6$ precisely when one of the following holds:
