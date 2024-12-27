@@ -56,6 +56,8 @@ url=false, sortcites=true]{biblatex}
 \newcommand{\qlame}{\Lambda_{5,\text{I}}}
 \newcommand{\qlamz}{\Lambda_{5,\text{II}}}
 \newcommand{\qlamd}{\Lambda_{5,\text{III}}}
+\newcommand{\slame}{\Lambda_{6, \text{I}}}
+\newcommand{\slamz}{\Lambda_{6, \text{II}}}
 \newcommand{\m}[1]{\text{M}_{#1}}
 \newcommand{\hthref}[1]{\hyperref[#1]{\thref{#1}}}
 \NewDocumentCommand{\listspace}{}{\linespread{0.9}\selectfont}
@@ -319,7 +321,7 @@ In this section, we consider admissible $n$ with $\mu(n) \ge 2$ and $\lambda(n) 
 	\[g(p^2 q^2) = 4 + \frac{p^2 + p + 4}{2} w_{q - 1}(p^2) + (p + 6)w_{q - 1}(p) + 2w_{q + 1}(p) + w_{q + 1}(p^2).\]
 \end{fact}
 
-\textit{Analysis.} It is clear that $p \nmid q - 1$, so we need $p \mid q + 1$. This gives 6 or 7 groups, depending on whether $p^2 \mid q - 1$ as well or not.
+\textit{Analysis.} It is clear that we need $p \nmid q - 1$, so $p \mid q + 1$. This gives 6 or 7 groups, depending on whether $p^2 \mid q + 1$ as well or not.
 
 \begin{fact} \thlabel{euppqr}
 	If $n = p^2 q r$ is admissible with $q < r$, then $q > 2$ and $g(n) = h(n) + k(n)$ where$$\begin{aligned}
@@ -352,12 +354,38 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 \begin{center}
 	\begin{tikzpicture}
 		%Figure 1
-		\begin{scope}[shift={(0, 0)}]
+		\begin{scope}[shift={(4, 0)}]
 			\node[point, label=left:$p^2$] (p1) {};
 			\node[point, label=left:$q$, below=of p1] (q1) {};
 			\node[point, label=right:$r$] at ($(q1) + (22.5:2)$)(r1) {};
-			\node at ($(r1) + (230:1.6)$) {$\boxed{\Lambda_{6}: \mathbf{g(1827) = 6}}$};
+			\node at ($(r1) + (230:1.6)$) {$\boxed{\slame: \mathbf{g(1827) = 6}}$};
 		\end{scope}
+		
+		%Figure 3
+		\begin{scope}[shift={8, 0)}]
+			\node[point, label=left:$p^2$] (p3) {};
+			\node[point, label=left:$q$, below=of p3] (q3) {};
+			\node[point, label=right:$r$] at ($(q3) + (22.5:2)$)(r3) {};
+			\node at ($(r3) + (230:1.6)$) {$\qlame : \mathbf{g(101695) = 5}$};
+		\end{scope}
+		
+		%Figure 7
+		\begin{scope}[shift={(0, 0)}]
+			\node[point, label=left:$p^2$] (p7) {};
+			\node[point, label=left:$r$, below=of p7] (q7) {};
+			\node[point, label=right:$q$] at ($(q7) + (22.5:2)$)(r7) {};
+			\node at ($(r7) + (230:1.6)$) {$\boxed{\slamz : \mathbf{g(7575) = 6}}$};
+		\end{scope}
+		
+	
+		%Figure 5
+		\begin{scope}[shift={(12, 0)}]
+			\node[point, label=left:$p^2$] (p5) {};
+			\node[point, label=left:$q$, below=of p5] (q5) {};
+			\node[point, label=right:$r$] at ($(q5) + (22.5:2)$)(r5) {};
+			\node at ($(r5) + (230:1.6)$) {$\m{2}: g(12425) = 8$};
+		\end{scope}
+		
 		
 		%Figure 2
 		\begin{scope}[shift={(0, 2.8)}]
@@ -367,29 +395,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 			\node at ($(r2) + (230:1.6)$) {$\m1(q) : g = 5 + \frac{q - 1}{2}$};
 		\end{scope}
 		
-		%Figure 3
-		\begin{scope}[shift={(4, 0)}]
-			\node[point, label=left:$p^2$] (p3) {};
-			\node[point, label=left:$q$, below=of p3] (q3) {};
-			\node[point, label=right:$r$] at ($(q3) + (22.5:2)$)(r3) {};
-			\node at ($(r3) + (230:1.6)$) {$\qlame : \mathbf{g(101695) = 5}$};
-		\end{scope}
 		
-		%Figure 4
-		\begin{scope}[shift={(4, 2.8)}]
-			\node[point, label=left:$p^2$] (p4) {};
-			\node[point, label=left:$r$, below=of p4] (q4) {};
-			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
-			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
-		\end{scope}
-		
-		%Figure 5
-		\begin{scope}[shift={(8, 0)}]
-			\node[point, label=left:$p^2$] (p5) {};
-			\node[point, label=left:$q$, below=of p5] (q5) {};
-			\node[point, label=right:$r$] at ($(q5) + (22.5:2)$)(r5) {};
-			\node at ($(r5) + (230:1.6)$) {$\m{2}: g(12425) = 8$};
-		\end{scope}
 		
 		%Figure 6
 		\begin{scope}[shift={(8, 2.8)}]
@@ -399,12 +405,21 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 			\node at ($(r6) + (230:1.6)$) {$\qlamz: \mathbf{g(12615) = 5}$};
 		\end{scope}
 		
+		%Figure 7
+		\begin{scope}[shift={(4, 2.8)}]
+			\node[point, label=left:$p^2$] (p4) {};
+			\node[point, label=left:$r$, below=of p4] (q4) {};
+			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
+			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
+		\end{scope}
+		
 		\path[->, thick] (q2) edge[dashed] (p2) (q2) edge (r2)
-		(q6) edge[dashed]  (p6) (r6) edge[dashed] (p6) (r4) edge[dashed] (p4);
+		(q6) edge[dashed]  (p6) (r6) edge[dashed] (p6) (r4) edge[dashed] (p4) (r7) edge[dashed] (p7);
 		\path[->, thick] (q1) edge (r1) (q3) edge (r3) (q5) edge (r5);
 		\path[->, thick] (r3) edge[dashed] (p3) (p5) edge[dashed] (r5);
 		\path[->, thick] (p1) edge[dashed] (q1);
 		\path[->, thick] (p4) edge[dashed] (q4);
+		\path[->, thick] (p7) edge (q7);
 	\end{tikzpicture}
 \end{center}
 
@@ -430,7 +445,7 @@ We immediately see that $q$ and $r$ are not connected, as this would give 10 gro
 We must have $g(p^2 r) = g(p^2 r) = 3$, which means we have arrows $r \dashrightarrow p^2, q^2$. It is easy to see that there are $3^2 = 9$ groups of the form $(P \times Q) \rtimes \cyc{r}$, simply by observing that for each $P$ we can choose either $\cyc{p^2} or \cyc{p}^2$, and in the latter case, we can let $\cyc{r}$ act on it or not. Once again, $n$ is inadmissible.
  
 \case{C} $n = p^2 q r s$.
-If $qrs$ is cyclic, we get $g(p^2 q r) \le 6$ precisely if it is graph is $\qlamz$. An arrow $s \dashrightarrow p^2$ yields $2^3 = 8$ by a counting argument similar to the ones above, so we need $p^2 \rightarrow s$. We claim that we do have $g(n) = 7$ in this case, making use of the observation $g(p^2 q r) = g(p^2 q s) = 5$.
+If $qrs$ is cyclic, we get $g(p^2 q r) \le 6$ precisely if the graph of $p^2 q r$ is $\qlamz$. An arrow $s \dashrightarrow p^2$ yields $2^3 = 8$ by a counting argument similar to the ones above, so we need $p^2 \rightarrow s$. We claim that we do have $g(n) = 7$ in this case, making use of the observation $g(p^2 q r) = g(p^2 q s) = 5$.
 
 We first recall the structure of these five group of order $p^2 s r$: These are of the forms $(\cyc{s} \tilde{\rtimes} P) \times \cyc{r}$ and $(\cyc{s} \times P) \times \cyc{r}$, where the tilde denotes a nontrivial semidirect product. Finally, we have $(\cyc{p}^2 \tilde{\rtimes} \cyc{r}) \times \cyc{s}$. In the first two cases we can choose $P$ in two ways, so we get a total of $2 + 2 + 1 = 5$ groups, and it is easily seen that they are nonisomorphic. Thus these must be all of them. The crucial observation is that if $\cyc{p}^2$ is acted on by some $\cyc{\alpha}$, then it is centralized by $\cyc{s}$.
 
@@ -452,7 +467,7 @@ In what follows, $p, q, r, s$ represent distinct, odd primes.
 		\item $n = 3p^2$ where $p \equiv 1 \Mod{3}$,
 		\item $n = p^3 q$ where $p^3 \equiv 1 \Mod{q}$ but $p^2 \not\equiv 1 \Mod{q}$,
 		\item $n = p^2 q r$ where $r \equiv 1 \Mod{q}$, and either $p \parallel q - 1$ or $q = 3$ and $p \equiv -1 \Mod{3}$,
-		\item $n = p^2 q^2$ where $p \parallel q - 1$,
+		\item $n = p^2 q^2$ where $p \parallel q + 1$,
 		\item $n = 2pq$ where $q \equiv 1 \Mod{p}$,
 		\item $n = n_1 n_2$ where $n_1, n_2$ are arithmetically independent and
 		\begin{enumerate}
@@ -472,7 +487,7 @@ In what follows, $p, q, r, s$ represent distinct, odd primes.
 		\item $n = p^3 q$ where $p \equiv -1 \Mod{q}$,
 		\item $n = 5p^2 q$ where $r \equiv 1 \Mod{5}$ and $p \equiv -1 \Mod{5}$,
 		\item $n = p^2 q r s$ where $p \equiv -1 \Mod{qr}$ and $p \parallel s - 1$,
-		\item $n = p^2 q^2$ where $p \parallel q + 1$,
+		\item $n = p^2 q^2$ where $p^2 \mid q + 1$,
 	\end{enumerate} \textspace
 	and in cases I--VII no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
