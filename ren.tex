@@ -277,7 +277,7 @@ We have already seen that $g(\Phi_n)$ is the Fibonacci sequence, and so it grows
 	Let $r, s$ denote the in- and out-degree, respectively, of a vertex $v$ in a \hg{1} $\Gamma$ with label $p$. Then $g(\Gamma) \ge 2^r + \frac{p^s - 1}{p - 1}$.
 \end{lem}
 \begin{proof}
-	Suppose we have $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$, and let $\Gamma_0$ induced by the $\alpha_i$ and $\beta_j$. Evidently, any subset of $\Gamma_0$ containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets. Moreover, the complement of $\{v\}$ in $\Gamma_0$ is central, and it contributes \nolinebreak[4] $\frac{p^s - 1}{p - 1}$. This shows that $\Gamma_0$, and thus $\Gamma$, satisfies the inequality.
+	Suppose we have $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$, and let $\Gamma_0$ be the subgraph induced by the collection of vertices $\alpha_i$ and $\beta_j$. Evidently, any subset of $\Gamma_0$ containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets. Moreover, the complement of $\{v\}$ in $\Gamma_0$ is central, and it contributes $\frac{p^s - 1}{p - 1}$. This shows that $\Gamma_0$, and thus $\Gamma$, satisfies the inequality.
 \end{proof}	
 In the sequel, we consider generalized \hgs{1} of cube-free numbers. There are two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p^2}$. In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus from each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$. On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \times \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$. It follows that the same observation holds for $P \rtimes G$ as well. These two facts together imply the following
 \begin{lem}\thlabel{eubold}
@@ -295,7 +295,7 @@ We call $n$ such that $g(n) = 6\text{ or }7$ \emph{admissible}. The analysis wil
 \end{lem}
 \begin{proof}
 	The only part that needs proof is that $g(n) \ge 8$ for $n = p^2 n_0$ where $n_0 = q_1 q_2 q_3 q_4$ is squarefree. If not, then we need $g(n_0) \le 3$ by connectivity of $n$. If $g(n_0) = 3$ then it can be seen that $n_0$ must have an isolated vertex $q$, which must therefore be connected wtith $p^2$, yielding $g(p^2 q)g(n_0 / q) + 1 \ge 10$ groups. If $g(n_0) = 2$, it follows that $n_0$ has two isolated vertices $q_1$ and $q_2$. But then $g(p^2 q_1 q_2) \ge 4$ by \hthref{eunnp}, and consequently $g(n) \ge 2g(p^2 q_1 q_2) \ge 8$. Finally, $g(n_0) = 1$ means that all the vertices are connected with $p^2$, which is ruled out by \hthref{euinout}.
-
+\end{proof}
 \subsection{Disconnected numbers}
 We first dispose of the disconnected case. Let $n = n_1 \cdots n_k m$ be the unique factorization of $n$, in the notation of \hthref{euufd}, with $m = 1$ and $n_i$ ordered such that $g(n_i)$ is nondecreasing. The \emph{primality} of $7$ shows that $k = 1$ when $g(n) = 7$, so it is enough to consider connected $n$ in this case. If $g(n) = 6$, either $k = 1$ or $g(n_1) = 2$ and $g(n_2) = 3$. For the sake of completeness, we re-derive the solutions in $n_1$ and $n_2$ here.
 
