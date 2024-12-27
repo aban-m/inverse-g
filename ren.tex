@@ -324,7 +324,7 @@ Observe that $h$ depends only on the generalized graph of $n$, and not on the ma
 
 Now consider the `coefficients` in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3 or 5$, yielding $6$ and $7$, respectively.
 
-\subsubsection*{Regular \hgs[1] with two edges}
+\subsubsection*{Regular \hgs{1} with two edges}
 Having dealt with the `irregular` cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. 
 
 
@@ -341,7 +341,7 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 		%Figure 2
 		\begin{scope}[shift={(0, 2.8)}]
 			\node[point, label=left:$p^2$] (p2) {};
-			\node[point, label=left:$r$, below=of p2] (q2) {};
+			\node[point, label=left:$q$, below=of p2] (q2) {};
 			\node[point, label=right:$r$] at ($(q2) + (22.5:2)$)(r2) {};
 			\node at ($(r2) + (230:1.6)$) {LIMBO};
 		\end{scope}
@@ -358,7 +358,7 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 		\begin{scope}[shift={(4, 2.8)}]
 			\node[point, label=left:$p^2$] (p4) {};
 			\node[point, label=left:$r$, below=of p4] (q4) {};
-			\node[point, label=right:$r$] at ($(q4) + (22.5:2)$)(r4) {};
+			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
 			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
 		\end{scope}
 		
@@ -387,7 +387,7 @@ Having dealt with the `irregular` cases, we consider regular $n$ with two edges 
 	\end{tikzpicture}
 \end{center}
 
-\subsubsection*{Regular \hgs[1] with three edges}
+\subsubsection*{Regular \hgs{1} with three edges}
 A new edge is to be added to an  admissible graph with two edges that yields $g \le 6$, which means the candidates are $\qlame, \qlamz, $ or $\qlamd$. It can be verified that the graphs obtained from $\qlame$ and $\qlamz$ are regular.
 
 In $\qlame$ the edge must be $q \dashrightarrow p^2$, otherwise we would get an acyclic grpah. In $\qlamz$, $q$ and $r$ are interchangeable, so assume we add $q \rightarrow r$. Finally, in $\Lambda_6$, we can add $p^2 \dashrightarrow r$, but this then we get $M_\text{II}$ as a proper subgraph, a contradiction. Representatives of the first two graphs are $35301 = 3\cdot7\cdot41^2$ for $\qlame$, $17661 = 3\cdot7\cdot29^2$, and GAP yields $g = 8, 13$, respectively. The final possibility is $\qlamd$. 
