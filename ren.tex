@@ -318,11 +318,15 @@ Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g
 
 We first dispose of the case $p = 2$. Indeed, by counting the groups of the form $(\cyc{q} \times \cyc{r}) \rtimes D$ where $D$ is a group of order 4, we see that $D$ can act on the product $\cyc{q} \times \cyc{r}$ in at least $2^2 = 4$ ways, and $D$ can be chosen in 2 ways. This gives at least 8 groups (we get more if $q \equiv 1 \Mod{4}$ for example). Thus $n$ is odd.
 
-We directly show that there is no arrow $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). First, we need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$, and thus we cannot have $r \rightarrow p^2$. An arrow $q \rightarrow r$ would yield $12 = 2g(p^2 q)$ groups. Thus we have an arrow from $p^2$ to $r$ (either weak or not), since $n$ is connected. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is the set of groups of the form 
+We directly show that there is no arrow $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). First, we need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$. An arrow $q \rightarrow r$ would yield $12 = 2g(p^2 q)$ groups. Thus we have an arrow from $p^2$ to $r$ (either weak or not), since $n$ is connected. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is $R \times P \times Q$, which is realized by $2$ groups. Thus we have at least $6 + 4 - 2 = 8$ groups, showing that $n$ could not be admissible in this case. It is now easy to show that there is no arrow $r \rightarrow p^2$: We would need $r = 3$, but this is absurd since $r > q > 2$.
 
+Observe that $h$ depends only on the generalized graph of $n$, and not on the magnitudes of its prime factors. Consequently, if $k(n) = 0$, then we can calculate $g(n)$ for all $n$ having a specific graph simply by calculating $g(n)$ for a single representative, using GAP for example. We will call $n$ `regular` in this case as well. If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected to $p^2$. An easy case-by-case inspection shows that $h(n) \ge 5$ in this case. Consequently, we have $k(n) \le 3$, with $k(n) = 3$ implying the existence of an arrow $q \rightarrow r$.
 
-\subsubsection*{Two edges in the \hg{1}}
-We now list all generalized \hg{1} with three vertices $p^2, q, r$ which arise as the generalized \hgs{1} of regular $n$. The regularity condition only eliminates the graph with $\m1(q)$ for $q \ge 7$ and the graph with two arrows $p^2 \dashrightarrow q, r$, which we will call $\m2$. It is clear that these are all the possible graphs: We have three choices for an edge between $p^2$ and either $q$ or $r$, and if there is no edge $q \rightarrow r$, then $q$ and $r$ are interchangeable.
+Now consider the `coefficients` in $k$: All of them are greater than $3$ except $p - 1$ and $\frac{q - 1}{2}$. The term whose coefficient is $p - 1$ is either vanishing or at least $2$, yielding at least $2(p - 1) \ge 4$. Next, for $\frac{q - 1}{2}$, all the summands beside $w_{p + 1}(q)w_{r - 1}(q)$ must vanish by our earlier assumptions. Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$) then we see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$. Thus we get admissible $n$ precisely when $q = 3 or 5$, yielding $6$ and $7$, respectively.
+
+\subsubsection*{Regular \hgs[1] with two edges}
+Having dealt with the `irregular` cases, we consider regular $n$ with two edges in its graph, and calculate $g$ for one representative using GAP. 
+
 
 \begin{center}
 	\begin{tikzpicture}
@@ -337,9 +341,9 @@ We now list all generalized \hg{1} with three vertices $p^2, q, r$ which arise a
 		%Figure 2
 		\begin{scope}[shift={(0, 2.8)}]
 			\node[point, label=left:$p^2$] (p2) {};
-			\node[point, label=left:$q$, below=of p2] (q2) {};
+			\node[point, label=left:$r$, below=of p2] (q2) {};
 			\node[point, label=right:$r$] at ($(q2) + (22.5:2)$)(r2) {};
-			\node at ($(r2) + (230:1.6)$) {$\m1(q) : g$ is increasing in $q$.};
+			\node at ($(r2) + (230:1.6)$) {LIMBO};
 		\end{scope}
 		
 		%Figure 3
@@ -353,7 +357,7 @@ We now list all generalized \hg{1} with three vertices $p^2, q, r$ which arise a
 		%Figure 4
 		\begin{scope}[shift={(4, 2.8)}]
 			\node[point, label=left:$p^2$] (p4) {};
-			\node[point, label=left:$q$, below=of p4] (q4) {};
+			\node[point, label=left:$r$, below=of p4] (q4) {};
 			\node[point, label=right:$r$] at ($(q4) + (22.5:2)$)(r4) {};
 			\node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
 		\end{scope}
@@ -374,16 +378,16 @@ We now list all generalized \hg{1} with three vertices $p^2, q, r$ which arise a
 			\node at ($(r6) + (230:1.6)$) {$\qlamz: \mathbf{g(12615) = 5}$};
 		\end{scope}
 		
-		\path[->, thick] (q2) edge[dashed] (p2) (q2) edge (r2)
-		(q6) edge[dashed]  (p6) (r6) edge[dashed] (p6) (r4) edge[dashed] (p4);
+		\path[->, thick]  (q2) edge[dashed] (p2) (q2) edge (r2)
+		(q4) edge[dashed] (p4) (q4) edge (r4)
+		(q6) edge[dashed]  (p6) (r6) edge[dashed] (p6);
 		\path[->, thick] (q1) edge (r1) (q3) edge (r3) (q5) edge (r5);
 		\path[->, thick] (r3) edge[dashed] (p3) (p5) edge[dashed] (r5);
 		\path[->, thick] (p1) edge[dashed] (q1);
-		\path[->, thick] (p4) edge[dashed] (q4);
 	\end{tikzpicture}
 \end{center}
 
-\subsubsection*{Three edges in the \hg{1}}
+\subsubsection*{Regular \hgs[1] with three edges}
 A new edge is to be added to an  admissible graph with two edges that yields $g \le 6$, which means the candidates are $\qlame, \qlamz, $ or $\qlamd$. It can be verified that the graphs obtained from $\qlame$ and $\qlamz$ are regular.
 
 In $\qlame$ the edge must be $q \dashrightarrow p^2$, otherwise we would get an acyclic grpah. In $\qlamz$, $q$ and $r$ are interchangeable, so assume we add $q \rightarrow r$. Finally, in $\Lambda_6$, we can add $p^2 \dashrightarrow r$, but this then we get $M_\text{II}$ as a proper subgraph, a contradiction. Representatives of the first two graphs are $35301 = 3\cdot7\cdot41^2$ for $\qlame$, $17661 = 3\cdot7\cdot29^2$, and GAP yields $g = 8, 13$, respectively. The final possibility is $\qlamd$. 
