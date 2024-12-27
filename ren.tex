@@ -1,4 +1,5 @@
 \documentclass{article}
+\pdfoutput=1
 
 % Graphics
 \usepackage{tikz}
@@ -15,7 +16,18 @@
 \def\@seccntformat#1{\csname the#1\endcsname. \textsc}
 \makeatother
 \sectionfont{\centering}
+
+% Fixing arXiv URL not-wrapping
 \usepackage[normalem]{ulem}
+\usepackage{url}
+\renewcommand{\UrlBreaks}{}    % no standard breaking points
+\renewcommand{\UrlBigBreaks}{}
+\renewcommand{\UrlSpecials}{\do\.{\mathchar`\.}%
+                            \do\/{\mathchar`\/}%
+                            \do\@{\mathchar`\@}%
+                            \do\\{\mathchar`\\}%
+                            \do\-{\mathchar`\-}%
+                            \do\#{\mathchar`\#}}
 
 % Basics
 \usepackage{amsmath, amssymb, mathtools, amsthm}
@@ -83,7 +95,6 @@ url=false, sortcites=true]{biblatex}
 
 \newcommand{\hthref}[1]{\hyperref[#1]{\thref{#1}}}
 
-%\NewDocumentCommand{\listspace}{}{\linespread{0.9}\selectfont}
 \NewDocumentCommand{\listspace}{}{}
 \NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
 \NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
@@ -117,16 +128,9 @@ url=false, sortcites=true]{biblatex}
 %\setlist{noitemsep, nolistsep}
 
 \tikzset
-{%cobazi@pelagius.net
+{%
 point/.style={fill=black, draw, circle, inner sep=0.042cm, outer sep=0.12cm},
 soint/.style={fill=black, draw, circle, inner sep=0.022cm, outer sep=0.1cm},
-lambda/.pic={
-	\node [point,label=below:{#1}] (bx) {};
-	\node [point,label=right:{$\alpha$},right=of bx, yshift=7.3mm] (x) {};
-	\node [point,label=right:{$\beta$}, right=of bx, yshift=-7.3mm] (y) {};
-	\path [->] (bx) edge[color=red, dashed] (x)
-	(bx) edge (y);
-},
 walk/.pic={
 	\node [soint] (a) {};
 	\node [soint,right=of a] (b) {};
@@ -556,15 +560,15 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 6$ precisely when one of the following holds:
 	\begin{enumerate} \listspace
-		\item $n = pqrs$ where $r \equiv 1 \Mod{qs}$ and $q \equiv 1 \Mod{p}$,
-		\item $n = 2pq$ where $q \equiv 1 \Mod{p}$,
+		\item$n = pqrs$ where $r \equiv 1 \Mod{qs}$ and $q \equiv 1 \Mod{p}$,\nopagebreak[4] 
+		\item\nopagebreak[4] $n = 2pq$ where $q \equiv 1 \Mod{p}$,
 		\item $n = 3p^2$ where $p \equiv 1 \Mod{3}$,
 		\item $n = p^3 q$ where $p^3 \equiv 1 \Mod{q}$,
 		\item $n = p^2 q r$, and one of the following conditions are satisfied:
 		\begin{enumerate}
 			\item $p \parallel q - 1$ and $r \equiv 1 \Mod{q}$,
 			\item $q = 3$ and $p \equiv -1 \Mod{3}$, \nopagebreak[4]
-			\nopagebreak[4] \item $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.
+			\item\nopagebreak[4] $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.
 		\end{enumerate}
 		\item $n = p^2 q^2$ where $p \parallel q + 1$,
 		\item $n = n_1 n_2$ where $n_1, n_2$ are arithmetically independent and
