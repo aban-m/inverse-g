@@ -457,45 +457,78 @@ We must have $g(p^2 r) = g(p^2 r) = 3$, which means we have arrows $r \dashright
  
 \case{C} $n = p^2 q r s$.
 
-\case{C.1} \emph{$qrs$ is cyclic.} We assume without loss of generality that $q < r$. Moreover, it is clear that the out-degree of $p^2$ is at most 1 by \hthref{eubold} and \hold[1]'s formula. By connectivity, we have $q, r, s$ connected with $p^2$ (regardless of the directions of the arrows). We first assume that all the weaks involved are weak. This completely determines the graph: We must have $q, r \dashrightarrow p^2$ and $p^2 \dashrightarrow s$. Consequently, we have $g(p^2 s) = 4$ by \hthref{euppq} and $g(p^2 r s) = 5$ by our earlier analysis (the graph of $p^2 r s$ is ``isomorphic" to $\qlamd$).
+\case{C.1} \emph{$qrs$ is cyclic.} We assume without loss of generality that $q < r$. Moreover, it is clear that the out-degree of $p^2$ is at most 1 by \hthref{eubold} and \hold{1}'s formula. By connectivity, we have $q, r, s$ connected with $p^2$ (regardless of the directions of the arrows). We first assume that all the weaks involved are weak. This completely determines the graph: We must have $q, r \dashrightarrow p^2$ and $p^2 \dashrightarrow s$. Consequently, we have $g(p^2 s) = 4$ by \hthref{euppq} and $g(p^2 r s) = 5$ by our earlier analysis (the graph of $p^2 r s$ is ``isomorphic" to $\qlamd$). We claim that $g(n) = 7$ in this case, and it is then easy to see that replacing $p^2 s \dashrightarrow s$ by a strong arrow will increase $g$.
 
-We observe that 
-$$(\cyc{s} \rtimes \cyc{p}) \times \cyc{p},
-\cyc{s} \times \cyc{p} \times \cyc{p},
-\cyc{p^2} \times \cyc{s},
+We observe that (where$\rtimes$ means a nontrivial semidirect product)
+$$(\cyc{s} \rtimes \cyc{p}) \times \cyc{p},\enspace
+\cyc{s} \times \cyc{p} \times \cyc{p},\enspace
+\cyc{p^2} \times \cyc{s},\enspace
 \cyc{s} \rtimes \cyc{p^2}$$
 are pairwise nonisomorphic, and thus these are all the groups of order $p^2 s$. Similarly, the groups
-$$(\cyc{s} \rtimes \cyc{p}) \times \cyc{p} \times \cyc{r},
-\cyc{s} \times \cyc{p} \times \cyc{p} \times \cyc{r},
-\cyc{p^2} \times \cyc{s} \times \cyc{r},
-\cyc{s} \rtimes \cyc{p^2} \times \cyc{r}
+$$(\cyc{s} \rtimes \cyc{p}) \times \cyc{p} \times \cyc{r},\enspace
+\cyc{s} \times \cyc{p} \times \cyc{p} \times \cyc{r},\enspace
+\cyc{p^2} \times \cyc{s} \times \cyc{r},\linebreak
+\cyc{s} \rtimes \cyc{p^2} \times \cyc{r}\enspace
 (\cyc{p^2} \rtimes \cyc{r}) \times \cyc{s}
 $$
-are all the groups of order $p^2 r s$. Multiplying each of these by $\cyc{q}$, we get $5$ groups of order $p^2 q r s$. In addition, we consider the groups
-$$(\cyc{p^2} \rtimes \cyc{q}) \times \cyc{s} \times \cyc{r},
+are all the groups of order $p^2 r s$. Multiplying each of these by $\cyc{q}$, we get $5$ groups of order $p^2 q r s$. In addition, the groups
+$$(\cyc{p^2} \rtimes \cyc{q}) \times \cyc{s} \times \cyc{r},\enspace
 (\cyc{p^2} \rtimes (\cyc{q} \times \cyc{r})) \times \cyc{s}$$
-which are not isomorphic to any of the previous $5$. Thus we get $7$ groups of order $p^2 q r s$. We claim that $g(p^2 q r s) = 7$, i.e., that every group of order $G$ is isomorphic to one of these.
+bring the total to $7$ groups of order $p^2 q r s$. We claim that $g(p^2 q r s) = 7$, i.e., that every group of order $G$ is isomorphic to one of these.
 
 Let $G$ be of order $n = p^2 q r s$. Clearly, $n$ is odd and thus $G$ is solvable by Feit-Thompson {\cite{oddsolve}}. By Hall's theorems {\cite[Th.~3.13]{fgt}}, we have a subgroup $H_q$ of index $q$. By {\cite[Th.~5.14]{fgt}}, this subgroup is normal since its index is the smallest prime that divides $q$. Consequently, $G \cong H_q \rtimes \cyc{q}$.
-We thus have two cases: If the $q$-Sylow subgroup is normal, we get the groups of order $p^2 r s$ multiplied by $\cyc{q}$. So we assume the $q$-Sylow subgroup is not normal. 
+It follows that there are $g(p^2 r s) = 5$ groups of order $n$ with a normal $q$-Sylow subgroup. We then assume that the $q$-Sylow subgroup is not normal.
 
-First, by taking a $\{p, q\}$-Hall subgroup, we see that the $p$-Sylow subgroup is isomorphic to $\cyc{p} \times \cyc{p}$. Next, by using the solvability of $H_q$, we again construct a normal subgroup $H_rq \nsub H_q$ with $\abs{H_rq} = p^2 s$. Let $S$ be an $s$-Sylow subgroup of $H_{qr}$. We have $S \text{char} H_{qr} \nsub H_q$ and thus $S \nsub H_q$, so $n_s(G) \mid q$. Since $q$ and $s$ are not related, we have $n_s(G) = 1$, i.e., the $s$-Sylow subgroup is normal. We claim that it is complement is normal as well. Suppose it is not, and write $G \cong S \rtimes K$ where $\abs{K} = p^2 q r$ is a Hall subgroup of $G$. Now consider the defining homomorphism $K \rightarrow \aut{K} \cong \cyc{s - 1}$. The kernel must have order $pqr$ or $qr$, and it is easy to see that the $q$-Sylow subgroup is characteristic in the kernel, and therefore normal in $K$. This forces $n_q(G) \mid s$ and consequently $n_q(G) = 1$, contradicting our assumption that the $q$-Sylow subgroup is not normal.
+First, by taking a $\{p, q\}$-Hall subgroup, it is easy to see that the $p$-Sylow subgroup is elementary abelian. Next, by using the solvability of $H_q$, we again construct a normal subgroup $H_{qr} \nsub H_q$ with $\abs{H_{qr}} = p^2 s$. Let $S$ be an $s$-Sylow subgroup of $H_{qr}$. We have $S \text{ char} H_{qr} \nsub H_q$ and thus $S \nsub H_q$, so $n_s(G) \mid q$. Since $q$ and $s$ are not related, we have $n_s(G) = 1$, i.e., the $s$-Sylow subgroup is normal. We claim that it is complement is normal as well. Suppose it is not, and write $G \cong S \rtimes K$ where $\abs{K} = p^2 q r$ is a Hall subgroup of $G$. Now consider the defining homomorphism $K \rightarrow \aut{K} \cong \cyc{s - 1}$. The kernel must have order $pqr$ or $qr$, and it is easy to see that the $q$-Sylow subgroup is characteristic in the kernel, and therefore normal in $K$. This forces $n_q(G) \mid s$ and consequently $n_q(G) = 1$, contradicting our assumption that the $q$-Sylow subgroup is not normal.
 
-It follows that we have a correspondence between groups of order $n$ with their $q$-Sylow subgroup not normal, and groups of order $p^2 q r$ with their $q$-Sylow subgroup not normal. Our earlier classification shows that the second set has $2$ elements. This completes the analysis.
-
+It follows that we have a correspondence between groups of order $n$ with their $q$-Sylow subgroup not normal, and groups of order $p^2 q r$ with their $q$-Sylow subgroup not normal. It is not hard to see that there are $g(p^2 q r) - g(p^2 r) = 5 - 3 = 2$ groups of this type, so we have $g(p^2 q r s) = 2 + g(p^2 r s) = 7,$ as claimed.
 
 %
 %
 %
 %
-\case{C.2} \emph{There is an exactly one edge in $qrs$, say $q \rightarrow r$.}
-We claim that we have no admissible $n$ in this case. We introduce the notation $g_{\alpha}(n)$ to mean the number of groups of order $n$ satisfying the condition that the $p$-Sylow subgroup is a direct factor whenever $p$ is in $\alpha$. Observe that $g(n) > g_\alpha(n)$ whenever $\alpha$ is nonempty and $n$ is connected. The strategy is to compute $g_\alpha(n)$ for a suitably chosen subset $\alpha$ and show that the result is at least $7$, meaning that $g(n) \ge 8$, showing that $n$ is inadmissible.
+\case{C.2} \emph{$qrs$ has precisely one edge $q \rightarrow r$.}
+We claim that we have no admissible $n$ in this case. We introduce the notation $g_{\alpha}(n)$ for a set $\alpha$ of primes to mean the number of groups of order $n$ satisfying the condition that the $p$-Sylow subgroup is a direct factor whenever $p$ is in $\alpha$. Observe that $g(n) > g_\alpha(n)$ whenever $\alpha$ is nonempty set of prime factors of $n$ and $n$ is connected. The strategy is to compute $g_\alpha(n)$ for a suitably chosen subset $\alpha$ and show that the result is at least $7$, meaning that $g(n) \ge 8$, showing that $n$ is inadmissible.
 
-We need $g(p^2 s)g(qr) + 1 \le 7$ and this forces $g(p^2 s) \le 3$. By connectivity, we have in fact $g(p^2 s) = 3$ and thus a weak arrow $s \dashrightarrow p^2$. Our graph of $n$ becomes connected by adding an edge. By considering $p^2 q r$, we immediately see that there are three options, corresponding to $M_1(q), \slame$ and $\qlame$:
+We need $g(p^2 s)g(qr) + 1 \le 7$, which forces $g(p^2 s) \le 3$. By connectivity, we have in fact $g(p^2 s) = 3$ and thus a weak arrow $s \dashrightarrow p^2$. Our graph of $n$ becomes connected by adding an edge. By considering $p^2 q r$, we immediately see that there are three options, corresponding to $M_1(q), \slame$ and $\qlame$:
 
 \resizebox{\textwidth}{!}{%
 	\begin{tikzpicture}[scale=0.9]
-		% THE IMAGE GOES HERE.
+		\begin{scope}[shift=(0, 0)]
+			\node[point, label=up:$s$]							(s1) {};
+			\node[point, label=up:$p^2$, right of=s1]			(p1) {};
+			\node[point, label=bottom:$q$, below of=s1]			(q1) {};
+			\node[point, label=bottom:$r$, below of=p1]			(r1) {};
+		\end{scope}
+		
+		\begin{scope}[shift=(4, 0)]
+			\node[point, label=up:$s$]							(s2) {};
+			\node[point, label=up:$p^2$, right of=s1]			(p2) {};
+			\node[point, label=bottom:$q$, below of=s1]			(q2) {};
+			\node[point, label=bottom:$r$, below of=p1]			(r2) {};		
+		\end{scope}
+		
+		\begin{scope}[shift=(8, 0)]
+			\node[point, label=up:$s$]							(s3) {};
+			\node[point, label=up:$p^2$, right of=s1]			(p3) {};
+			\node[point, label=bottom:$q$, below of=s1]			(q3) {};
+			\node[point, label=bottom:$r$, below of=p1]			(r3) {};
+		\end{scope}
+	
+		% \begin{scope}[shift={(6, 3)}]
+			% \node[point, label=left:$p^2$] (p4) {};
+			% \node[point, label=left:$r$, below=of p4] (q4) {};
+			% \node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
+			% \node at ($(r4) + (230:1.6)$) {$\qlamd : \mathbf{g(825) = 5}$};
+		% \end{scope}
+		
+		% \path[->, thick] (q2) edge[dashed] (p2) (q2) edge (r2)
+		% (q6) edge[dashed]  (p6) (r6) edge[dashed] (p6) (r4) edge[dashed] (p4) (r7) edge[dashed] (p7);
+		% \path[->, thick] (q1) edge (r1) (q3) edge (r3) (q5) edge (r5);
+		% \path[->, thick] (r3) edge[dashed] (p3) (p5) edge[dashed] (r5);
+		% \path[->, thick] (p1) edge[dashed] (q1);
+		% \path[->, thick] (p4) edge[dashed] (q4);
+		% \path[->, thick] (p7) edge (q7);		% THE IMAGE GOES HERE.
 	\end{tikzpicture}
 }
 
