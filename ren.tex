@@ -25,7 +25,6 @@
 
 % Spacing
 \usepackage{microtype}
-%\usepackage{sectsty}
 \usepackage{enumitem}
 \usepackage[margin=1.5in]{geometry}
 \hypersetup{
@@ -138,7 +137,7 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \author{Aban S. Mahmoud}
 \maketitle
 
-\setlength{\abovedisplayskip}{2.8pt}
+\setlength{\abovedisplayskip}{3pt}
 \setlength{\belowdisplayskip}{2.5pt}
 
 \begin{abstract}
@@ -380,7 +379,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 		
 		%Figure 7
-		\begin{scope}[shift={(0, 0)}]
+		\begin{scope}[shift={(10, 3)}]
 			\node[point, label=left:$p^2$] (p7) {};
 			\node[point, label=left:$r$, below=of p7] (q7) {};
 			\node[point, label=right:$q$] at ($(q7) + (22.5:2)$)(r7) {};
@@ -399,7 +398,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		% FIRST ROW
 		
 		%Figure 2
-		\begin{scope}[shift={(2, 2.8)}]
+		\begin{scope}[shift={(2, 3)}]
 			\node[point, label=left:$p^2$] (p2) {};
 			\node[point, label=left:$q$, below=of p2] (q2) {};
 			\node[point, label=right:$r$] at ($(q2) + (22.5:2)$)(r2) {};
@@ -409,7 +408,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		
 		
 		%Figure 6
-		\begin{scope}[shift={(10, 2.8)}]
+		\begin{scope}[shift={(0, 0)}]
 			\node[point, label=left:$p^2$] (p6) {};
 			\node[point, label=left:$q$, below=of p6] (q6) {};
 			\node[point, label=right:$r$] at ($(q6) + (22.5:2)$)(r6) {};
@@ -417,7 +416,7 @@ Having dealt with the ``irregular'' cases, we consider regular $n$ with two edge
 		\end{scope}
 		
 		%Figure 7
-		\begin{scope}[shift={(6, 2.8)}]
+		\begin{scope}[shift={(6, 3)}]
 			\node[point, label=left:$p^2$] (p4) {};
 			\node[point, label=left:$r$, below=of p4] (q4) {};
 			\node[point, label=right:$q$] at ($(q4) + (22.5:2)$)(r4) {};
@@ -487,7 +486,7 @@ In what follows, $p, q, r, s$ represent distinct, odd primes.
 			\item $n_2 = pqr$ where $r \equiv 1 \Mod{q}$ and $q \equiv 1 \Mod{p}$ or $n_2 = p^2 q$ and $q \mid p + 1$.
 		\end{enumerate}
 	\end{enumerate} \textspace
-	and in cases I--V no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
+	where in cases I--V no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 7$ precisely when one of the following holds:
@@ -501,7 +500,7 @@ In what follows, $p, q, r, s$ represent distinct, odd primes.
 		\item $n = p^2 q r s$ where $p \equiv -1 \Mod{qr}$ and $p \parallel s - 1$,
 		\item $n = p^2 q^2$ where $p^2 \mid q + 1$,
 	\end{enumerate} \textspace
-	and in cases I--VII no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
+	where in cases I--VII no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
 
 \begin{center}\section*{References}\end{center}
