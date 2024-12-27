@@ -60,10 +60,28 @@
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
 
-
 \setenumerate[1]{label=\alph*.}
 \setenumerate[2]{label=\alph*.}
-%\setlist{noitemsep, nolistsep}
+
+
+% Fixing arXiv URL not-wrapping
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\renewcommand{\UrlBigBreaks}{}
+\renewcommand{\UrlBreaks}{\do\.{\mathchar`\.}%
+                            \do\/{\mathchar`\/}%
+                            \do\@{\mathchar`\@}%
+                            \do\\{\mathchar`\\}%
+                            \do\-{\mathchar`\-}%
+                            \do\#{\mathchar`\#}}
+
+% Fixing a pagebreak towards the end 
+% https://tex.stackexchange.com/questions/94699/absolutely-definitely-preventing-page-break
+\newenvironment{keepintact}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
 
 \tikzset
 {%
@@ -88,3 +106,5 @@ ewalk/.pic={
 w/.style={baseline=-0.4ex},
 ww/.style={baseline=-0.4ex, node distance=0.37cm}
 }
+
+

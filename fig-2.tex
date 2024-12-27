@@ -1,0 +1,32 @@
+\begin{center}
+	\begin{tikzpicture}[scale=0.95]
+		\begin{scope}[shift={(0, 0)}]
+			\node[point, label=left:$s$] (s1) {};
+			\node[point, label=right:$p^2$, right=of s1] (p1) {};
+			\node[point, label=left:$q$, below=of s1] (q1) {};
+			\node[point, label=right:$r$, below=of p1] (r1) {};
+			\node at ($(r1) + (230:0.8)$) {$\Gamma_1$};
+		\end{scope}
+		
+		\begin{scope}[shift={(4, 0)}]
+			\node[point, label=left:$s$] (s2) {};
+			\node[point, label=right:$p^2$, right=of s2] (p2) {};
+			\node[point, label=left:$q$, below=of s2] (q2) {};
+			\node[point, label=right:$r$, below=of p2]	(r2) {};
+			\node at ($(r2) + (230:0.8)$) {$\Gamma_2$};		
+		\end{scope}
+		
+		\begin{scope}[shift={(8, 0)}]
+			\node[point, label=left:$s$] (s3) {};
+			\node[point, label=right:$p^2$, right=of s3] (p3) {};
+			\node[point, label=left:$q$, below=of s3] (q3) {};
+			\node[point, label=right:$r$, below=of p3] (r3) {};
+			\node at ($(r3) + (230:0.8)$) {$\Gamma_3$};
+		\end{scope}
+
+		\path[->, thick] (q1) edge (r1) (q2) edge (r2) (q3) edge (r3);
+		\path[->, thick] (s1) edge[dashed] (p1) (s2) edge[dashed] (p2) (s3) edge[dashed] (p3);
+		\path[->, thick] (q1) edge[dashed] (p1) (p2) edge[dashed] (q2);
+		\path[->, thick] (r3) edge[dashed] (p3);
+	\end{tikzpicture}
+\end{center}
