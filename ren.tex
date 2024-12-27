@@ -90,6 +90,7 @@ url=false, sortcites=true]{biblatex}
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
 
+\renewcommand{\thesection}{\thechapter\arabic{section}.}
 \sectionfont{\centering}
 
 \setenumerate[1]{label=\alph*.}
@@ -135,8 +136,8 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \setlength{\abovedisplayskip}{2.8pt}
 \setlength{\belowdisplayskip}{2.5pt}
 
+\begin{abstract}
 	A classical problem is to evaluate $g(n)$ for various $n$, where $g$ is the group-counting function. We approach the inverse problem of finding all $n$ such that $g(n) = 6$ and $g(n) = 7$, beginning by restricting the class of $n$ to consider, and then evaluating $g(n)$ using Hölder's formula when $n$ is squarefree, and the formulas given in a paper by H. Dietrich, B. Eick and X. Pan for when $n$ has a small number of prime factors.
-a \begin{abstract}
 \end{abstract}
 
 \textup{2000} \textit{Mathematics Subject Classification}: \textup{20D60, 20D15, 05C69}.
