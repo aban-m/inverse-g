@@ -88,6 +88,8 @@ url=false, sortcites=true]{biblatex}
 \NewDocumentCommand{\eqnspace}{}{\vspace{-0.0\baselineskip}}
 \NewDocumentCommand{\drawunspace}{}{\vspace{-0.5\baselineskip}}
 \NewDocumentCommand{\enumunspace}{}{}
+\NewDocumentCommand{\unpre}{}{\hspace*{-8pt}}
+
 
 \NewDocumentCommand{\case}{m}{\smash{\sffamily \textbf{Case #1.} \rmfamily }}
 \NewDocumentCommand{\scase}{m}{\smash{\sffamily {Subcase #1.} \rmfamily }}
@@ -473,29 +475,33 @@ We must have $g(p^2 r) = g(q^2 r) = 3$, and therefore arrows $r \dashrightarrow 
 \nopagebreak[4]
 \scase{C.1} \emph{$qrs$ is cyclic.} It is clear that the out-degree of $p^2$ is $1$ and the in-degree is $2$. The arrows to $p^2$ are certainly weak, so we let $q < r$ with $q, r \dashrightarrow p^s$. This means we have an arrow from $p^2$ to $s$. We show that, when this arrow is weak, we get $g(n) = 7$, and replacing it with a storng arrow increases $g$, making $n$ inadmissible. We therefore  have $g(p^2 s) = 4$ by \hthref{euppq} and $g(p^2 r s) = 5$ by our earlier analysis (the graph of $p^2 r s$ is ``isomorphic" to $\qlamd$).
 
-We observe that the $4$ groups ($\rtimes$ means a nontrivial semidirect product)\begin{enumrealm}\begin{equation*}(\cyc{s} \rtimes \cyc{p}) \times \cyc{p},\enspace
+We observe that the $4$ groups ($\rtimes$ means a nontrivial semidirect product)
+\begin{enumrealm}\begin{equation*}(\cyc{s} \rtimes \cyc{p}) \times \cyc{p},\enspace
 \cyc{s} \times \cyc{p} \times \cyc{p},\enspace
 \cyc{p^2} \times \cyc{s},\enspace
-\cyc{s} \rtimes \cyc{p^2}\end{equation*}\end{enumrealm} are pairwise nonisomorphic, and thus these are all the groups of order $p^2 s$. Similarly, the\nolinebreak[4] groups\begin{enumrealm}\begin{equation*}(\cyc{s} \rtimes \cyc{p}) \times \cyc{p} \times \cyc{r},\enspace
+\cyc{s} \rtimes \cyc{p^2}\end{equation*}\end{enumrealm}
+\unpre are pairwise nonisomorphic, and thus these are all the groups of order $p^2 s$. Similarly, the\nolinebreak[4] groups
+\begin{enumrealm}\begin{equation*}(\cyc{s} \rtimes \cyc{p}) \times \cyc{p} \times \cyc{r},\enspace
 \cyc{s} \times \cyc{p} \times \cyc{p} \times \cyc{r},\enspace
 \cyc{p^2} \times \cyc{s} \times \cyc{r},\enspace
-\cyc{s} \rtimes \cyc{p^2} \times \cyc{r}\,enspace
-(\cyc{p^2} \rtimes \cyc{r}) \times \cyc{s}\end{equation*}\end{enumrealm} are all the groups of order $p^2 r s$. Multiplying each of these by $\cyc{q}$, we get $5$ groups of order $p^2 q r s$. In addition, the groups\begin{enumrealm}
-\begin{equation*}(\cyc{p^2} \rtimes \cyc{q}) \times \cyc{s} \times \cyc{r},\enspace
+\cyc{s} \rtimes \cyc{p^2} \times \cyc{r},\enspace
+(\cyc{p^2} \rtimes \cyc{r}) \times \cyc{s}\end{equation*}\end{enumrealm}
+\unpre are all the groups of order $p^2 r s$. Multiplying each of these by $\cyc{q}$, we get $5$ groups of order $p^2 q r s$. In addition, the groups
+\begin{enumrealm}\begin{equation*}(\cyc{p^2} \rtimes \cyc{q}) \times \cyc{s} \times \cyc{r},\enspace
 (\cyc{p^2} \rtimes (\cyc{q} \times \cyc{r})) \times \cyc{s}\end{equation*}\end{enumrealm}
-bring the total to $7$ groups of order $p^2 q r s$. We claim that $g(p^2 q r s) = 7$ in this case, which is to say, every group of order $G$ is isomorphic to one of these groups.
+\unpre bring the total to $7$ groups of order $p^2 q r s$. We claim that $g(p^2 q r s) = 7$ in this case, which is to say, every group of order $G$ is isomorphic to one of these groups.
 
 Let $G$ be a group of order $n = p^2 q r s$. We claim that either $G \cong G_0 \times \cyc{q}$ or $G \cong G_1\times \cyc{s}$ where $G_1$ has no normal $q$-Sylow subgroup. By inspecting our classification, there are $g(p^2 r s) = 5$ groups in the first case, and $2$ in the second, showing that there are indeed $7$ groups in total.
 
-It is clear that $n$ is odd, so $G$ is solvable by the Feit-Thompson theorem {\cite{oddsolve}}. Consequently, we have a subgroup $G_0$ of index $q$ by Hall's theorems {\cite[Th.~3.13]{fgt}}, and since $q$ is the smallest prime dividing $\abs{G}$, it follows from a standard theorem (see, for example, {\cite{primnorm}}) that $G_0$ is normal. Thus if a $q$-Sylow subgroup is normal, we get the first half of the claim. Suppose then that there is no normal $q$-Sylow subgroup.
+It is clear that $n$ is odd, so $G$ is solvable by the Feit-Thompson theorem {\cite{oddsolve}}. Consequently, we have a subgroup $G_0$ of index $q$ by Hall's theorems {\cite[Thm.~3.13]{fgt}}, and since $q$ is the smallest prime dividing $\abs{G}$, it follows from a standard theorem (see, for example, {\cite[Prob.~1A.1]{fgt}}) that $G_0$ is normal. Thus if a $q$-Sylow subgroup is normal, we get the first half of the claim. Suppose then that there is no normal $q$-Sylow subgroup.
 
 We claim that there is a normal $s$-Sylow subgroup with a normal complement. Consider first a Hall subgroup $C$ of order $qrs$, which is cylic by definition. Since the $s$-Sylow subgroup is normalized by $C$, we have $n_s(G), n_q(G) \mid p^2$. We cannot have $n_s(G) = p$ because $s > p$, and we cannot have $n_s(G) = p^2$ because otherwise $p^2 \equiv 1 \Mod{s}$ and thus $p \equiv s - 1 \Mod{s}$, which would imply $p = s - 1$. This is impossible since $p > 2$. Moreover, we have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow $q \rightarrow p$, contrary to our assumption.
 
-To see that its complement is normal, let $S, P, Q, R$ denote Sylow subgroups corresponding to the primes $s, p, q, r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of order $p^2 q$. Consider the homomorphism $\phi : H_0 \rightarrow \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product. We know that $Q \subseteq \ker \phi$ since $q \nmid s - 1$, but if $Q = \ker \phi$ we have $Q$ normalized by $P$ and thus $n_q(G) = 1$, contrary to our assumption. We cannot have $\abs{\ker \phi} = pq$ either, because $pq$ is a cyclic number, so we would get $n_q(G) = p$, which we have already ruled out. TIt follows that $\phi$ must be the trivial homomorphism. We finally conclude that $S$ normalizes $PQR$, showing that $PQR$ is normal, and proving the second half of the claim.
+To see that its complement is normal, let $S, P, Q, R$ denote Sylow subgroups corresponding to the primes $s, p, q, r$ respectively. We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of order $p^2 q$. Consider the homomorphism $\phi : H_0 \rightarrow \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product. We know that $Q \subseteq \ker \phi$ since $q \nmid s - 1$, but if $Q = \ker \phi$ we have $Q$ normalized by $P$ and thus $n_q(G) = 1$, contrary to our assumption. We cannot have $\abs{\ker \phi} = pq$ either, because $pq$ is a cyclic number, so we would get $n_q(G) = p$, which we have already ruled out. It follows that $\phi$ must be the trivial homomorphism. We finally conclude that $S$ normalizes $PQR$, showing that $PQR$ is normal, and proving the second half of the claim.
 
 \scase{C.2} \emph{$qrs$ has precisely one edge $q \rightarrow r$.} We claim that $n$ is inadmissible.\nopagebreak
 
-For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups such that the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ are direct factors (we can omit the superscript if $k = 1$). It is clear that \smash{$g_{\alpha \cup \beta}(n) = g_\alpha(n) + g_\beta(n) - g^{(2)}_{\alpha \cup \beta}(n)$}, by the inclusion-exclusion principle. The strategy will be to choose a suitable $\alpha$ and use these two facts to show that $g_\alpha(n) \ge 7$ for all possible graphs of $n$, and it will be clear that there is a group which has no direct $p$-Sylow subgroup factor for any $p$ in $\alpha$, showing that $g(n) > g_\alpha(n)$.
+For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups such that the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ are direct factors (we can omit the superscript if $k = 1$). It is clear that \smash{$g_{\alpha \cup \beta}(n) = g_\alpha(n) + g_\beta(n) - g^{(2)}_{\alpha \cup \beta}(n)$}, by the inclusion-exclusion principle. The strategy will be to choose a suitable $\alpha$ and use this fact to show that $g_\alpha(n) \ge 7$ for all possible graphs of $n$, and it will be clear that there is a group which has no direct $p$-Sylow subgroup factor for any $p$ in $\alpha$, showing that $g(n) > g_\alpha(n)$.
 
 We need $g(p^2 s)g(qr) + 1 \le 7$, which forces $g(p^2 s) \le 3$. By connectivity, we have in fact $g(p^2 s) = 3$ and thus a weak arrow $s \dashrightarrow p^2$. At least one edge must be added for the graph of $n$ to be connected. By considering $p^2 q r$, we immediately see that there are three options, corresponding to $M_1(q), \slame$ and $\qlame$:\drawunspace
 \begin{center}
@@ -551,21 +557,21 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 		\item $n = pqrs$ where $r \equiv 1 \Mod{qs}$ and $q \equiv 1 \Mod{p}$,
 		\item $n = 2pq$ where $q \equiv 1 \Mod{p}$,
 		\item $n = 3p^2$ where $p \equiv 1 \Mod{3}$,
-		\item $n = p^3 q$ where $p^3 \equiv 1 \Mod{q}$ but $p^2 \not\equiv 1 \Mod{q}$,
+		\item $n = p^3 q$ where $p^3 \equiv 1 \Mod{q}$,
 		\item $n = p^2 q r$, and one of the following conditions are satisfied:
 		\begin{enumerate}
-			\item $r \equiv 1 \Mod{q}$ and $p \parallel q - 1$ 
+			\item $p \parallel q - 1$ and $r \equiv 1 \Mod{q}$,
 			\item $q = 3$ and $p \equiv -1 \Mod{3}$,
-			\item $n = p^2 q r$ where $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.
+			\item $p^2 \mid r - 1$ and $p \equiv -1 \Mod{q}$.
 		\end{enumerate}
 		\item $n = p^2 q^2$ where $p \parallel q + 1$,
 		\item $n = n_1 n_2$ where $n_1, n_2$ are arithmetically independent and
 		\begin{enumerate}
-			\item $n_1 = qr$ where $r \equiv 1 \Mod{q}$ or $n_1 = p^2$.
+			\item $n_1 = qr$ where $r \equiv 1 \Mod{q}$ or $n_1 = q^2$, and $q$ could equal $2$,
 			\item $n_2 = pqr$ where $r \equiv 1 \Mod{q}$ and $q \equiv 1 \Mod{p}$ or $n_2 = p^2 q$ and $q \mid p + 1$.
 		\end{enumerate}
 	\end{enumerate} \textspace
-	where in cases I--V no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
+	where no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
 \begin{thm}
 	For cyclic-free $n$, we have $g(n) = 7$ precisely when one of the following holds:
@@ -575,12 +581,12 @@ In what follows, $s, p, q, r$ represent distinct, odd primes.
 		\item $n = 3pqr$ where $p \equiv q \equiv 1 \Mod{3}$ and $r \equiv 1 \Mod{q}$,
 		\item $n = 5p^2$ where $p \equiv 1 \Mod{5}$,
 		\item $n = p^3 q$ where $p \equiv -1 \Mod{q}$,
-		\item $n = 5p^2 q$ where $r \equiv 1 \Mod{5}$ and $p \equiv -1 \Mod{5}$,
+		\item $n = 5p^2 q$ where $q \equiv 1 \Mod{5}$ and $p \equiv -1 \Mod{5}$,
 		\item $n = p^2 q r$ where $q \equiv 1 \Mod{p^2}$ and $r \equiv 1 \Mod{q}$,
 		\item $n = p^2 q r s$ where $p \equiv -1 \Mod{qr}$ and $p \parallel s - 1$,
 		\item $n = p^2 q^2$ where $p^2 \mid q + 1$.
 	\end{enumerate} \textspace
-	where in cases I--VIII no further congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
+	where no other congruences of the form $\alpha \equiv \pm 1 \Mod{\beta}$ \nolinebreak[4] \mbox{occur}.
 \end{thm}
 
 \begin{center}\section*{References}\end{center}
