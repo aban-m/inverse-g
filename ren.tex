@@ -12,9 +12,9 @@
 % Change the section formatting
 \usepackage{sectsty}
 \makeatletter
-\def\@seccntformat#1{\csname the#1\endcsname.\quad}
+\def\@seccntformat#1{\csname the#1\endcsname. \textsc}
 \makeatother
-\sectionfont{\centering\textsc}
+\sectionfont{\centering}
 
 % Basics
 \usepackage{amsmath, amssymb, mathtools, amsthm}
@@ -467,7 +467,7 @@ If $qrs$ has two edges, we get $g(qrs)g(p^2) + 1 \le 7$, which forces $g(qrs) = 
 
 \emph{Conclusion.} Adding any more edges to the graph of $qrs$ can only increase $p^2 q r s$, so we have shown that $qrs$ must be cyclic, and thus the only admissible case is when the graph of $p^2 q r$ is $\qlamz$ and there is an arrow $p^2 \dashrightarrow s$.
 
-\section{Summary of the results}
+\nopagebreak \section{Summary of the results}
 In what follows, $p, q, r, s$ represent distinct, odd primes.
 \nopagebreak
 \setenumerate[1]{label=\Roman*., font=\normalfont}
