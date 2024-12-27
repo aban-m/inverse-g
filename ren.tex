@@ -61,9 +61,6 @@ url=false, sortcites=true]{biblatex}
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
 
-\setlength{\abovedisplayskip}{3pt}
-\setlength{\belowdisplayskip}{3pt}
-
 \setenumerate[1]{label=\alph*.}
 \setenumerate[2]{label=\alph*.}
 %\setlist{noitemsep, nolistsep}
@@ -114,6 +111,9 @@ ww/.style={baseline=-0.4ex, node distance=0.37cm}
 \title{On the group-counting function}
 \author{Aban}
 \maketitle
+
+\setlength{\abovedisplayskip}{2.8pt}
+\setlength{\belowdisplayskip}{2.5pt}
 
 \begin{abstract}
 	Let $g(n)$ denote the number of groups of order $n$ up to isomorphism. We solve the equations $g(n) = 6$ and $g(n) = 7$.
@@ -302,11 +302,11 @@ Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g
 \textit{Analysis.} It is clear that $p \nmid q - 1$, so we need $p \mid q + 1$. This gives 6 or 7 groups, depending on whether $p^2 \mid q - 1$ as well or not.
 
 \begin{fact} \thlabel{euppqr}
-	If $n = p^2 q r$ is admissible, then $q > 2$ and $$\begin{aligned}
-		g(p^2 q r) &= 2 + w_{p^2 - 1}(qr) + 2w_{r - 1}(pq) + w_{r - 1}(p)w_{p - 1}(q) + w_{r - 1}(p^2 q) \\ 
+	If $n = p^2 q r$ is admissible with $q < r$, then $q > 2$ and $g(n) = h(n) + k(n)$ where$$\begin{aligned}
+		h(n) &= 2 + w_{p^2 - 1}(qr) + 2w_{r - 1}(pq) + w_{r - 1}(p)w_{p - 1}(q) + w_{r - 1}(p^2 q) \\ 
 		&+ w_{r - 1}(p)w_{q - 1}(p) + 2w_{q - 1}(p) + 3w_{p - 1}(q) + 2w_{r - 1}(p) \\ 
-		&+ 2w_{r - 1}(q) + w_{r - 1}(p^2) + w_{q - 1}(p^2) + w_{p + 1}(r) + w_{p + 1}(q) \\
-		&+ \frac{qr + 1}{2} w_{p - 1}(qr) + \frac{r + 5}{2} w_{p - 1}(r)(1 + w_{p - 1}(q))\\
+		&+ 2w_{r - 1}(q) + w_{r - 1}(p^2) + w_{q - 1}(p^2) + w_{p + 1}(r) + w_{p + 1}(q), \\
+		k(n) &= \frac{qr + 1}{2} w_{p - 1}(qr) + \frac{r + 5}{2} w_{p - 1}(r)(1 + w_{p - 1}(q))\\
 		&+ (p^2 - p)w_{q - 1}(p^2)w_{r - 1}(p^2) \\
 		&+ (p - 1)(w_{q - 1}(p^2)w_{r - 1}(p) + w_{r - 1}(p^2)w_{q - 1}(p) + 2w_{r - 1}(p)w_{q - 1}(p)) \\
 		&+ \frac{(q - 1)(q + 4)}{2} w_{p - 1}(q)w_{r - 1}(q) \\
@@ -314,17 +314,11 @@ Following {\cite{bettinafour1}}, we list formulae for $g(p^2 q^2), g(p^2 q r), g
 	\end{aligned}$$
 \end{fact}
 
-\textit{Analysis.} This case is more complicated, so we split the analysis into several distinct stages.
+\textit{Analysis.} This case is more complicated, so we divide the proof into several distinct stages.
 
-We first dispose of the case $p = 2$. Indeed, by counting the groups of the form $(\cyc{q} \times \cyc{r}) \rtimes D$ where $D$ is a group of order 4, we see that $D$ can act on the product $\cyc{q} \times \cyc{r}$ in at least $2^2 = 4$ ways, and $D$ can be chosen in 2 ways. This gives at least 8 groups (we get more if $q \equiv 1 \Mod{4}$ for example). By a similar reasoning, we have $r \neq 2$ and $q \neq 2$.
+We first dispose of the case $p = 2$. Indeed, by counting the groups of the form $(\cyc{q} \times \cyc{r}) \rtimes D$ where $D$ is a group of order 4, we see that $D$ can act on the product $\cyc{q} \times \cyc{r}$ in at least $2^2 = 4$ ways, and $D$ can be chosen in 2 ways. This gives at least 8 groups (we get more if $q \equiv 1 \Mod{4}$ for example). Thus $n$ is odd.
 
-If we have an arrow $q \rightarrow p^2$, say, then we get at least $g(p^2 q) = \frac{q + 9}{2} \ge 6$ groups. This is impossible: We clearly need $q = 3$ and thus no arrow $r \rightarrow q$ or $r \rightarrow p^2$. An arrow $q \rightarrow r$ would again yield at least $2g(p^2 q) = 12$ groups. Therefore the only way $N$ can be connected is if there is an arrow from $p^2$ to $r$, which means $g(p^2 r) \ge 4$ by [EARLIER FACT]. We have $g(p^2 q) = 6$ groups of the form $(P \rtimes \cyc{q}) \times R$ and $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$, where $P, Q, R$ are have orders $p^2, q, r$, respectively. This gives at least $6 + 4 - 2 = 8$ groups, showing that this case is inadmissible.
-
-We complete the problem as follows. Consider the coefficients of the $w$-terms in the formula in \thref{euppqr} of $g(n)$ for $n = p^2 q r$. Some of them depend on $n$ itself. If $n$ is such that the $w$-terms with nonconstant coefficients vanish, then once again $g(n)$ depends only on the \emph{generalized} \hg{1}, so we call such $n$ regular as well. Consequently, it will suffice to enumerate all possible generalized \hgs{1} of this type, and find a representative of each of them, and then use GAP to evaluate $g$. 
-
-We claim that the $w$ terms with nonconstant coefficients must vanish if $n$ is regular, apart from finitely many exceptions. The coefficients that appear are \[\frac{qr + 1}{2}, \frac{r + 5}{2}, p^2 - p, \frac{(q - 1)(q + 4)}{2}, p - 1, \frac{q - 1}{2}.\] It is evident that the first four are not less than $6$, so $g(n) \ge 8$ and is therefore inadmissible if these $w$ terms are not zero. If the term whose  coefficient is $p - 1$ iss not vanishing, then there are two arrows from $p \rightarrow q, r$. For all $n$ of this type, $g$ is an increasing function of $p$. A representative with $p = 3$ is $n = 3^2 \cdot 7 \cdot 13 = 819$, and GAP yields $g(819) = 11$.
-
-Next, we consider $\frac{q - 1}{2}$.  If $w_{p - 1}(q) = 1$ then we have an arrow $q \rightarrow p^2$ and thus $n$ is inadmissible by our earlier analysis, and a similar thing applies for the rest of the terms. So if $n$ is admissible, we must have $q \rightarrow r$ and $q \dashrightarrow p^2$. This graph will be called $\m{1}(q)$. Certainly, any arrows only increase $g$, and in $n$ whose generalized \hg{1} has a subgraph with these two arrows, $g$ is increasing as a function of $q$. For $q = 3, 5$ we have representatives $525 = 3 \cdot 5^2 \cdot 7$ and $34307 = 5 \cdot 11 \cdot 19^2$, and and GAP yields $g$ of $6$ and $7$, respectively. Thus these are the only solutions with this \hg{1}.
+We directly show that there is no arrow $q \rightarrow p^2$ (i.e., $q \nmid p - 1$). First, we need $q = 3$ since $g(p^2 q) = \frac{q + 9}{2}$, and thus we cannot have $r \rightarrow p^2$. An arrow $q \rightarrow r$ would yield $12 = 2g(p^2 q)$ groups. Thus we have an arrow from $p^2$ to $r$ (either weak or not), since $n$ is connected. If we let $P, Q, R$ denote arbitrary groups of orders $p^2, q,$ and $r$, respectively, we get $g(p^2 r) \ge 4$ groups of the form $(R \rtimes P) \times Q$ and $g(p^2 q) = 6$ groups of the form $(P \rtimes Q) \times R$, and the intersection of these two forms is the set of groups of the form 
 
 
 \subsubsection*{Two edges in the \hg{1}}
