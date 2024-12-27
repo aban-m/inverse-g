@@ -43,8 +43,7 @@
 \NewDocumentCommand{\textspace}{}{\linespread{1}\selectfont}
 \NewDocumentCommand{\eqnspace}{}{\vspace{-0.5\baselineskip}}
 \NewDocumentCommand{\case}{m}{\sffamily \textbf{Case #1.} \rmfamily }
-\NewDocumentCommand*{\hold}{}{%
-Hölder}
+\NewDocumentCommand{\hold}{}{\text{Holder}}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
