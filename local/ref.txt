@@ -1,0 +1,24 @@
+Counting Groups: Gnus, Moas, and other Exotica
+Finite group theory
+Algebra
+Orders for which there exist exactly six groups
+On the groups of cube-free order
+Solvability of groups of odd order
+Groups whose orders factorise into at most four primes
+Nilpotent Numbers
+Definitions of a group and a field by independent postulates
+Orders for Which a Given Number of Groups Exist
+Orders for Which There Exist Exactly Four or Five Groups
+Cubefree (A GAP 4 package)
+GAP -- Groups, Algorithms, and Programming, Version 4.5.6
+Enumeration of finite groups
+Über die endlichen Ordnungszahlen, zu denen nur eine Gruppe gehört
+An arithmetic theorem related to groups of bounded nilpotency class
+Die Ordnungen, zu denen nur Gruppen mit gegebener Eigenschaft gehören
+Three-group numbers
+Enumeration of groups whose order factorises in at most 4 primes
+
+
+
+
+
