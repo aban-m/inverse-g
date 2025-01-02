@@ -85,30 +85,36 @@ In addition, we tacitly assume that we are given the functions $h_\Gamma$ and $h
 We use the notation $g(X; v)$ to refer to the sum in Hölder's formula but only considering subsets $\pi$ with $v \in \pi$.
 
 \begin{prop}\thlabel{eujoin}
-	In this notation, \begin{enumrealm}\begin{equation*} g(\Gamma \rightarrow \Lambda) = g(\Gamma)g(\Lambda) + g(\Gamma - \{\qo\})g(\Lambda; \pin).
-\end{equation*}\end{enumrealm}
+	In this notation,
+	\begin{enumrealm}\begin{equation*}
+		g(\Gamma \rightarrow \Lambda) = g(\Gamma)g(\Lambda) + g(\Gamma - \{\qo\})g(\Lambda; \pin).
+	\end{equation*}\end{enumrealm}
 \end{prop}
 \begin{proof}
 	Let $M = \Gamma \rightarrow \Lambda$.
-Given a subset $\tilpi$ of $M$, we define $\piga = \pi \cap \Gamma$ and $\pila = \pi \cap \Lambda$.
-For all $p \neq \qo$, we have $h_M(p, \tilpi) = h_\Gamma(p, \piga)$ if $p$ is in $\Gamma$, and $h_\Lambda(p, \pila)$ otherwise.
-We have three cases:
+	Given a subset $\tilpi$ of $M$, we define $\piga = \pi \cap \Gamma$ and $\pila = \pi \cap \Lambda$.
+	For all $p \neq \qo$, we have $h_M(p, \tilpi) = h_\Gamma(p, \piga)$ if $p$ is in $\Gamma$, and $h_\Lambda(p, \pila)$ otherwise.
+	We have three cases:
+
+	If $\qo \in \piga$, we have $h_M(q, \piga) = h_\Gamma(q, \piga)$
+	and $h_M(p, \pila) = h_\Lambda(p, \pila)$ for all $q \in \Gamma - \piga$ and $p \in \Lambda - \pila$.
+	It follows that $S(\tilpi, M) = S(\piga, \Gamma)S(\pila, \Lambda).$
 	
+	On the other hand, if $\qo\notin\piga$ and $\pin \in \pila$, we get $h_M(\qo, \tilpi) = 1$
+	because there is a unique edge $\qo \rightarrow \pin,$ so it contributes nothing to the product.
+	Since $h_M(p, \tilpi) = h_\Lambda(p, \pila)$ for all $p \in \Lambda - \pila$,
+	we have $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
 	
-	If $\qo \in \piga$, we have $h_M(q, \piga) = h_\Gamma(q, \piga)$ and $h_M(p, \pila) = h_\Lambda(p, \pila)$ for all $q \in \Gamma - \piga$ and $p \in \Lambda - \pila$.
-It follows that $S(\tilpi, M) = S(\piga, \Gamma)S(\pila, \Lambda).$
+	Finally, if $\qo \notin \piga$ and $\pin\notin\pila,$ the previous analysis shows that $h_M(\qo, \tilpi) = 0$,
+	which in turn implies that $S(\tilpi, M) = 0$, and thus $\tilpi$ contributes nothing to the sum.
 	
-	On the other hand, if $\qo\notin\piga$ and $\pin \in \pila$, we get $h_M(\qo, \tilpi) = 1$ because there is a unique edge $\qo \rightarrow \pin,$ so it contributes nothing to the product.
-Since $h_M(p, \tilpi) = h_\Lambda(p, \pila)$ for all $p \in \Lambda - \pila$, we have $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
-	
-	Finally, if $\qo \notin \piga$ and $\pin\notin\pila,$ the previous analysis shows that $h_M(\qo, \tilpi) = 0$, which in turn implies that $S(\tilpi, M) = 0$, and thus $\tilpi$ contributes nothing to the sum.
-	
-	The subsets $\tilpi \subseteq M$ correspond bijectively to pairs $(\piga, \pila)$ with $\piga \subseteq \Gamma$ and $\pila \subseteq \Lambda$.
-From the pairs with $\qo \in \piga$ we get $g(\Gamma)g(\Lambda)$.
-From the pairs with $\qo \notin \piga$, we need $\pin \in \pila,$ and the resulting terms combine to give precisely $g(\Gamma - \{\qo\})g(\Lambda; \pin).$
+	The subsets $\tilpi \subseteq M$ correspond bijectively to pairs $(\piga, \pila)$
+	with $\piga \subseteq \Gamma$ and $\pila \subseteq \Lambda$.
+	From the pairs with $\qo \in \piga$ we get $g(\Gamma)g(\Lambda)$.
+	From the pairs with $\qo \notin \piga$, we need $\pin \in \pila$,
+	and the resulting terms combine to give precisely $g(\Gamma - \{\qo\})g(\Lambda; \pin).$
 \end{proof}
 
-%\setenumerate{noitemsep}
 \begin{cor}\thlabel{eustick} Suppose $\Gamma$ is a \hg{1} and $v \notin \Gamma$.\listspace
 	\begin{enumerate} \listspace
 		\item Fix a terminal vertex $q$ in $\Gamma$.
@@ -118,8 +124,11 @@ Then $g(v \rightarrow \Gamma) = g(\Gamma) + g(\Gamma; p).$
 	\end{enumerate}\textspace
 \end{cor}
 
-We can iterate the first operation, starting with a graph $\Gamma_0$ and a fixed terminal vertex $q$ in it and define $\Gamma_{n + 1} = \Gamma_{n} \rightarrow v_{n + 1}$, where the $v_i$ are all distinct.
-If we let $\alpha = g(\Gamma_0 - \{q\})$ and $\beta = g(\Gamma_0)$, then the sequence $a_n = g(\Gamma_n)$ satisfies the recurrence relation $a_{n + 2} = a_{n + 1} + a_{n}$ with initial values $a_{-1} = \alpha$ and $a_0 = \beta$.
+We can iterate the first operation, starting with a graph $\Gamma_0$ and a fixed terminal vertex $q$ in it,
+and define $\Gamma_{n + 1} = \Gamma_{n} \rightarrow v_{n + 1}$, where the $v_i$ are all distinct.
+If we let $\alpha = g(\Gamma_0 - \{q\})$ and $\beta = g(\Gamma_0)$,
+then the sequence $a_n = g(\Gamma_n)$ satisfies the recurrence relation $a_{n + 2} = a_{n + 1} + a_{n}$
+with initial values $a_{-1} = \alpha$ and $a_0 = \beta$.
 Starting with a single vertex, we get
 
 \begin{prop}\thlabel{eufibo}
@@ -145,22 +154,28 @@ It grows exponentially in the in- and out-degrees as well:
 Then $g(\Gamma) \ge 2^r + \frac{p^s - 1}{p - 1}$.
 \end{lem}
 \begin{proof}
-	Suppose we have $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$, and let $\Gamma_0$ be the subgraph induced by the collection of vertices $\alpha_i$ and $\beta_j$.
-Evidently, any subset of $\Gamma_0$ containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets.
-Moreover, the complement of $\{v\}$ in $\Gamma_0$ is central, and it contributes $\frac{p^s - 1}{p - 1}$.
-This shows that $\Gamma_0$, and thus $\Gamma$, satisfies the inequality.
+	Suppose we have $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$,
+	and let $\Gamma_0$ be the subgraph induced by the collection of vertices $\alpha_i$ and $\beta_j$.
+	Evidently, any subset of $\Gamma_0$ containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets.
+	Moreover, the complement of $\{v\}$ in $\Gamma_0$ is central, and it contributes $\frac{p^s - 1}{p - 1}$.
+	This shows that $\Gamma_0$, and thus $\Gamma$, satisfies the inequality.
 \end{proof}
 
 % In the sequel, we consider generalized \hgs{1} of cube-free numbers.
 %There are two groups of order $p^2$, namely $\cyc{p}^2 = \cyc{p} \times \cyc{p}$ and $\cyc{p^2}$.
-%In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus from each semidirect product $G \rtimes \cyc{p}$, we get \textit{two} semidirect products $G \rtimes P$.
-%On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \times \cyc{p}$ by fixing one factor and acting on the other, and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$.
+%In both cases, we have an epimorphism $P \twoheadrightarrow \cyc{p}$, and thus from each semidirect product $G \rtimes \cyc{p}$,
+%we get \textit{two} semidirect products $G \rtimes P$.
+%On the other hand, we have a monomorphism $\aut{\cyc{p}} \hookrightarrow \aut{P}$ in both cases: For $P = \cyc{p} \times \cyc{p}$ by fixing one factor and acting on the other,
+% and for $P = \cyc{p^2}$ from the well-known fact that $\aut{P} \cong \cyc{p} \times \cyc{p - 1}$.
 %It follows that the same observation holds for $P \rtimes G$ as well.
 %These two facts together imply the following
 % \begin{lem}\thlabel{eubold}
 	% If $n$ is cube-free with $s$ factors of the form $p^2$, then $g(n) \ge 2^s g(\operatorname{rad}(n))$.
 % \end{lem}
 % \begin{proof}
-	% For a group $G$ of order $n_0 = \operatorname{rad}(n)$ and a subset $\tau \subset \sigma$, where $\sigma$ is the set of prime-squared factors of $n$, it can be seen that we can replace the $p$-Sylow subgroup of each $p$ in $\tau$ with either $\cyc{p} \times \cyc{p}$ or $\cyc{p}^2$, essentially since $G$ is an iterated semidirect product.
+	% For a group $G$ of order $n_0 = \operatorname{rad}(n)$ and a subset $\tau \subset \sigma$,
+	% where $\sigma$ is the set of prime-squared factors of $n$,
+	% it can be seen that we can replace the $p$-Sylow subgroup of each $p$ in $\tau$ with either $\cyc{p} \times \cyc{p}$
+	% or $\cyc{p}^2$, essentially since $G$ is an iterated semidirect product.
 % Thus we can form at least $2^s$ different groups 
 % \end{proof}
