@@ -1,9 +1,15 @@
 [general]
-1. Simplify the preamble.
-2. Purge unneeded commands.
-3. Split up the TikZ figures.
-4. Split into chapters.
+1.
+Simplify the preamble.
+2.
+Purge unneeded commands.
+3.
+Split up the TikZ figures.
+4.
+Split into chapters.
 
 [submission]
-1. Streamline the process of making submission copies.
-2. Make a working version.
+1.
+Streamline the process of making submission copies.
+2.
+Make a working version.
