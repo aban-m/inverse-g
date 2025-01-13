@@ -11,14 +11,14 @@ We also let $\Gamma$ be the set of all prime factors of $n$.
 \begin{proof} See {\cite[Thm.~5.1]{gnumoas}}.
 \end{proof}
 
-It is therefore natural to define the \emph{\hg{1}} $\Gamma = \Gamma(n)$ of a square-free integer $n$ to be the unlabeled directed graph whose vertices are the prime factors, and where we have an edge $p \rightarrow q$ precisely when $p$ is related to $q$.
+It is therefore natural to define the \emph{\hg{1}} $\Gamma = \Gamma(n)$ of a square-free integer $n$ to be the unlabeled directed graph whose vertices are the prime factors, and where we have an edge $p \to q$ precisely when $p$ is related to $q$.
 Observe also that when the out-degree of every vertex is at most 1, $g(n)$ depends solely on the shape of the \hg{1}, and therefore we are justified in speaking of $g(\Gamma)$.
 We call both $n$ and $\Gamma$ \emph{regular} in this case.
 We will occasionally treat directed acyclic graphs $\Gamma$ where we only know the \emph{labels}, or the numerical values, of the vertices whose out-degree exceeds $1$.
 In this case, we can still speak of $g(\Gamma)$ without ambiguity, as it will be independent of the labels of the rest of the vertices.
 We also observe that Dirichlet's theorem on arithmetic progressions shows that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd square-free integer.
 
-We generalize this to arbitrary $n = \ufdsh$ as follows: The vertices are now the $p_i^{\alpha_i}$, and an edge $p^\alpha \rightarrow q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$.
+We generalize this to arbitrary $n = \ufdsh$ as follows: The vertices are now the $p_i^{\alpha_i}$, and an edge $p^\alpha \to q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$.
 We will call this the \emph{generalized \hg} of $n$, also denoted by $\Gamma(n)$.
 Typically, $n$ will be cube-free, in which case we write $p^2 \dashrightarrow q$ to mean $p \parallel q - 1$, and $q \dashrightarrow p^2$ to mean $q \mid p + 1$ but $q \nmid p - 1$.
 We call these two types of arrows \emph{weak}, and other arrows \emph{strong}.
@@ -34,7 +34,7 @@ We have already observed that $g(ab) \ge g(a)g(b)$ for coprime $a, b$.
 When does equality hold? If it does hold, then every group of order $ab$ splits as a direct product of groups of orders $a$ and $b$.
 Coprimality is therefore a necessary condition: If $p$ divides both $a$ and $b,$ we simply observe that the group $\cyc{a/p} \times \cyc{p^2} \times \cyc{b/p}$ does not split in this way.
 Next, it must be impossible to form semidirect products.
-If $p$ divides $b$ and $q^n$ divides $a$, we observe that $\abs{\aut{\cyc{q}^n}}$ has $q^i - 1$ as a factor for all $1 \le i \le n$, and therefore a nontrivial semidirect product exists if there is a relation $p \rightarrow q^n$.
+If $p$ divides $b$ and $q^n$ divides $a$, we observe that $\abs{\aut{\cyc{q}^n}}$ has $q^i - 1$ as a factor for all $1 \le i \le n$, and therefore a nontrivial semidirect product exists if there is a relation $p \to q^n$.
 In this case, $a$ and $b$ are said to be \emph{arithmetically dependent}.
 We conclude that another necessary condition is $\Gamma(n) = \Gamma(a) \sqcup \Gamma(b)$.
  The converse is also true:
@@ -79,7 +79,7 @@ We will only make use of the following (weak) lower bound:
 
 \subsection{Splicing graphs}
 Given disjoint graphs $\Gamma$ and $\Lambda$ with a fixed terminal vertex $\qo$ in $\Gamma$ and any vertex $\pin$ in $\Lambda$,
-we can make a new graph $\Gamma \rightarrow \Lambda$ by adjoining an arrow $\pin \rightarrow \qo$ to the union of $\Gamma$ and $\Lambda$.
+we can make a new graph $\Gamma \to \Lambda$ by adjoining an arrow $\pin \to \qo$ to the union of $\Gamma$ and $\Lambda$.
 This depends on the choice of $\qo$ and $\pin$ in general, but we will not explicitly refer to them when there is no risk of confusion.
 In addition, we tacitly assume that we are given the functions $h_\Gamma$ and $h_\Lambda$.
 We use the notation $g(X; v)$ to refer to the sum in Hölder's formula but only considering subsets $\pi$ with $v \in \pi$.
@@ -87,11 +87,11 @@ We use the notation $g(X; v)$ to refer to the sum in Hölder's formula but only 
 \begin{prop}\thlabel{eujoin}
 	In this notation,
 	\begin{enumrealm}\begin{equation*}
-		g(\Gamma \rightarrow \Lambda) = g(\Gamma)g(\Lambda) + g(\Gamma - \{\qo\})g(\Lambda; \pin).
+		g(\Gamma \to \Lambda) = g(\Gamma)g(\Lambda) + g(\Gamma - \{\qo\})g(\Lambda; \pin).
 	\end{equation*}\end{enumrealm}
 \end{prop}
 \begin{proof}
-	Let $M = \Gamma \rightarrow \Lambda$.
+	Let $M = \Gamma \to \Lambda$.
 	Given a subset $\tilpi$ of $M$, we define $\piga = \pi \cap \Gamma$ and $\pila = \pi \cap \Lambda$.
 	For all $p \neq \qo$, we have $h_M(p, \tilpi) = h_\Gamma(p, \piga)$ if $p$ is in $\Gamma$, and $h_\Lambda(p, \pila)$ otherwise.
 	We have three cases:
@@ -101,7 +101,7 @@ We use the notation $g(X; v)$ to refer to the sum in Hölder's formula but only 
 	It follows that $S(\tilpi, M) = S(\piga, \Gamma)S(\pila, \Lambda).$
 	
 	On the other hand, if $\qo\notin\piga$ and $\pin \in \pila$, we get $h_M(\qo, \tilpi) = 1$
-	because there is a unique edge $\qo \rightarrow \pin,$ so it contributes nothing to the product.
+	because there is a unique edge $\qo \to \pin,$ so it contributes nothing to the product.
 	Since $h_M(p, \tilpi) = h_\Lambda(p, \pila)$ for all $p \in \Lambda - \pila$,
 	we have $S(\tilpi, M) = S(\piga, \Gamma - \{\qo\})S(\pila, \Lambda)$.
 	
@@ -118,14 +118,14 @@ We use the notation $g(X; v)$ to refer to the sum in Hölder's formula but only 
 \begin{cor}\thlabel{eustick} Suppose $\Gamma$ is a \hg{1} and $v \notin \Gamma$.\listspace
 	\begin{enumerate} \listspace
 		\item Fix a terminal vertex $q$ in $\Gamma$.
-Then $g(\Gamma \rightarrow v) = g(\Gamma) + g(\Gamma - \{q\}).$
+Then $g(\Gamma \to v) = g(\Gamma) + g(\Gamma - \{q\}).$
 		\item Fix an initial vertex $p$ in $\Gamma$.
-Then $g(v \rightarrow \Gamma) = g(\Gamma) + g(\Gamma; p).$
+Then $g(v \to \Gamma) = g(\Gamma) + g(\Gamma; p).$
 	\end{enumerate}\textspace
 \end{cor}
 
 We can iterate the first operation, starting with a graph $\Gamma_0$ and a fixed terminal vertex $q$ in it,
-and define $\Gamma_{n + 1} = \Gamma_{n} \rightarrow v_{n + 1}$, where the $v_i$ are all distinct.
+and define $\Gamma_{n + 1} = \Gamma_{n} \to v_{n + 1}$, where the $v_i$ are all distinct.
 If we let $\alpha = g(\Gamma_0 - \{q\})$ and $\beta = g(\Gamma_0)$,
 then the sequence $a_n = g(\Gamma_n)$ satisfies the recurrence relation $a_{n + 2} = a_{n + 1} + a_{n}$
 with initial values $a_{-1} = \alpha$ and $a_0 = \beta$.
@@ -137,10 +137,10 @@ Then $g(\Phi_n) = \fibo{n + 1}$, where $\fibo{n}$ is the Fibonacci sequence.
 \end{prop}
 
 An amusing consequence of this fact is this.
-Since $\Phi_{m + n} = \Phi_m \rightarrow \Phi_n$, and we have just seen that $g(\Phi_m - \{\text{final}\}) = \fibo{m}$ and $g(\Phi_n; \text{initial}) = \fibo{n}$, 
+Since $\Phi_{m + n} = \Phi_m \to \Phi_n$, and we have just seen that $g(\Phi_m - \{\text{final}\}) = \fibo{m}$ and $g(\Phi_n; \text{initial}) = \fibo{n}$, 
 we can now apply \hyperref[eustick]{\hthref{eustick}} to obtain the well-known identity, \begin{enumrealm}
 \begin{align*}
-	\fibo{m + n} &= g(\Phi_m \rightarrow \Phi_{n - 1}) \\
+	\fibo{m + n} &= g(\Phi_m \to \Phi_{n - 1}) \\
 	&= g(\Phi_m)g(\Phi_{n - 1}) + g(\Phi_m - \{\text{final}\})g(\Phi_{n - 1}; \{\text{initial}\}) \\
 	&= \fibo{m + 1}\fibo{n} + \fibo{m}\fibo{n - 1}.
 \end{align*}\end{enumrealm}
@@ -154,7 +154,7 @@ It grows exponentially in the in- and out-degrees as well:
 Then $g(\Gamma) \ge 2^r + \frac{p^s - 1}{p - 1}$.
 \end{lem}
 \begin{proof}
-	Suppose we have $\alpha_i \rightarrow v$ and $v \rightarrow \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$,
+	Suppose we have $\alpha_i \to v$ and $v \to \beta_j$ for $1 \le i \le r$ and $1 \le j \le s$,
 	and let $\Gamma_0$ be the subgraph induced by the collection of vertices $\alpha_i$ and $\beta_j$.
 	Evidently, any subset of $\Gamma_0$ containing $v$ and the $\beta_j$ is central, and there are $2^r$ such subsets.
 	Moreover, the complement of $\{v\}$ in $\Gamma_0$ is central, and it contributes $\frac{p^s - 1}{p - 1}$.

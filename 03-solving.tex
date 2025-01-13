@@ -46,45 +46,43 @@ If $o(\Gamma) = 3$, we get at least $1 + \frac{p^3 - 1}{p - 1} = p^2 + p + 2 \ge
 It follows that $o(\Gamma) \le 2$, and, for a similar reason, $i(\Gamma) \le 2$.
 We therefore have four cases to consider.
 
-\case{1} $i(\Gamma) = 1, o(\Gamma) = 1$.
-In this case $\Gamma$ is simply a path $\Phi_k$ for some $k$, and as neither 6 nor 7 is a Fibonacci number,
-so by \hthref{eufibo} this is never an admissible graph.
+\case{1} $o(\Gamma) = 1$.\linebreak
+If $\i(\Gamma) = 1$ then we have a path. Since $\hthref{eufibo}$ implies that $g$ is a Fibonacci number in this case,
+and neither $6$ nor $7$ is an admissible number, we dismiss this case.
 
-\case{2} $i(\Gamma) = 2, o(\Gamma) = 1$.
-It is clear that there is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \rightarrow v$ be arrows, and call this subgraph $K$.
+Suppose now that $\i(\Gamma) = 2$.
+It is clear that there is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \to v$ be arrows, and call this subgraph $K$.
 We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices, since we have $o(\Gamma) = 1$.
-A new vertex $u$ can be connected to $w_1$ to get $u \rightarrow w_1$,
+A new vertex $u$ can be connected to $w_1$ to get $u \to w_1$,
 this would give $g(K) + g(K; w_1) = 4 + 2 = 6$ groups by \hthref{eujoin}, so call this new graph $Q$.
-We cannot extend $Q$: Both extensions $b \rightarrow Q$ and $Q \rightarrow f$ give too many groups by \hthref{eustick}.
-In the other direction, we could add $v \rightarrow f_1$ in $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$.
-However, this can only be extended forward, that is, by taking $(K \rightarrow f_1) \rightarrow f_2$,
-and this yields $g(K \rightarrow f_1) + g(K) = 4 + 5 = 9$ groups.
+We cannot extend $Q$: Both extensions $b \to Q$ and $Q \to f$ give too many groups by \hthref{eustick}.
+In the other direction, we could add $v \to f_1$ in $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$.
+However, this can only be extended forward, that is, by taking $(K \to f_1) \to f_2$,
+and this yields $g(K \to f_1) + g(K) = 4 + 5 = 9$ groups.
 Thus the only admissible graph is $Q$, with $g(Q) = 6$.
 
-\case{3} $i(\Gamma) = 1, o(\Gamma) = 2$.
+\case{2} $o(\Gamma) = 2$.
 It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$.
 We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial
 (there can be no vertex labeled 2 because it would have an out-degree of at least 2).
 We cannot add edges without adding vertices.
-Using \hthref{eustick}, we see that adding a new vertex $v$ and an arrow $u \rightarrow v$,
+Using \hthref{eustick}, we see that adding a new vertex $v$ and an arrow $u \to v$,
 where $u$ is either of the two vertices connected with $p$, yields $p + 4$ groups.
 As $p > 2$, we must have $p = 3$.
 This completes the analysis for all such graphs:
 We get admissible graphs when $p = 5$ in the first sub-case and when $p = 3$ in the second sub-case, both yielding $g = 7$.
 
-\case{4} $i(\Gamma) = 2, o(\Gamma) = 2$.
-
 A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups.
-So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \rightarrow v_1, v_2$, and call this graph $Q$.
+So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \to v_1, v_2$, and call this graph $Q$.
 We have already seen that $g(Q) = p + 2$.
 We show that we cannot add a vertex $w$.
-First, we cannot connect it with $u$: An arrow $w \rightarrow u$ is impossible since it means $w = 2$
- and $u \rightarrow w$ is ruled out by the condition on $o(\Gamma)$.
-Adding $w \rightarrow v_1$ does not give an admissible graph
+First, we cannot connect it with $u$: An arrow $w \to u$ is impossible since it means $w = 2$
+ and $u \to w$ is ruled out by the condition on $o(\Gamma)$.
+Adding $w \to v_1$ does not give an admissible graph
 because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total.
-Finally, if we add $v_1 \rightarrow w$ instead, we are back to Case $3$ with $p + 4 \ge 7$ groups, and it is now impossible to achieve $i(\Gamma) = 2$.
+Finally, if we add $v_1 \to w$ instead, we are back to Case $3$ with $p + 4 \ge 7$ groups, and it is now impossible to achieve $i(\Gamma) = 2$.
 
-We can add an edge $v_1 \rightarrow v_2$ to $Q$ without adding $w$.
+We can add an edge $v_1 \to v_2$ to $Q$ without adding $w$.
 This will give $p + 4$ groups, and is the only admissible case, giving $6$ if $p = 2$ and $7$ if $p = 3$.
 
 \subsection{Small non-square-free admissible numbers}
@@ -141,8 +139,8 @@ We begin by applying the formula to the graph $D(p)$ with $p^2 \dashrightarrow q
 
 We see that $p \neq 2$, since otherwise we would have $D(2)$ as a subgraph.
 Next, we show that there is no strong arrow to $p^2$.
-By \hthref{euppq} we see that there is no $r \rightarrow p^2$ since $r \ge 5$.
-If we have $q \rightarrow p^2$, we get $g(p^2 q) = 6$, and the connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$.
+By \hthref{euppq} we see that there is no $r \to p^2$ since $r \ge 5$.
+If we have $q \to p^2$, we get $g(p^2 q) = 6$, and the connectivity of $n$ forces one of $w_{r - 1}(p), w_{r - 1}(q)$ and $w_{p + 1}(r)$ to be equal to $1$.
 The formula then implies that we get
 $2(p - 1)$, $\frac{(q - 1)(q + 4)}{2}$, \text{or} $w_{p^2 - 1}(qr) + w_{p + 1}(r)$
 more groups, respectively, showing that $n$ is inadmissible.
@@ -154,9 +152,9 @@ using the Cubefree package in GAP{\cite{GAP4, cubefreepkg}}.
 We will call $n$ ``regular'' in this case as well.
 
 We analyze $k(n)$.
-If there is an arrow $q \rightarrow r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected with $p^2$.
+If there is an arrow $q \to r$, then we have $h(n) \ge 2 + 2w_{r - 1}(q) = 4$, and if there is no arrow then both $q$ and $r$ are connected with $p^2$.
 A case-by-case analysis shows that $h(n) \ge 5$ in this case.
-Consequently, we must have $k(n) \le 3$ in all admissible cases, with equality implying the existence of an arrow $q \rightarrow r$.
+Consequently, we must have $k(n) \le 3$ in all admissible cases, with equality implying the existence of an arrow $q \to r$.
 
 Assume now that $k(n) > 0$, that is, $n$ is not regular.
 By considering the ``coefficients'' of the $w$-sums in the formula for $k$, we observe that all of them are greater than $3$ except possibly $p - 1$ and $\frac{q - 1}{2}$.
@@ -164,7 +162,7 @@ First, the sum whose coefficient is $(p - 1)$ must vanish, as otherwise would ge
 
 Secondly, we consider $\frac{q - 1}{2}$.
 Our analysis shows that all the summands but $w_{p + 1}(q)w_{r - 1}(q)$ must vanish.
-Let $\m1(q)$ be the graph with $q \rightarrow r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$).
+Let $\m1(q)$ be the graph with $q \to r$ and $q \dashrightarrow p^2$ (we emphasize its dependence on $q$).
 We see that $g(\m1(q)) = 5 + \frac{q - 1}{2}$, thus we get admissible $n$ precisely when $q = 3$ or $q = 5$, yielding $6$ and $7$ groups,
 respectively, and this is the only irregular admissible case.
 
@@ -206,7 +204,7 @@ Once again, $n$ is inadmissible.
 It is clear that $qrs$ has at most two edges, because otherwise we have $g(qrs) \ge 4$ by Hölder's formula and thus $g(n) \ge 9$.
 
 
-\scase{C.1} \emph{$qrs$ has precisely one edge $q \rightarrow r$.} We claim that $n$ is inadmissible.\nopagebreak
+\scase{C.1} \emph{$qrs$ has precisely one edge $q \to r$.} We claim that $n$ is inadmissible.\nopagebreak
 
 For a set of primes $\alpha$, let $g^{(k)}_\alpha(n)$ denote the number of groups of order $n$,
 with the Sylow subgroups corresponding to at least $k$ primes in $\alpha$ being direct factors (we can omit the superscript if $k = 1$).
@@ -259,7 +257,7 @@ Suppose then that there is no normal $q$-Sylow subgroup.
 
 Consider a Hall subgroup $C$ of order $qrs$, which is cyclic by definition.
 Since the $s$- and $q$-Sylow subgroups are normalized by $C$, we have $n_s(G), n_q(G) \mid p^2$.
-We have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow \nopagebreak[4] $q \rightarrow p$, contrary to our assumption.
+We have $n_q(G) = p^2$, since $n_q(G) = p$ implies the existence of a strong arrow \nopagebreak[4] $q \to p$, contrary to our assumption.
 Next, we cannot have $n_s(G) = p$ because $s > p$, and we cannot have $n_s(G) = p^2$ because otherwise $p^2 \equiv 1 \Mod{s}$ and thus $p \equiv s - 1 \Mod{s}$.
 Since $s > p$, this implies $p = s - 1$, which is impossible since $(s, p) \neq (3, 2)$.
 We conclude that the $s$-Sylow subgroup is normal.
@@ -268,7 +266,7 @@ We conclude that the $s$-Sylow subgroup is normal.
 To see that its complement is normal as well, let $S, P, Q,\text{ and }R$ denote Sylow subgroups corresponding to the primes $s, p, q,\text{ and }r$ respectively.
 We know that $H = S(PQ)$ is a subgroup, and $S$ is normal in it, so we have $H \cong \cyc{s} \rtimes H_0$ where $H_0$ is a group of \mbox{order $p^2 q$.}
 
-Consider the homomorphism $\phi : H_0 \rightarrow \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product.
+Consider the homomorphism $\phi : H_0 \to \aut{\cyc{s}} \cong \cyc{s - 1}$ defining the semidirect product.
 We know that $Q \subseteq \ker \phi$ since $q \nmid s - 1$.
 If $Q = \ker \phi$, $Q$ will be normalized by $P$, which implies $n_q(G) = 1$, contrary to our assumption.
 Similarly, we cannot have $\abs{\ker \phi} = pq$ because $pq$ is a cyclic number, so we would get $n_q(G) = p$, which has already been ruled out.
