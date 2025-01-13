@@ -1,3 +1,5 @@
+!local/**
+!pageproof/**
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

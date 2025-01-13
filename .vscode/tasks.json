@@ -7,6 +7,11 @@
             "label": "echo",
             "type": "shell",
             "command": "echo Hello"
+        },
+        {
+            "label": "Make pageproof copy",
+            "type": "shell",
+            "command": "python ../scripts/pageproof.py"
         }
     ]
 }
