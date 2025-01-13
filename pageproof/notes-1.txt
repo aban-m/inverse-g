@@ -1,0 +1,9 @@
+[err]
+1. Critical p, q.
+
+[ext]
+1. Consider extending the main splicing lemma for \Gamma with non-terminal q.
+2. Clear up the confusion in sqf case 2 (the b --> Q bit).
+3. In which cases is a graph extensible by 1? Either by adding a vertex or some other operation.
+4. Generally, make a dedicated study of operations on graphs and how they change it, beginning
+from minor ones like removing an edge, etc. Consider variants like central subsets.
