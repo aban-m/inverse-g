@@ -16,7 +16,7 @@ Observe also that when the out-degree of every vertex is at most 1, $g(n)$ depen
 We call both $n$ and $\Gamma$ \emph{regular} in this case.
 We will occasionally treat directed acyclic graphs $\Gamma$ where we only know the \emph{labels}, or the numerical values, of the vertices whose out-degree exceeds $1$.
 In this case, we can still speak of $g(\Gamma)$ without ambiguity, as it will be independent of the labels of the rest of the vertices.
-We also observe that Dirichlet's theorem on arithmetic progressions shows that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd square-free integer.
+We also observe that Dirichlet's theorem on arithmetic progressions implies that a given (unlabeled) directed acyclic graph is always realizable as the \hg{1} of some odd square-free integer.
 
 We generalize this to arbitrary $n = \ufdsh$ as follows: The vertices are now the $p_i^{\alpha_i}$, and an edge $p^\alpha \to q^\beta$ exists precisely when $q^j \equiv 1 \Mod{p^i}$ for some $1 \le i \le \alpha$ and $1 \le j \le \beta$.
 We will call this the \emph{generalized \hg} of $n$, also denoted by $\Gamma(n)$.
@@ -79,7 +79,7 @@ We will only make use of the following (weak) lower bound:
 
 \subsection{Splicing graphs}
 Given disjoint graphs $\Gamma$ and $\Lambda$ with a fixed terminal vertex $\qo$ in $\Gamma$ and any vertex $\pin$ in $\Lambda$,
-we can make a new graph $\Gamma \to \Lambda$ by adjoining an arrow $\pin \to \qo$ to the union of $\Gamma$ and $\Lambda$.
+we can make a new graph $\Gamma \to \Lambda$ by adjoining an arrow $\qo \to \pin$ to the union of $\Gamma$ and $\Lambda$.
 This depends on the choice of $\qo$ and $\pin$ in general, but we will not explicitly refer to them when there is no risk of confusion.
 In addition, we tacitly assume that we are given the functions $h_\Gamma$ and $h_\Lambda$.
 We use the notation $g(X; v)$ to refer to the sum in Hölder's formula but only considering subsets $\pi$ with $v \in \pi$.
@@ -150,7 +150,7 @@ We have already seen that $g(\Phi_n)$ is the Fibonacci sequence, and so it grows
 It follows that $g$ grows exponentially in the length of the longest directed path, since $g(\Gamma) \ge  g(\Gamma_0)$ for all subgraphs $\Gamma_0 \subseteq \Gamma$.
 It grows exponentially in the in- and out-degrees as well:
 \begin{lem}\thlabel{euinout}
-	Let $r, s$ denote the in- and out-degree, respectively, of a vertex $v$ in a \hg{1} $\Gamma$ with label $p$.
+	Let $r, s$ denote the in- and out-degrees, respectively, of a vertex $v$ in a \hg{1} $\Gamma$ with label $p$.
 Then $g(\Gamma) \ge 2^r + \frac{p^s - 1}{p - 1}$.
 \end{lem}
 \begin{proof}

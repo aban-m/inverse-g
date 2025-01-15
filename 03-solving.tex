@@ -44,46 +44,41 @@ We summarize the results:
 Let $i(\Gamma), o(\Gamma)$ denote the maximum in- and out-degree of a vertex in a \hg{1} $\Gamma$.
 If $o(\Gamma) = 3$, we get at least $1 + \frac{p^3 - 1}{p - 1} = p^2 + p + 2 \ge 8$.
 It follows that $o(\Gamma) \le 2$, and, for a similar reason, $i(\Gamma) \le 2$.
-We therefore have four cases to consider.
+We therefore have four cases to consider, which we divde based on the value of $\o(\Gamma)$.
 
-\case{1} $o(\Gamma) = 1$.\linebreak
-If $\i(\Gamma) = 1$ then we have a path. Since $\hthref{eufibo}$ implies that $g$ is a Fibonacci number in this case,
-and neither $6$ nor $7$ is an admissible number, we dismiss this case.
+\case{1} $o(\Gamma) = 1$.
 
-Suppose now that $\i(\Gamma) = 2$.
-It is clear that there is a unique vertex $v$ with in-degree 2, so let $w_1, w_2 \to v$ be arrows, and call this subgraph $K$.
+If $i(\Gamma) = 1$ then we have a path. Since \hthref{eufibo} implies that $g$ is a Fibonacci number in this case,
+and neither $6$ nor $7$ is a Fibonacci number, we dismiss this case.
+
+Suppose now that $i(\Gamma) = 2$.
+It is clear that there is a unique vertex $u$ with in-degree 2, so let $v_1, v_2 \to u$ be arrows, and call this subgraph $K$.
 We have $g(K) = 2^2 = 4$, and the only way to add edges is by adding vertices, since we have $o(\Gamma) = 1$.
-A new vertex $u$ can be connected to $w_1$ to get $u \to w_1$,
-this would give $g(K) + g(K; w_1) = 4 + 2 = 6$ groups by \hthref{eujoin}, so call this new graph $Q$.
-We cannot extend $Q$: Both extensions $b \to Q$ and $Q \to f$ give too many groups by \hthref{eustick}.
-In the other direction, we could add $v \to f_1$ in $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$.
-However, this can only be extended forward, that is, by taking $(K \to f_1) \to f_2$,
-and this yields $g(K \to f_1) + g(K) = 4 + 5 = 9$ groups.
-Thus the only admissible graph is $Q$, with $g(Q) = 6$.
+A new vertex $u$ can be connected to $v_1$ (say) to get $u \to v_1$,
+and the resulting graph gives $g(K) + g(K; v_1) = 4 + 2 = 6$ groups by \hthref{eujoin}.
+Call this new graph $K_{VI}$.
+We cannot extend $K_{VI}$: $K_{VI} \to f$ as well as both $b \to K_{VI}$ give too many groups by \hthref{eustick}.
+
+In the other direction, we could have begun by adding a vertex $f_1$ and an arrow
+$u \to f_1$ in $K$ instead, yielding $g(K) + g(\tikz[ww] \pic{ewalk};) = 5$.
+However, this graph can only be extended forward, that is, by taking $(K \to f_1) \to f_2$,
+which yields $g(K \to f_1) + g(K) = 4 + 5 = 9$ groups.
+
+We conclude that the only adimssible graph in this case is $K_{VI}$, with $g = 6$.
 
 \case{2} $o(\Gamma) = 2$.
-It is clear that there is a unique vertex with out-degree 2, so label it $p$ for some prime $p$.
-We get at least $p + 2$ groups, so we have $p \le 5$ and therefore $p$ is initial
-(there can be no vertex labeled 2 because it would have an out-degree of at least 2).
-We cannot add edges without adding vertices.
-Using \hthref{eustick}, we see that adding a new vertex $v$ and an arrow $u \to v$,
-where $u$ is either of the two vertices connected with $p$, yields $p + 4$ groups.
-As $p > 2$, we must have $p = 3$.
-This completes the analysis for all such graphs:
-We get admissible graphs when $p = 5$ in the first sub-case and when $p = 3$ in the second sub-case, both yielding $g = 7$.
 
-A vertex labeled $p$ with in-degree and out-degree both equal to $2$ has $p > 2$, and would yield $4 + p + 1 = p + 5 > 7$ groups.
-So let $u$ be the unique vertex with out-degree $2$ and label it $p$, and assume we have $u \to v_1, v_2$, and call this graph $Q$.
-We have already seen that $g(Q) = p + 2$.
-We show that we cannot add a vertex $w$.
-First, we cannot connect it with $u$: An arrow $w \to u$ is impossible since it means $w = 2$
- and $u \to w$ is ruled out by the condition on $o(\Gamma)$.
-Adding $w \to v_1$ does not give an admissible graph
-because the subsets $\{v_1, v_2\}$ and $\{w, v_1, v_2\}$ would both be central, yielding $2(p + 1) = 2p + 2 \ge 8$ groups in total.
-Finally, if we add $v_1 \to w$ instead, we are back to Case $3$ with $p + 4 \ge 7$ groups, and it is now impossible to achieve $i(\Gamma) = 2$.
+It is clear that there is a unique vertex $u$ with out-degree $2$. Suppose its label is the prime $p$.
+We get at least $p + 2$ groups, so we have $p \le 5$. It follows immediately that $u$ is initial.
+Moreover, if $p = 5$, no additions of any type are possible, and we get an admissible graph.
 
-We can add an edge $v_1 \to v_2$ to $Q$ without adding $w$.
-This will give $p + 4$ groups, and is the only admissible case, giving $6$ if $p = 2$ and $7$ if $p = 3$.
+Suppose $p \ne 5$, and we start with the subgraph $u \to v_1, v_2$, which we denote $L$. If we do not add vertices,
+we have to add an edge $v_1 \to v_2$, yielding $p + 4$ groups,
+so we get two admissible cases, depending on whether $p = 2$ or $p = 3$.
+
+If we extend the graph by adding a vertex, then $p = 3$ (since $p = 2$ would imply $o(\Gamma) \ge 3)$. In this case, $g(L) = 5$.
+It is easy to see that the only possible extensions are $f \to L$ and $L \to f$. According to \hthref{eustic}, the former yields $2g(L) = 10$ groups, and the latter $5 + 2 = 7$ groups. So we have another admissible case.
+
 
 \subsection{Small non-square-free admissible numbers}
 In this section, we consider non-square-free admissible $n$ with $\lambda(n) \le 4$.
