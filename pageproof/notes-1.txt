@@ -1,5 +1,16 @@
 [err]
-1. Critical p, q.
+1. Critical p, q. (fixed)
+2. An entire graph seemingly missing in ppqrs>qrs/2
+3. An entire TYPE of graphs (with three subtypes) missing in ppqrs>qrs/2
+   note: This is actually critical, because it would seem that they yield counterexamples.
+   It is still not clear how I should approach them.
+
+
+[arg]
+1. If we have ppqrs, with q -> r -> s and r ---w---> pp, then the usual argument forces q = 3.
+     However, we end up with an arrow of some sort from q in this case!
+2. O_{2/3} is actually inadmissible. That's because it is composed of M2 and something else.
+
 
 [ext]
 1. Consider extending the main splicing lemma for \Gamma with non-terminal q.
